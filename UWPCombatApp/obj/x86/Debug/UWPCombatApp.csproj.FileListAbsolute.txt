@@ -276,3 +276,6 @@ C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\obj\x86\Debug\Microsoft.To
 C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\obj\x86\Debug\Microsoft.Xaml.Interactions.pri.xml
 C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\obj\x86\Debug\Microsoft.Xaml.Interactivity.pri.xml
 C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\Microsoft.Azure.Mobile.Client.dll
+C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\obj\x86\Debug\Microsoft.Azure.Mobile.Client\en-US\Microsoft.WindowsAzure.MobileServices.Resources.resw
+C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\obj\x86\Debug\Microsoft.Azure.Mobile.Client.pri.xml

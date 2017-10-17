@@ -1,4 +1,6 @@
 ﻿using Microsoft.Toolkit.Uwp.UI.Controls;
+using Microsoft.WindowsAzure.MobileServices;
+using Microsoft.WindowsAzure.MobileServices.Sync;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -23,6 +25,9 @@ namespace UWPCombatApp
     {
         public ObservableCollection<AdaptItem> picItems_;
 
+        private MobileServiceCollection<DrillItem, DrillItem> items;
+        private IMobileServiceSyncTable<DrillItem> drillTable = App.MobileService.GetSyncTable<DrillItem>();
+
         private ObservableCollection<AdaptItem> PicItems
         {
             get
@@ -41,9 +46,6 @@ namespace UWPCombatApp
             this.InitializeComponent();
             picItems_ = AdaptItem.AdaptList();
             AGVC.ItemsSource = picItems_;
-            
-
-
 
         }
 

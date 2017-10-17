@@ -31,13 +31,17 @@
     <AppXManifest Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-10-17T14:48:16.364</Modified>
+      <Modified>2017-10-17T15:06:22.980</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\UWPCombatApp.exe">
       <PackagePath>entrypoint\UWPCombatApp.exe</PackagePath>
-      <Modified>2017-10-17T14:48:13.066</Modified>
+      <Modified>2017-10-17T15:06:21.445</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Conor\.nuget\packages\microsoft.azure.mobile.client\4.0.2\lib\uap10.0\Microsoft.Azure.Mobile.Client.dll">
+      <PackagePath>Microsoft.Azure.Mobile.Client.dll</PackagePath>
+      <Modified>2017-10-11T16:23:28.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\.nuget\packages\microsoft.csharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -864,11 +868,11 @@
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-10-17T14:48:13.582</Modified>
+      <Modified>2017-10-17T15:06:21.956</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\Core\UWPCombatApp.exe">
       <PackagePath>UWPCombatApp.exe</PackagePath>
-      <Modified>2017-10-17T14:48:16.360</Modified>
+      <Modified>2017-10-17T15:06:22.976</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

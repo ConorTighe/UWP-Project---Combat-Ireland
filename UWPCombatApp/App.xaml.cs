@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -17,11 +18,19 @@ using Windows.UI.Xaml.Navigation;
 
 namespace UWPCombatApp
 {
+
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
     sealed partial class App : Application
     {
+
+        // Connect to Database
+        public static MobileServiceClient MobileService =
+               new MobileServiceClient(
+       "https://mobileuwpprojectservice20171016050952.azurewebsites.net"
+           );
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
