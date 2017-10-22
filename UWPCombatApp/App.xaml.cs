@@ -26,10 +26,9 @@ namespace UWPCombatApp
     {
 
         // Connect to Database
-        public static MobileServiceClient MobileService =
-               new MobileServiceClient(
-       "https://mobileuwpprojectservice20171016050952.azurewebsites.net"
-           );
+        public static MobileServiceClient MobileService = new MobileServiceClient(
+            "https://mobileuwpprojectservice20171016050952.azurewebsites.net"
+        );
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code

@@ -27,7 +27,7 @@
 
                 <StackPanel Margin="0,0,0,10"/>
 
-                <Controls:AdaptiveGridView x:ConnectionId='1' Name="AGVC"
+                <Controls:AdaptiveGridView x:ConnectionId='1' Name="AdaptiveGridViewControl"
                                    OneRowModeEnabled="False"
                                    ItemHeight="200"
                                    DesiredWidth="200"

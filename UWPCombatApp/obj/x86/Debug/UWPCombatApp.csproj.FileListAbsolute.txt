@@ -279,3 +279,10 @@ C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\obj\x86\Debug\ProjectArchi
 C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\Microsoft.Azure.Mobile.Client.dll
 C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\obj\x86\Debug\Microsoft.Azure.Mobile.Client\en-US\Microsoft.WindowsAzure.MobileServices.Resources.resw
 C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\obj\x86\Debug\Microsoft.Azure.Mobile.Client.pri.xml
+C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\e_sqlite3.dll
+C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\Microsoft.Azure.Mobile.dll
+C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\SQLite-net.dll
+C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\SQLitePCLRaw.batteries_green.dll
+C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\SQLitePCLRaw.batteries_v2.dll
+C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\SQLitePCLRaw.core.dll
+C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\SQLitePCLRaw.provider.e_sqlite3.dll
