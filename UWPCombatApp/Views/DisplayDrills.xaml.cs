@@ -57,19 +57,26 @@ namespace UWPCombatApp.Views
         {
             DrillItem drillItem = new DrillItem();
             String Name = NameBox.Text;
-            int Sets = Int32.Parse(SetsBox.Text);
-            int Time = Int32.Parse(TimeBox.Text);
-            try {
+            int Sets;
+            int Time;
+            bool successfullyParsedTime = int.TryParse(SetsBox.Text, out Time);
+            bool successfullyParsedSets = int.TryParse(TimeBox.Text, out Sets);
+
+            if (successfullyParsedSets)
+            {
+                Sets = Int32.Parse(SetsBox.Text);
+                
+            }
+            if (successfullyParsedTime)
+            {
+                Time = Int32.Parse(TimeBox.Text);
+            }
+            
                 await ctv.combatDrillsTable.AddDrill(drillItem, Name, Sets, Time, parameters);
                 ppup.IsOpen = false;
                 var addSuccess = new MessageDialog("Drill added to database");
                 await addSuccess.ShowAsync();
-            }
-            catch(Exception ex)
-            {
-                var addFailed = new MessageDialog("Failed to add drill: " + ex);
-                await addFailed.ShowAsync();
-            }
+           
         }
     }
 }

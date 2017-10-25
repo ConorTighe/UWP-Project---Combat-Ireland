@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
   <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="Image" />
     <RootPropertyPathName Name="Height" />
     <RootPropertyPathName Name="Title" />
-    <RootPropertyPathName Name="Image" />
     <RootPropertyPathName Name="IsChecked" />
     <RootPropertyPathName Name="SelectedItem" />
     <RootPropertyPathName Name="Content" />
@@ -30,6 +30,47 @@
       <RootMethod Name="SetRow" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Maps.MapControl">
+      <RootProperty Name="Name" />
+      <RootProperty Name="MapServiceToken" />
+    </RootType>
+    <RootType FullName="UWPCombatApp.GymLocator" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Border">
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Child" />
+    </RootType>
+    <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.Carousel">
+      <RootProperty Name="InvertPositive" />
+      <RootProperty Name="ItemDepth" />
+      <RootProperty Name="ItemMargin" />
+      <RootProperty Name="ItemRotationX" />
+      <RootProperty Name="ItemRotationY" />
+      <RootProperty Name="ItemRotationZ" />
+      <RootProperty Name="Orientation" />
+      <RootProperty Name="SelectedIndex" />
+      <RootProperty Name="EasingFunction" />
+      <RootProperty Name="ItemTemplate" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.CubicEase">
+      <RootProperty Name="EasingMode" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.DataTemplate">
+      <RootProperty Name="Template" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Image">
+      <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Source" />
+      <RootProperty Name="Stretch" />
+      <RootProperty Name="HorizontalAlignment" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Data.Binding">
+      <RootProperty Name="ElementName" />
+      <RootProperty Name="Path" />
+      <RootProperty Name="Mode" />
+    </RootType>
+    <RootType FullName="UWPCombatApp.MapMenu" />
     <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.PullToRefreshListView">
       <RootProperty Name="MinWidth" />
       <RootProperty Name="Margin" />
@@ -64,11 +105,6 @@
     <RootType FullName="Windows.UI.Xaml.Media.Animation.PaneThemeTransition">
       <RootProperty Name="Edge" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Data.Binding">
-      <RootProperty Name="ElementName" />
-      <RootProperty Name="Path" />
-      <RootProperty Name="Mode" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
@@ -89,21 +125,12 @@
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.DataTemplate">
-      <RootProperty Name="Template" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Automation.AutomationProperties">
       <RootMethod Name="GetName" />
       <RootMethod Name="SetName" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="UWPCombatApp.Views.DisplayDrills" />
-    <RootType FullName="Windows.UI.Xaml.Controls.Image">
-      <RootProperty Name="Source" />
-      <RootProperty Name="Stretch" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
-    </RootType>
     <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView">
       <RootProperty Name="Name" />
       <RootProperty Name="OneRowModeEnabled" />

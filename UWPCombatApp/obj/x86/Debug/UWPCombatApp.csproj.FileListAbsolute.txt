@@ -296,3 +296,13 @@ C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\obj\x86\Debug\Views\Displa
 C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\obj\x86\Debug\Views\DisplayDrills.g.cs
 C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\obj\x86\Debug\Views\DisplayDrills.xaml
 C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\obj\x86\Debug\Views\DisplayDrills.xbf
+C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\GymLocator.xbf
+C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\MapMenu.xbf
+C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\obj\x86\Debug\GymLocator.g.i.cs
+C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\obj\x86\Debug\GymLocator.g.cs
+C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\obj\x86\Debug\MapMenu.g.i.cs
+C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\obj\x86\Debug\MapMenu.g.cs
+C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\obj\x86\Debug\MapMenu.xaml
+C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\obj\x86\Debug\GymLocator.xaml
+C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\obj\x86\Debug\MapMenu.xbf
+C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\obj\x86\Debug\GymLocator.xbf

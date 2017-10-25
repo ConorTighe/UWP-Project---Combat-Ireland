@@ -10,7 +10,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Border Margin="0">
-            <controls:Carousel x:Name="CarouselControl"
+            <controls:Carousel x:ConnectionId='1' x:Name="CarouselControl"
                   InvertPositive="True"
                   ItemDepth="300"
                   ItemMargin="0"
@@ -35,3 +35,4 @@
         </Border>
     </Grid>
 </Page>
+

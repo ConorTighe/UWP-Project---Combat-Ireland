@@ -98,6 +98,7 @@
     <Compile Include="GymLocator.xaml.cs">
       <DependentUpon>GymLocator.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GymsMenuTemplate.cs" />
     <Compile Include="MapController.cs" />
     <Compile Include="MapMenu.xaml.cs">
       <DependentUpon>MapMenu.xaml</DependentUpon>

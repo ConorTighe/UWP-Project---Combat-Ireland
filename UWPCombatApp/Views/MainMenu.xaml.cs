@@ -62,6 +62,10 @@ namespace UWPCombatApp.Views
                
                 MainPage.MyFrame.Navigate(typeof(DisplayDrills), catagory);
             }
+            if ((e.ClickedItem as AdaptItem).Title == "map")
+            {
+                MainPage.MyFrame.Navigate(typeof(MapMenu));
+            }
 
         }
 

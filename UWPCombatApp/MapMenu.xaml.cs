@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,9 +23,29 @@ namespace UWPCombatApp
     /// </summary>
     public sealed partial class MapMenu : Page
     {
+        private ObservableCollection<GymsItem> gymItems_;
+
+        private ObservableCollection<GymsItem> gymItems
+        {
+            get
+            {
+                return GymItems_;
+            }
+            set
+            {
+                GymItems_ = value;
+            }
+
+        }
+
+        internal ObservableCollection<GymsItem> GymItems_ { get => gymItems_; set => gymItems_ = value; }
+
         public MapMenu()
         {
             this.InitializeComponent();
+            GymItems_ = GymsItem.GymList();
+            CarouselControl.ItemsSource = GymItems_;
+
         }
     }
 }
