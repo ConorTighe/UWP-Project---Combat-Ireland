@@ -14,6 +14,11 @@ namespace UWPCombatApp
             get;
             set;
         }
+        public String Title
+        {
+            get;
+            set;
+        }
 
         public static ObservableCollection<AdaptItem> AdaptList()
         {
@@ -21,23 +26,33 @@ namespace UWPCombatApp
         {
             new AdaptItem
             {
-                Image = "ms-appx:///Assets/b1.png"
+                Image = "ms-appx:///Assets/b1.png",
+                Title = "b1"
             },
             new AdaptItem
             {
-                Image = "ms-appx:///Assets/b2.png"
+                Image = "ms-appx:///Assets/b2.png",
+                Title = "b2"
             },
             new AdaptItem
             {
-                Image = "ms-appx:///Assets/b3.png"
+                Image = "ms-appx:///Assets/b3.png",
+                Title = "b3"
             },
             new AdaptItem
             {
-                Image = "ms-appx:///Assets/b4.png"
+                Image = "ms-appx:///Assets/b4.png",
+                Title = "b4"
             },
             new AdaptItem
             {
-                Image = "ms-appx:///Assets/b5.png"
+                Image = "ms-appx:///Assets/b5.png",
+                Title = "b5"
+            },
+            new AdaptItem
+            {
+                Image = "ms-appx:///Assets/bing.png",
+                Title = "map"
             }
         };
 

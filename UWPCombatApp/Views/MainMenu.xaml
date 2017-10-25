@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="UWPCombatApp.Views.MainMenu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPCombatApp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <DataTemplate x:Key="MenuTemplate">
+            <Grid Background="White" BorderBrush="Black" BorderThickness="1">
+                <Image Source="{Binding Image}" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        
+        <Controls:AdaptiveGridView Name="AGVC"
+                                   OneRowModeEnabled="False"
+                                   ItemHeight="200"
+                                   DesiredWidth="200"
+                                   SelectionMode="Single"
+                                   IsItemClickEnabled="True"
+                                   VerticalAlignment="Top"
+                                   ItemClick="AGVC_ItemClick"
+                                   ItemTemplate="{StaticResource MenuTemplate}" HorizontalAlignment="Left" />
+            
+    </Grid>
+</Page>

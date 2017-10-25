@@ -18,37 +18,32 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Model;
+using Windows.UI.Popups;
+using UWPCombatApp.Views;
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace UWPCombatApp
 {
     public sealed partial class MainPage : Page
     {
-        public ObservableCollection<AdaptItem> picItems_;
-
+       
         
         CombatDrillsTable drillTableCntr = new CombatDrillsTable();
+        public static Frame MyFrame;
 
-        private ObservableCollection<AdaptItem> PicItems
-        {
-            get
-            {
-                return picItems_;
-            }
-            set
-            {
-                picItems_ = value;
-            }
 
-        }
-        
         public MainPage()
         {
             this.InitializeComponent();
-            picItems_ = AdaptItem.AdaptList();
-            AdaptiveGridViewControl.ItemsSource = picItems_;
-
+            Loaded += MainMenu_Loaded;
+            MyFrame = myFrame;
         }
+
+        private void MainMenu_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.myFrame.Navigate(typeof(MainMenu));
+        }
+
 
     }
 }

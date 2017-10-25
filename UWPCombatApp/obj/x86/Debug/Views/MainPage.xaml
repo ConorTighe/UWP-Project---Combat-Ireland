@@ -6,15 +6,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    mc:Ignorable="d">
-
-    <Page.Resources>
-        <DataTemplate x:Key="MenuTemplate">
-            <Grid Background="White" BorderBrush="Black" BorderThickness="1">
-                <Image Source="{Binding Image}" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            </Grid>
-        </DataTemplate>
-    </Page.Resources>
+    mc:Ignorable="d"
+    NavigationCacheMode="Enabled">
+    
+    
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <ScrollViewer VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto">
@@ -27,14 +22,7 @@
 
                 <StackPanel Margin="0,0,0,10"/>
 
-                <Controls:AdaptiveGridView x:ConnectionId='1' Name="AdaptiveGridViewControl"
-                                   OneRowModeEnabled="False"
-                                   ItemHeight="200"
-                                   DesiredWidth="200"
-                                   SelectionMode="Single"
-                                   IsItemClickEnabled="True"
-                                   VerticalAlignment="Top"
-                                   ItemTemplate="{StaticResource MenuTemplate}" HorizontalAlignment="Left"/>
+                <Frame x:ConnectionId='1' Name="myFrame"  />
                 <StackPanel VerticalAlignment="Bottom" Margin="0,24,0,0" Grid.Row="1" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
 
                     <CommandBar x:ConnectionId='2' x:Name="cmdbar" 

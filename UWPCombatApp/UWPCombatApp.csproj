@@ -95,10 +95,20 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DrillItem.cs" />
+    <Compile Include="GymLocator.xaml.cs">
+      <DependentUpon>GymLocator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MapController.cs" />
+    <Compile Include="MapMenu.xaml.cs">
+      <DependentUpon>MapMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\DrillItem.cs" />
     <Compile Include="ViewModels\CombatTableView.cs" />
-    <Compile Include="Views\BoxingPage.xaml.cs">
-      <DependentUpon>BoxingPage.xaml</DependentUpon>
+    <Compile Include="Views\DisplayDrills.xaml.cs">
+      <DependentUpon>DisplayDrills.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -119,6 +129,7 @@
     <Content Include="Assets\b3.png" />
     <Content Include="Assets\b4.png" />
     <Content Include="Assets\b5.png" />
+    <Content Include="Assets\bing.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -133,7 +144,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Views\BoxingPage.xaml">
+    <Page Include="GymLocator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MapMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DisplayDrills.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

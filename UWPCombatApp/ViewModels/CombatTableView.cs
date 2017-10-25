@@ -10,5 +10,10 @@ namespace UWPCombatApp.ViewModels
     class CombatTableView
     {
         public CombatDrillsTable combatDrillsTable { get; set; }
+
+        public CombatTableView()
+        {
+            this.combatDrillsTable = new CombatDrillsTable();
+        }
     }
 }
