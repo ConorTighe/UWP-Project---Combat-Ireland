@@ -10,22 +10,26 @@ using System.Threading.Tasks;
 using UWPCombatApp;
 using System.IO;
 using Windows.UI.Popups;
+using Windows.UI.Xaml.Navigation;
 
 namespace Model
 {
     class CombatDrillsTable
     {
-        public String Name { get; set; }
         private MobileServiceCollection<DrillItem, DrillItem> drills;
         private IMobileServiceSyncTable<DrillItem> drillTable = App.MobileService.GetSyncTable<DrillItem>();
-
 
         public CombatDrillsTable()
         {
             
         }
 
-        public async Task AddDrill(DrillItem drillItem, String n, int s, int t, string sty)
+        protected async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            await GetDrillsAsync();
+        }
+
+            public async Task AddDrill(DrillItem drillItem, String n, int s, int t, string sty)
         {
             drillItem.Name = n;
             drillItem.Sets = s;
@@ -44,11 +48,11 @@ namespace Model
             Console.WriteLine(items);
         }
 
-        public async Task GetDrillsAsync(MobileServiceCollection<DrillItem,DrillItem> d)
+        public async Task GetDrillsAsync()
         {
             MobileServiceInvalidOperationException exception = null;
             try { 
-            d = await drillTable
+            drills = await drillTable
             .ToCollectionAsync();
             }
             catch (MobileServiceInvalidOperationException e)
@@ -59,7 +63,11 @@ namespace Model
             {
                 await new MessageDialog(exception.Message, "Error loading items").ShowAsync();
             }
-           
+            else
+            {
+                // code here
+            }
+
         }
 
         public async Task DeleteDrillAsync(DrillItem d)
