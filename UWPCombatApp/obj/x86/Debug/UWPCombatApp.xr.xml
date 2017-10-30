@@ -3,7 +3,9 @@
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="Image" />
     <RootPropertyPathName Name="Height" />
-    <RootPropertyPathName Name="Title" />
+    <RootPropertyPathName Name="SetTime" />
+    <RootPropertyPathName Name="Sets" />
+    <RootPropertyPathName Name="Name" />
     <RootPropertyPathName Name="IsChecked" />
     <RootPropertyPathName Name="SelectedItem" />
     <RootPropertyPathName Name="Content" />
@@ -71,10 +73,21 @@
       <RootProperty Name="Mode" />
     </RootType>
     <RootType FullName="UWPCombatApp.MapMenu" />
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
+      <RootProperty Name="Name" />
+      <RootProperty Name="Text" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Style" />
+      <RootProperty Name="TextWrapping" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="Opacity" />
+    </RootType>
     <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.PullToRefreshListView">
       <RootProperty Name="MinWidth" />
       <RootProperty Name="Margin" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Background" />
       <RootProperty Name="OverscrollLimit" />
       <RootProperty Name="PullThreshold" />
@@ -82,16 +95,12 @@
       <RootProperty Name="ItemTemplate" />
       <RootProperty Name="PullToRefreshContent" />
     </RootType>
-    <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock">
-      <RootProperty Name="Name" />
+    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Children" />
       <RootProperty Name="Margin" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="Name" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Content" />
-      <RootEvent Name="Click" />
+      <RootProperty Name="Background" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Primitives.Popup">
       <RootProperty Name="IsOpen" />
@@ -105,25 +114,19 @@
     <RootType FullName="Windows.UI.Xaml.Media.Animation.PaneThemeTransition">
       <RootProperty Name="Edge" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Children" />
-      <RootProperty Name="Background" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
-      <RootProperty Name="Name" />
-      <RootProperty Name="Text" />
-      <RootProperty Name="Style" />
-      <RootProperty Name="TextWrapping" />
-      <RootProperty Name="FontSize" />
-      <RootProperty Name="Opacity" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="Name" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Name" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Content" />
+      <RootProperty Name="HorizontalContentAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Automation.AutomationProperties">
       <RootMethod Name="GetName" />
@@ -159,12 +162,11 @@
       <RootProperty Name="IsOpen" />
       <RootProperty Name="IsSticky" />
       <RootProperty Name="ClosedDisplayMode" />
-      <RootProperty Name="SecondaryCommands" />
       <RootProperty Name="PrimaryCommands" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
-      <RootProperty Name="Label" />
       <RootProperty Name="Icon" />
+      <RootProperty Name="Label" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarToggleButton">
       <RootProperty Name="Icon" />

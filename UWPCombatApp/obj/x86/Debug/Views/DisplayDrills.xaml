@@ -8,35 +8,51 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-        <my:PullToRefreshListView x:ConnectionId='1'
-            x:Name="ListView"
-            MinWidth="200"
-            Margin="24"
-            HorizontalAlignment="Center"
-            Background="White"
-            OverscrollLimit="0.4"
-            PullThreshold="100"
-            IsPullToRefreshWithMouseEnabled="True">
+    
+        <TextBlock x:ConnectionId='1' Name="loadTxt" Text="Loading drills...." Visibility="Visible" HorizontalAlignment="Center"/>
+        <my:PullToRefreshListView x:ConnectionId='2'
+        x:Name="RefreshListView"
+        MinWidth="200"
+        Margin="24"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Top"
+        Background="White"
+        OverscrollLimit="0.4"
+        PullThreshold="100"
+        IsPullToRefreshWithMouseEnabled="True">
             <my:PullToRefreshListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock AutomationProperties.Name="{Binding Title}"
-                     Style="{StaticResource CaptionTextBlockStyle}"
-                     Text="{Binding Title}"
-                     TextWrapping="WrapWholeWords" />
+                    <StackPanel>
+                    <TextBlock AutomationProperties.Name="{Binding Name}"
+                 Style="{StaticResource CaptionTextBlockStyle}"
+                 Text="8{Binding Name}"
+                 TextWrapping="WrapWholeWords"  />
+                    <TextBlock AutomationProperties.Name="{Binding Sets}"
+                 Style="{StaticResource CaptionTextBlockStyle}"
+                 Text="{Binding Sets}"
+                 TextWrapping="WrapWholeWords"  />
+                    <TextBlock AutomationProperties.Name="{Binding SetTime}"
+                 Style="{StaticResource CaptionTextBlockStyle}"
+                 Text="{Binding  SetTime}"
+                 TextWrapping="WrapWholeWords"  />
+                    </StackPanel>
                 </DataTemplate>
             </my:PullToRefreshListView.ItemTemplate>
             <my:PullToRefreshListView.PullToRefreshContent>
                 <TextBlock FontSize="16"
-                   Opacity="0.5"
-                   Text="Pull down to refresh data" />
+               Opacity="0.5"
+               Text="Pull down to refresh data" />
             </my:PullToRefreshListView.PullToRefreshContent>
         </my:PullToRefreshListView>
 
-        <my:HeaderedTextBlock x:ConnectionId='2' Name="testBox" Margin="100,100,0,0"/>
-        <Button x:ConnectionId='3' Name="AddBtn" Height="30" Width="100" Content="Add new drill"                      />
-        <Popup x:ConnectionId='4' x:Name="ppup" IsOpen="False" IsLightDismissEnabled="True"  
-     Width="320" HorizontalAlignment="Left">
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <Button x:ConnectionId='11' Name="DeleteBtn" Height="30" Width="100" Content="Delete Drill"                      HorizontalContentAlignment="Left" VerticalAlignment="Bottom"/>
+            <Button x:ConnectionId='12' Name="UpdateBtn" Height="30" Width="100" Content="Add Drill"                      HorizontalContentAlignment="Left" VerticalAlignment="Bottom"/>
+            <Button x:ConnectionId='13' Name="AddBtn" Height="30" Width="100" Content="Add Drill"                      HorizontalContentAlignment="Left" VerticalAlignment="Bottom"/>
+        </StackPanel>
+        
+        <Popup x:ConnectionId='3' x:Name="ppup" IsOpen="False" IsLightDismissEnabled="True"  
+     Width="320" HorizontalAlignment="Center">
             <Popup.ChildTransitions>
                 <TransitionCollection>
                     <!--<EdgeUIThemeTransition Edge="Left" />-->
@@ -45,16 +61,17 @@
             </Popup.ChildTransitions>
             <Grid Width="380" Height="{Binding ElementName=flyoutPane, Path=Height}"  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" >
-                    <TextBlock x:ConnectionId='5' Name="NameText" Text="Enter Name:"/>
-                    <TextBox x:ConnectionId='6'  Name="NameBox" Width="200" Height="50"/>
-                    <TextBlock x:ConnectionId='7' Name="SetsText" Text="Enter Sets:"/>
-                    <TextBox x:ConnectionId='8'  Name="SetsBox" Width="200" Height="50"/>
-                    <TextBlock x:ConnectionId='9' Name="TimeText" Text="Enter Time to complete:"/>
-                    <TextBox x:ConnectionId='10' Name="TimeBox" Width="200" Height="50"/>
-                    <Button x:ConnectionId='11' Name="SubmitBtn" Height="30" Width="100" Content="Submit"                        />
+                    <TextBlock x:ConnectionId='4' Name="NameText" Text="Enter Name:"/>
+                    <TextBox x:ConnectionId='5'  Name="NameBox" Width="200" Height="50"/>
+                    <TextBlock x:ConnectionId='6' Name="SetsText" Text="Enter Sets:"/>
+                    <TextBox x:ConnectionId='7'  Name="SetsBox" Width="200" Height="50"/>
+                    <TextBlock x:ConnectionId='8' Name="TimeText" Text="Enter Time to complete:"/>
+                    <TextBox x:ConnectionId='9' Name="TimeBox" Width="200" Height="50"/>
+                    <Button x:ConnectionId='10' Name="SubmitBtn" Height="30" Width="100" Content="Submit"                        />
                 </StackPanel>
             </Grid>
         </Popup>
+        
     </Grid>
 </Page>
 

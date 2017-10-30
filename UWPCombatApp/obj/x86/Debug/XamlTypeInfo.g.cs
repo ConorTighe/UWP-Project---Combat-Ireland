@@ -156,7 +156,7 @@ namespace UWPCombatApp.UWPCombatApp_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[26];
+            _typeNameTable = new string[22];
             _typeNameTable[0] = "UWPCombatApp.GymLocator";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
@@ -173,18 +173,14 @@ namespace UWPCombatApp.UWPCombatApp_XamlTypeInfo
             _typeNameTable[13] = "Windows.UI.Xaml.Controls.ListView";
             _typeNameTable[14] = "System.Windows.Input.ICommand";
             _typeNameTable[15] = "String";
-            _typeNameTable[16] = "Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock";
-            _typeNameTable[17] = "Windows.UI.Xaml.Controls.Control";
-            _typeNameTable[18] = "Windows.UI.Xaml.DataTemplate";
-            _typeNameTable[19] = "Windows.UI.Xaml.Style";
-            _typeNameTable[20] = "UWPCombatApp.Views.DisplayDrills";
-            _typeNameTable[21] = "Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView";
-            _typeNameTable[22] = "Windows.UI.Xaml.Controls.GridView";
-            _typeNameTable[23] = "Windows.UI.Xaml.Controls.ItemsPanelTemplate";
-            _typeNameTable[24] = "UWPCombatApp.Views.MainMenu";
-            _typeNameTable[25] = "UWPCombatApp.MainPage";
+            _typeNameTable[16] = "UWPCombatApp.Views.DisplayDrills";
+            _typeNameTable[17] = "Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView";
+            _typeNameTable[18] = "Windows.UI.Xaml.Controls.GridView";
+            _typeNameTable[19] = "Windows.UI.Xaml.Controls.ItemsPanelTemplate";
+            _typeNameTable[20] = "UWPCombatApp.Views.MainMenu";
+            _typeNameTable[21] = "UWPCombatApp.MainPage";
 
-            _typeTable = new global::System.Type[26];
+            _typeTable = new global::System.Type[22];
             _typeTable[0] = typeof(global::UWPCombatApp.GymLocator);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
@@ -201,16 +197,12 @@ namespace UWPCombatApp.UWPCombatApp_XamlTypeInfo
             _typeTable[13] = typeof(global::Windows.UI.Xaml.Controls.ListView);
             _typeTable[14] = typeof(global::System.Windows.Input.ICommand);
             _typeTable[15] = typeof(global::System.String);
-            _typeTable[16] = typeof(global::Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock);
-            _typeTable[17] = typeof(global::Windows.UI.Xaml.Controls.Control);
-            _typeTable[18] = typeof(global::Windows.UI.Xaml.DataTemplate);
-            _typeTable[19] = typeof(global::Windows.UI.Xaml.Style);
-            _typeTable[20] = typeof(global::UWPCombatApp.Views.DisplayDrills);
-            _typeTable[21] = typeof(global::Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView);
-            _typeTable[22] = typeof(global::Windows.UI.Xaml.Controls.GridView);
-            _typeTable[23] = typeof(global::Windows.UI.Xaml.Controls.ItemsPanelTemplate);
-            _typeTable[24] = typeof(global::UWPCombatApp.Views.MainMenu);
-            _typeTable[25] = typeof(global::UWPCombatApp.MainPage);
+            _typeTable[16] = typeof(global::UWPCombatApp.Views.DisplayDrills);
+            _typeTable[17] = typeof(global::Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView);
+            _typeTable[18] = typeof(global::Windows.UI.Xaml.Controls.GridView);
+            _typeTable[19] = typeof(global::Windows.UI.Xaml.Controls.ItemsPanelTemplate);
+            _typeTable[20] = typeof(global::UWPCombatApp.Views.MainMenu);
+            _typeTable[21] = typeof(global::UWPCombatApp.MainPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -249,11 +241,10 @@ namespace UWPCombatApp.UWPCombatApp_XamlTypeInfo
         private object Activate_3_Carousel() { return new global::Microsoft.Toolkit.Uwp.UI.Controls.Carousel(); }
         private object Activate_11_MapMenu() { return new global::UWPCombatApp.MapMenu(); }
         private object Activate_12_PullToRefreshListView() { return new global::Microsoft.Toolkit.Uwp.UI.Controls.PullToRefreshListView(); }
-        private object Activate_16_HeaderedTextBlock() { return new global::Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock(); }
-        private object Activate_20_DisplayDrills() { return new global::UWPCombatApp.Views.DisplayDrills(); }
-        private object Activate_21_AdaptiveGridView() { return new global::Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView(); }
-        private object Activate_24_MainMenu() { return new global::UWPCombatApp.Views.MainMenu(); }
-        private object Activate_25_MainPage() { return new global::UWPCombatApp.MainPage(); }
+        private object Activate_16_DisplayDrills() { return new global::UWPCombatApp.Views.DisplayDrills(); }
+        private object Activate_17_AdaptiveGridView() { return new global::Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView(); }
+        private object Activate_20_MainMenu() { return new global::UWPCombatApp.Views.MainMenu(); }
+        private object Activate_21_MainPage() { return new global::UWPCombatApp.MainPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -362,40 +353,16 @@ namespace UWPCombatApp.UWPCombatApp_XamlTypeInfo
                 xamlType = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 16:   //  Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock
-                userType = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_16_HeaderedTextBlock;
-                userType.AddMemberName("HeaderTemplate");
-                userType.AddMemberName("TextStyle");
-                userType.AddMemberName("Header");
-                userType.AddMemberName("Text");
-                userType.AddMemberName("Orientation");
-                userType.AddMemberName("HideTextIfEmpty");
-                xamlType = userType;
-                break;
-
-            case 17:   //  Windows.UI.Xaml.Controls.Control
-                xamlType = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 18:   //  Windows.UI.Xaml.DataTemplate
-                xamlType = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 19:   //  Windows.UI.Xaml.Style
-                xamlType = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 20:   //  UWPCombatApp.Views.DisplayDrills
+            case 16:   //  UWPCombatApp.Views.DisplayDrills
                 userType = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_20_DisplayDrills;
+                userType.Activator = Activate_16_DisplayDrills;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 21:   //  Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView
+            case 17:   //  Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView
                 userType = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.GridView"));
-                userType.Activator = Activate_21_AdaptiveGridView;
+                userType.Activator = Activate_17_AdaptiveGridView;
                 userType.AddMemberName("OneRowModeEnabled");
                 userType.AddMemberName("ItemHeight");
                 userType.AddMemberName("DesiredWidth");
@@ -405,24 +372,24 @@ namespace UWPCombatApp.UWPCombatApp_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 22:   //  Windows.UI.Xaml.Controls.GridView
+            case 18:   //  Windows.UI.Xaml.Controls.GridView
                 xamlType = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 23:   //  Windows.UI.Xaml.Controls.ItemsPanelTemplate
+            case 19:   //  Windows.UI.Xaml.Controls.ItemsPanelTemplate
                 xamlType = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 24:   //  UWPCombatApp.Views.MainMenu
+            case 20:   //  UWPCombatApp.Views.MainMenu
                 userType = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_24_MainMenu;
+                userType.Activator = Activate_20_MainMenu;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 25:   //  UWPCombatApp.MainPage
+            case 21:   //  UWPCombatApp.MainPage
                 userType = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_25_MainPage;
+                userType.Activator = Activate_21_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -695,117 +662,57 @@ namespace UWPCombatApp.UWPCombatApp_XamlTypeInfo
             var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.PullToRefreshListView)instance;
             that.ReleaseToRefreshContent = (global::System.Object)Value;
         }
-        private object get_21_HeaderedTextBlock_HeaderTemplate(object instance)
-        {
-            var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock)instance;
-            return that.HeaderTemplate;
-        }
-        private void set_21_HeaderedTextBlock_HeaderTemplate(object instance, object Value)
-        {
-            var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock)instance;
-            that.HeaderTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
-        }
-        private object get_22_HeaderedTextBlock_TextStyle(object instance)
-        {
-            var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock)instance;
-            return that.TextStyle;
-        }
-        private void set_22_HeaderedTextBlock_TextStyle(object instance, object Value)
-        {
-            var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock)instance;
-            that.TextStyle = (global::Windows.UI.Xaml.Style)Value;
-        }
-        private object get_23_HeaderedTextBlock_Header(object instance)
-        {
-            var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock)instance;
-            return that.Header;
-        }
-        private void set_23_HeaderedTextBlock_Header(object instance, object Value)
-        {
-            var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock)instance;
-            that.Header = (global::System.String)Value;
-        }
-        private object get_24_HeaderedTextBlock_Text(object instance)
-        {
-            var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock)instance;
-            return that.Text;
-        }
-        private void set_24_HeaderedTextBlock_Text(object instance, object Value)
-        {
-            var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock)instance;
-            that.Text = (global::System.String)Value;
-        }
-        private object get_25_HeaderedTextBlock_Orientation(object instance)
-        {
-            var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock)instance;
-            return that.Orientation;
-        }
-        private void set_25_HeaderedTextBlock_Orientation(object instance, object Value)
-        {
-            var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock)instance;
-            that.Orientation = (global::Windows.UI.Xaml.Controls.Orientation)Value;
-        }
-        private object get_26_HeaderedTextBlock_HideTextIfEmpty(object instance)
-        {
-            var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock)instance;
-            return that.HideTextIfEmpty;
-        }
-        private void set_26_HeaderedTextBlock_HideTextIfEmpty(object instance, object Value)
-        {
-            var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock)instance;
-            that.HideTextIfEmpty = (global::System.Boolean)Value;
-        }
-        private object get_27_AdaptiveGridView_OneRowModeEnabled(object instance)
+        private object get_21_AdaptiveGridView_OneRowModeEnabled(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView)instance;
             return that.OneRowModeEnabled;
         }
-        private void set_27_AdaptiveGridView_OneRowModeEnabled(object instance, object Value)
+        private void set_21_AdaptiveGridView_OneRowModeEnabled(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView)instance;
             that.OneRowModeEnabled = (global::System.Boolean)Value;
         }
-        private object get_28_AdaptiveGridView_ItemHeight(object instance)
+        private object get_22_AdaptiveGridView_ItemHeight(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView)instance;
             return that.ItemHeight;
         }
-        private void set_28_AdaptiveGridView_ItemHeight(object instance, object Value)
+        private void set_22_AdaptiveGridView_ItemHeight(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView)instance;
             that.ItemHeight = (global::System.Double)Value;
         }
-        private object get_29_AdaptiveGridView_DesiredWidth(object instance)
+        private object get_23_AdaptiveGridView_DesiredWidth(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView)instance;
             return that.DesiredWidth;
         }
-        private void set_29_AdaptiveGridView_DesiredWidth(object instance, object Value)
+        private void set_23_AdaptiveGridView_DesiredWidth(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView)instance;
             that.DesiredWidth = (global::System.Double)Value;
         }
-        private object get_30_AdaptiveGridView_StretchContentForSingleRow(object instance)
+        private object get_24_AdaptiveGridView_StretchContentForSingleRow(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView)instance;
             return that.StretchContentForSingleRow;
         }
-        private void set_30_AdaptiveGridView_StretchContentForSingleRow(object instance, object Value)
+        private void set_24_AdaptiveGridView_StretchContentForSingleRow(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView)instance;
             that.StretchContentForSingleRow = (global::System.Boolean)Value;
         }
-        private object get_31_AdaptiveGridView_ItemClickCommand(object instance)
+        private object get_25_AdaptiveGridView_ItemClickCommand(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView)instance;
             return that.ItemClickCommand;
         }
-        private void set_31_AdaptiveGridView_ItemClickCommand(object instance, object Value)
+        private void set_25_AdaptiveGridView_ItemClickCommand(object instance, object Value)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView)instance;
             that.ItemClickCommand = (global::System.Windows.Input.ICommand)Value;
         }
-        private object get_32_AdaptiveGridView_ItemsPanel(object instance)
+        private object get_26_AdaptiveGridView_ItemsPanel(object instance)
         {
             var that = (global::Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView)instance;
             return that.ItemsPanel;
@@ -965,87 +872,45 @@ namespace UWPCombatApp.UWPCombatApp_XamlTypeInfo
                 xamlMember.Getter = get_20_PullToRefreshListView_ReleaseToRefreshContent;
                 xamlMember.Setter = set_20_PullToRefreshListView_ReleaseToRefreshContent;
                 break;
-            case "Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock.HeaderTemplate":
-                userType = (global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock");
-                xamlMember = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlMember(this, "HeaderTemplate", "Windows.UI.Xaml.DataTemplate");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_21_HeaderedTextBlock_HeaderTemplate;
-                xamlMember.Setter = set_21_HeaderedTextBlock_HeaderTemplate;
-                break;
-            case "Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock.TextStyle":
-                userType = (global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock");
-                xamlMember = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlMember(this, "TextStyle", "Windows.UI.Xaml.Style");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_22_HeaderedTextBlock_TextStyle;
-                xamlMember.Setter = set_22_HeaderedTextBlock_TextStyle;
-                break;
-            case "Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock.Header":
-                userType = (global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock");
-                xamlMember = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlMember(this, "Header", "String");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_23_HeaderedTextBlock_Header;
-                xamlMember.Setter = set_23_HeaderedTextBlock_Header;
-                break;
-            case "Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock.Text":
-                userType = (global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock");
-                xamlMember = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlMember(this, "Text", "String");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_24_HeaderedTextBlock_Text;
-                xamlMember.Setter = set_24_HeaderedTextBlock_Text;
-                break;
-            case "Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock.Orientation":
-                userType = (global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock");
-                xamlMember = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlMember(this, "Orientation", "Windows.UI.Xaml.Controls.Orientation");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_25_HeaderedTextBlock_Orientation;
-                xamlMember.Setter = set_25_HeaderedTextBlock_Orientation;
-                break;
-            case "Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock.HideTextIfEmpty":
-                userType = (global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Controls.HeaderedTextBlock");
-                xamlMember = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlMember(this, "HideTextIfEmpty", "Boolean");
-                xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_26_HeaderedTextBlock_HideTextIfEmpty;
-                xamlMember.Setter = set_26_HeaderedTextBlock_HideTextIfEmpty;
-                break;
             case "Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView.OneRowModeEnabled":
                 userType = (global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView");
                 xamlMember = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlMember(this, "OneRowModeEnabled", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_27_AdaptiveGridView_OneRowModeEnabled;
-                xamlMember.Setter = set_27_AdaptiveGridView_OneRowModeEnabled;
+                xamlMember.Getter = get_21_AdaptiveGridView_OneRowModeEnabled;
+                xamlMember.Setter = set_21_AdaptiveGridView_OneRowModeEnabled;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView.ItemHeight":
                 userType = (global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView");
                 xamlMember = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlMember(this, "ItemHeight", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_28_AdaptiveGridView_ItemHeight;
-                xamlMember.Setter = set_28_AdaptiveGridView_ItemHeight;
+                xamlMember.Getter = get_22_AdaptiveGridView_ItemHeight;
+                xamlMember.Setter = set_22_AdaptiveGridView_ItemHeight;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView.DesiredWidth":
                 userType = (global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView");
                 xamlMember = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlMember(this, "DesiredWidth", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_29_AdaptiveGridView_DesiredWidth;
-                xamlMember.Setter = set_29_AdaptiveGridView_DesiredWidth;
+                xamlMember.Getter = get_23_AdaptiveGridView_DesiredWidth;
+                xamlMember.Setter = set_23_AdaptiveGridView_DesiredWidth;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView.StretchContentForSingleRow":
                 userType = (global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView");
                 xamlMember = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlMember(this, "StretchContentForSingleRow", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_30_AdaptiveGridView_StretchContentForSingleRow;
-                xamlMember.Setter = set_30_AdaptiveGridView_StretchContentForSingleRow;
+                xamlMember.Getter = get_24_AdaptiveGridView_StretchContentForSingleRow;
+                xamlMember.Setter = set_24_AdaptiveGridView_StretchContentForSingleRow;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView.ItemClickCommand":
                 userType = (global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView");
                 xamlMember = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlMember(this, "ItemClickCommand", "System.Windows.Input.ICommand");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_31_AdaptiveGridView_ItemClickCommand;
-                xamlMember.Setter = set_31_AdaptiveGridView_ItemClickCommand;
+                xamlMember.Getter = get_25_AdaptiveGridView_ItemClickCommand;
+                xamlMember.Setter = set_25_AdaptiveGridView_ItemClickCommand;
                 break;
             case "Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView.ItemsPanel":
                 userType = (global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView");
                 xamlMember = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlMember(this, "ItemsPanel", "Windows.UI.Xaml.Controls.ItemsPanelTemplate");
-                xamlMember.Getter = get_32_AdaptiveGridView_ItemsPanel;
+                xamlMember.Getter = get_26_AdaptiveGridView_ItemsPanel;
                 xamlMember.SetIsReadOnly();
                 break;
             }

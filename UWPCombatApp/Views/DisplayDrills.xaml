@@ -8,35 +8,51 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    
+        <TextBlock Name="loadTxt" Text="Loading drills...." Visibility="Visible" HorizontalAlignment="Center"/>
         <my:PullToRefreshListView
-            x:Name="ListView"
-            MinWidth="200"
-            Margin="24"
-            HorizontalAlignment="Center"
-            Background="White"
-            OverscrollLimit="0.4"
-            PullThreshold="100"
-            IsPullToRefreshWithMouseEnabled="True">
+        x:Name="RefreshListView"
+        MinWidth="200"
+        Margin="24"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Top"
+        Background="White"
+        OverscrollLimit="0.4"
+        PullThreshold="100"
+        IsPullToRefreshWithMouseEnabled="True">
             <my:PullToRefreshListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock AutomationProperties.Name="{Binding Title}"
-                     Style="{StaticResource CaptionTextBlockStyle}"
-                     Text="{Binding Title}"
-                     TextWrapping="WrapWholeWords" />
+                    <StackPanel>
+                    <TextBlock AutomationProperties.Name="{Binding Name}"
+                 Style="{StaticResource CaptionTextBlockStyle}"
+                 Text="8{Binding Name}"
+                 TextWrapping="WrapWholeWords"  />
+                    <TextBlock AutomationProperties.Name="{Binding Sets}"
+                 Style="{StaticResource CaptionTextBlockStyle}"
+                 Text="{Binding Sets}"
+                 TextWrapping="WrapWholeWords"  />
+                    <TextBlock AutomationProperties.Name="{Binding SetTime}"
+                 Style="{StaticResource CaptionTextBlockStyle}"
+                 Text="{Binding  SetTime}"
+                 TextWrapping="WrapWholeWords"  />
+                    </StackPanel>
                 </DataTemplate>
             </my:PullToRefreshListView.ItemTemplate>
             <my:PullToRefreshListView.PullToRefreshContent>
                 <TextBlock FontSize="16"
-                   Opacity="0.5"
-                   Text="Pull down to refresh data" />
+               Opacity="0.5"
+               Text="Pull down to refresh data" />
             </my:PullToRefreshListView.PullToRefreshContent>
         </my:PullToRefreshListView>
 
-        <my:HeaderedTextBlock Name="testBox" Margin="100,100,0,0"/>
-        <Button Name="AddBtn" Height="30" Width="100" Content="Add new drill" Click="AddBtn_Click" />
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <Button Name="DeleteBtn" Height="30" Width="100" Content="Delete Drill" Click="AddBtn_Click" HorizontalContentAlignment="Left" VerticalAlignment="Bottom"/>
+            <Button Name="UpdateBtn" Height="30" Width="100" Content="Add Drill" Click="AddBtn_Click" HorizontalContentAlignment="Left" VerticalAlignment="Bottom"/>
+            <Button Name="AddBtn" Height="30" Width="100" Content="Add Drill" Click="AddBtn_Click" HorizontalContentAlignment="Left" VerticalAlignment="Bottom"/>
+        </StackPanel>
+        
         <Popup x:Name="ppup" IsOpen="False" IsLightDismissEnabled="True"  
-     Width="320" HorizontalAlignment="Left">
+     Width="320" HorizontalAlignment="Center">
             <Popup.ChildTransitions>
                 <TransitionCollection>
                     <!--<EdgeUIThemeTransition Edge="Left" />-->
@@ -55,5 +71,6 @@
                 </StackPanel>
             </Grid>
         </Popup>
+        
     </Grid>
 </Page>

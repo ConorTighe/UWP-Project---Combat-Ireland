@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -20,31 +21,63 @@ using Windows.UI.Xaml.Navigation;
 
 namespace UWPCombatApp.Views
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+
     public sealed partial class DisplayDrills : Page
     {
-        
+
         String parameters;
         CombatTableView ctv = new CombatTableView();
+        private ObservableCollection<DrillItem> _items;
+        private ObservableCollection<DrillItem> _temp;
 
         public DisplayDrills()
         {
             this.InitializeComponent();
+            _items = new ObservableCollection<DrillItem>();
             
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
             parameters = (String)e.Parameter;
-
-            testBox.Text = parameters;
             
-            
+            await ctv.combatDrillsTable.Initialization;
+            await ctv.combatDrillsTable.InitLocalStoreAsync();
+            await AddItemsAsync();
+            RefreshListView.ItemsSource = _items;
         }
+
+        private async Task updateDrillsAsync() { 
+
+            await ctv.combatDrillsTable.GetDrillsAsync(parameters);
+        }
+
+        private async Task AddItemsAsync()
+        {
+            await updateDrillsAsync();
+            _temp = ctv.combatDrillsTable.GetDrills();
+
+            foreach (var t in _temp)
+            {
+                _items.Insert(0, t);
+            }
+
+            loadTxt.Visibility = Visibility.Collapsed;
+        }
+
+        private async Task ListView_RefreshCommandAsync(object sender, EventArgs e)
+        {
+            _items = ctv.combatDrillsTable.GetDrills();
+           await AddItemsAsync();
+
+        }
+
+        private void ListView_RefreshIntentCanceled(object sender, EventArgs e)
+        {
+        }
+
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {

@@ -11,6 +11,7 @@ using UWPCombatApp;
 using System.IO;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 
 namespace Model
 {
@@ -21,15 +22,30 @@ namespace Model
 
         public CombatDrillsTable()
         {
+            Initialization = InitializeAsync();
+        }
+
+        public Task Initialization { get; private set; }
+
+       private async Task InitializeAsync()
+        {
+            // Asynchronously initialize this instance.
+            await InitLocalStoreAsync();
             
         }
 
-        protected async void OnNavigatedTo(NavigationEventArgs e)
+        private async Task SyncAsync()
         {
-            await GetDrillsAsync();
+            await App.MobileService.SyncContext.PushAsync();
+            await drillTable.PullAsync("drillItem", drillTable.CreateQuery());
         }
 
-            public async Task AddDrill(DrillItem drillItem, String n, int s, int t, string sty)
+        public MobileServiceCollection<DrillItem, DrillItem> GetDrills()
+        {
+            return this.drills;
+        }
+
+        public async Task AddDrill(DrillItem drillItem, String n, int s, int t, string sty)
         {
             drillItem.Name = n;
             drillItem.Sets = s;
@@ -48,12 +64,26 @@ namespace Model
             Console.WriteLine(items);
         }
 
-        public async Task GetDrillsAsync()
+        public async Task InitLocalStoreAsync()
         {
+            if (!App.MobileService.SyncContext.IsInitialized)
+            {
+                var store = new MobileServiceSQLiteStore("localstore.db");
+                store.DefineTable<DrillItem>();
+                await App.MobileService.SyncContext.InitializeAsync(store);
+            }
+
+            await SyncAsync();
+        }
+
+        public async Task GetDrillsAsync(String cat)
+        {
+            await InitLocalStoreAsync();
             MobileServiceInvalidOperationException exception = null;
             try { 
-            drills = await drillTable
-            .ToCollectionAsync();
+            drills = await drillTable.Where(drillItem => drillItem.Style == cat)
+                    .ToCollectionAsync();
+                Console.WriteLine(drills);
             }
             catch (MobileServiceInvalidOperationException e)
             {

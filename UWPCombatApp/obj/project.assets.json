@@ -30,6 +30,20 @@
           "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
         }
       },
+      "Microsoft.Azure.Mobile.Client.SQLiteStore/4.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Azure.Mobile.Client": "4.0.2",
+          "NETStandard.Library": "1.6.1",
+          "SQLitePCLRaw.bundle_green": "1.1.2"
+        },
+        "compile": {
+          "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.SQLiteStore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.SQLiteStore.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -2814,6 +2828,20 @@
           "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
         }
       },
+      "Microsoft.Azure.Mobile.Client.SQLiteStore/4.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Azure.Mobile.Client": "4.0.2",
+          "NETStandard.Library": "1.6.1",
+          "SQLitePCLRaw.bundle_green": "1.1.2"
+        },
+        "compile": {
+          "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.SQLiteStore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.SQLiteStore.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -5589,6 +5617,20 @@
         },
         "runtime": {
           "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
+        }
+      },
+      "Microsoft.Azure.Mobile.Client.SQLiteStore/4.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Azure.Mobile.Client": "4.0.2",
+          "NETStandard.Library": "1.6.1",
+          "SQLitePCLRaw.bundle_green": "1.1.2"
+        },
+        "compile": {
+          "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.SQLiteStore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.SQLiteStore.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.1": {
@@ -8404,6 +8446,20 @@
           "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
         }
       },
+      "Microsoft.Azure.Mobile.Client.SQLiteStore/4.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Azure.Mobile.Client": "4.0.2",
+          "NETStandard.Library": "1.6.1",
+          "SQLitePCLRaw.bundle_green": "1.1.2"
+        },
+        "compile": {
+          "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.SQLiteStore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.SQLiteStore.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -11188,6 +11244,20 @@
         },
         "runtime": {
           "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
+        }
+      },
+      "Microsoft.Azure.Mobile.Client.SQLiteStore/4.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Azure.Mobile.Client": "4.0.2",
+          "NETStandard.Library": "1.6.1",
+          "SQLitePCLRaw.bundle_green": "1.1.2"
+        },
+        "compile": {
+          "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.SQLiteStore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.SQLiteStore.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.1": {
@@ -14012,6 +14082,20 @@
           "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
         }
       },
+      "Microsoft.Azure.Mobile.Client.SQLiteStore/4.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Azure.Mobile.Client": "4.0.2",
+          "NETStandard.Library": "1.6.1",
+          "SQLitePCLRaw.bundle_green": "1.1.2"
+        },
+        "compile": {
+          "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.SQLiteStore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.SQLiteStore.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -16796,6 +16880,20 @@
         },
         "runtime": {
           "lib/uap10.0/Microsoft.Azure.Mobile.Client.dll": {}
+        }
+      },
+      "Microsoft.Azure.Mobile.Client.SQLiteStore/4.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Azure.Mobile.Client": "4.0.2",
+          "NETStandard.Library": "1.6.1",
+          "SQLitePCLRaw.bundle_green": "1.1.2"
+        },
+        "compile": {
+          "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.SQLiteStore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.SQLiteStore.dll": {}
         }
       },
       "Microsoft.CSharp/4.0.1": {
@@ -19628,6 +19726,21 @@
         "lib/xamarinios10/Microsoft.Azure.Mobile.Client.xml",
         "microsoft.azure.mobile.client.4.0.2.nupkg.sha512",
         "microsoft.azure.mobile.client.nuspec"
+      ]
+    },
+    "Microsoft.Azure.Mobile.Client.SQLiteStore/4.0.2": {
+      "sha512": "Xm6Sy2U03+67QzSQqYbhK35dxfb3am0/81PLFjyTz7wYxdrjI/ZfTNrJCQ69QhitDnCnTg+/UngXVpkYQ6+Orw==",
+      "type": "package",
+      "path": "microsoft.azure.mobile.client.sqlitestore/4.0.2",
+      "files": [
+        "lib/net45/Microsoft.Azure.Mobile.Client.SQLiteStore.dll",
+        "lib/net45/Microsoft.Azure.Mobile.Client.SQLiteStore.xml",
+        "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.SQLiteStore.dll",
+        "lib/netstandard1.4/Microsoft.Azure.Mobile.Client.SQLiteStore.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Microsoft.Azure.Mobile.Client.SQLiteStore.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Microsoft.Azure.Mobile.Client.SQLiteStore.xml",
+        "microsoft.azure.mobile.client.sqlitestore.4.0.2.nupkg.sha512",
+        "microsoft.azure.mobile.client.sqlitestore.nuspec"
       ]
     },
     "Microsoft.CSharp/4.0.1": {
@@ -30035,6 +30148,7 @@
     "UAP,Version=v10.0.14393": [
       "Microsoft.Azure.Mobile >= 0.16.0",
       "Microsoft.Azure.Mobile.Client >= 4.0.2",
+      "Microsoft.Azure.Mobile.Client.SQLiteStore >= 4.0.2",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.0.1",
       "Microsoft.Toolkit.Uwp.UI.Controls >= 2.0.0",
       "WindowsAzure.Storage >= 8.5.0"
@@ -30078,6 +30192,10 @@
             "version": "0.16.0"
           },
           "Microsoft.Azure.Mobile.Client": {
+            "target": "Package",
+            "version": "4.0.2"
+          },
+          "Microsoft.Azure.Mobile.Client.SQLiteStore": {
             "target": "Package",
             "version": "4.0.2"
           },

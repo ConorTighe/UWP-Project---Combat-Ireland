@@ -29,14 +29,11 @@
                                     IsOpen="{Binding IsChecked, ElementName=isopentoggle, Mode=TwoWay}"
                                     IsSticky="{Binding IsChecked, ElementName=isstickytoggle, Mode=TwoWay}"
                                     ClosedDisplayMode="{Binding SelectedItem.Content, ElementName=combobox}">
-                        <CommandBar.SecondaryCommands>
-                            <AppBarButton Label="Menu Item 1"/>
-                            <AppBarButton Label="Menu Item 2"/>
-                            <AppBarButton Label="Menu Item 3"/>
-                            <AppBarButton Label="Menu Item 4"/>
-                        </CommandBar.SecondaryCommands>
-                        <AppBarButton Icon="Accept" Label="Accept"/>
-                        <AppBarToggleButton Icon="Contact" Label="Contact"/>
+                                    <AppBarButton Icon="Add" Label="Back" />
+                                    <AppBarButton Icon="Help"  Label="Stop"/>
+                                    <AppBarButton Icon="Map"  Label="Accept"/>
+                                    <AppBarToggleButton Icon="Contact" Label="Contact"/>
+                        
                     </CommandBar>
                     <Image HorizontalAlignment="Left" Source="Assets/storeLogo-sdk.png" Stretch="None"/>
                 </StackPanel>
