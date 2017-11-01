@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -45,7 +47,32 @@ namespace UWPCombatApp
             this.InitializeComponent();
             GymItems_ = GymsItem.GymList();
             CarouselControl.ItemsSource = GymItems_;
-
         }
+
+        private void GymLocate(double Lat, double Long)
+        {
+            BasicGeoposition GymPos = new BasicGeoposition() { Latitude = Lat, Longitude = Long };
+            Geopoint GymPosition = new Geopoint(GymPos);
+            MainPage.MyFrame.Navigate(typeof(GymLocator), GymPosition);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+        try { 
+            double lat;
+            double lng;
+            if (String.ReferenceEquals(((Button)sender).Tag, "b1"))
+            {
+                lat = 53.2931;
+                lng = -9.0133;
+                GymLocate(lat, lng);
+            }
+        }
+        catch(Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+            Debug.WriteLine(ex.StackTrace);
+        }
+    }
     }
 }

@@ -67,11 +67,12 @@ namespace UWPCombatApp.Views
             loadTxt.Visibility = Visibility.Collapsed;
         }
 
-        private async Task ListView_RefreshCommandAsync(object sender, EventArgs e)
+        private async Task ListView_RefreshCommand(object sender, EventArgs e)
         {
+            loadTxt.Visibility = Visibility.Visible;
             _items = ctv.combatDrillsTable.GetDrills();
            await AddItemsAsync();
-
+            loadTxt.Visibility = Visibility.Collapsed;
         }
 
         private void ListView_RefreshIntentCanceled(object sender, EventArgs e)
@@ -86,7 +87,7 @@ namespace UWPCombatApp.Views
             ppup.IsOpen = true;
         }
 
-        private async void SubmitBtn_Click(object sender, RoutedEventArgs e)
+        public async void SubmitBtn_Click(object sender, RoutedEventArgs e)
         {
             DrillItem drillItem = new DrillItem();
             String Name = NameBox.Text;
@@ -110,6 +111,21 @@ namespace UWPCombatApp.Views
                 var addSuccess = new MessageDialog("Drill added to database");
                 await addSuccess.ShowAsync();
            
+        }
+
+        private void BackToMain_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigate back
+            if (MainPage.MyFrame.CanGoBack)
+            {
+                MainPage.MyFrame.GoBack();
+            }
+        }
+
+        private async void DelButton_Click(object sender, RoutedEventArgs e)
+        {
+            String drillId = (String)((Button)sender).Tag;
+            await ctv.combatDrillsTable.DeleteDrillAsync(drillId);
         }
     }
 }

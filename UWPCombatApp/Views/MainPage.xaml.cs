@@ -44,6 +44,5 @@ namespace UWPCombatApp
             this.myFrame.Navigate(typeof(MainMenu));
         }
 
-
     }
 }

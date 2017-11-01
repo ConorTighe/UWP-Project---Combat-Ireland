@@ -20,19 +20,24 @@
                   Orientation="Horizontal"
                   SelectedIndex="4">
                 <controls:Carousel.EasingFunction>
-                    <CubicEase EasingMode="EaseOut" />
+                    <CubicEase EasingMode="EaseOut"  />
                 </controls:Carousel.EasingFunction>
                 <controls:Carousel.ItemTemplate>
                     <DataTemplate>
+                        <Button x:ConnectionId='2'                      Tag="{Binding Title}" >
                         <Image Width="200"
-                  Height="200"
-                  VerticalAlignment="Bottom"
-                  Source="{Binding Image}"
-                  Stretch="Uniform" />
+                               Height="200"
+                               
+                                VerticalAlignment="Bottom"
+                                Source="{Binding Image}"
+                                Stretch="Uniform" 
+                             />
+                        </Button>
                     </DataTemplate>
                 </controls:Carousel.ItemTemplate>
             </controls:Carousel>
         </Border>
+        
     </Grid>
 </Page>
 

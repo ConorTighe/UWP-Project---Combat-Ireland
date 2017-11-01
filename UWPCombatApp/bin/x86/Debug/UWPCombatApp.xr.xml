@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
   <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="Title" />
     <RootPropertyPathName Name="Image" />
     <RootPropertyPathName Name="Height" />
+    <RootPropertyPathName Name="Id" />
     <RootPropertyPathName Name="SetTime" />
     <RootPropertyPathName Name="Sets" />
     <RootPropertyPathName Name="Name" />
@@ -26,15 +28,18 @@
       <RootProperty Name="Height" />
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="BorderThickness" />
-      <RootProperty Name="Margin" />
       <RootProperty Name="RowDefinitions" />
+      <RootProperty Name="Margin" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.Maps.MapControl">
       <RootProperty Name="Name" />
+      <RootProperty Name="Height" />
       <RootProperty Name="MapServiceToken" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
     </RootType>
     <RootType FullName="UWPCombatApp.GymLocator" />
     <RootType FullName="Windows.UI.Xaml.Controls.Border">
@@ -59,6 +64,19 @@
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Tag" />
+      <RootProperty Name="Content" />
+      <RootProperty Name="Name" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootEvent Name="Click" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Data.Binding">
+      <RootProperty Name="ElementName" />
+      <RootProperty Name="Path" />
+      <RootProperty Name="Mode" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
@@ -67,40 +85,13 @@
       <RootProperty Name="Stretch" />
       <RootProperty Name="HorizontalAlignment" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Data.Binding">
-      <RootProperty Name="ElementName" />
-      <RootProperty Name="Path" />
-      <RootProperty Name="Mode" />
-    </RootType>
     <RootType FullName="UWPCombatApp.MapMenu" />
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
-      <RootProperty Name="Name" />
-      <RootProperty Name="Text" />
-      <RootProperty Name="Visibility" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Style" />
-      <RootProperty Name="TextWrapping" />
-      <RootProperty Name="FontSize" />
-      <RootProperty Name="Opacity" />
-    </RootType>
-    <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.PullToRefreshListView">
-      <RootProperty Name="MinWidth" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Background" />
-      <RootProperty Name="OverscrollLimit" />
-      <RootProperty Name="PullThreshold" />
-      <RootProperty Name="IsPullToRefreshWithMouseEnabled" />
-      <RootProperty Name="ItemTemplate" />
-      <RootProperty Name="PullToRefreshContent" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
-      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Children" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Background" />
+      <RootProperty Name="Children" />
+      <RootProperty Name="HorizontalAlignment" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Primitives.Popup">
       <RootProperty Name="IsOpen" />
@@ -114,26 +105,59 @@
     <RootType FullName="Windows.UI.Xaml.Media.Animation.PaneThemeTransition">
       <RootProperty Name="Edge" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
+      <RootProperty Name="Name" />
+      <RootProperty Name="Text" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Style" />
+      <RootProperty Name="TextWrapping" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="Opacity" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="Name" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="Name" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Content" />
-      <RootProperty Name="HorizontalContentAlignment" />
+    <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.PullToRefreshListView">
+      <RootProperty Name="MinWidth" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
-      <RootEvent Name="Click" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="OverscrollLimit" />
+      <RootProperty Name="PullThreshold" />
+      <RootProperty Name="IsPullToRefreshWithMouseEnabled" />
+      <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="PullToRefreshContent" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Automation.AutomationProperties">
       <RootMethod Name="GetName" />
       <RootMethod Name="SetName" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
+    <RootType FullName="Windows.UI.Xaml.Controls.CommandBar">
+      <RootProperty Name="IsOpen" />
+      <RootProperty Name="IsSticky" />
+      <RootProperty Name="ClosedDisplayMode" />
+      <RootProperty Name="PrimaryCommands" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
+      <RootProperty Name="Name" />
+      <RootProperty Name="Icon" />
+      <RootProperty Name="Label" />
+      <RootEvent Name="Click" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.AppBarToggleButton">
+      <RootProperty Name="Name" />
+      <RootProperty Name="Icon" />
+      <RootProperty Name="Label" />
+    </RootType>
     <RootType FullName="UWPCombatApp.Views.DisplayDrills" />
+    <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
+      <RootProperty Name="Height" />
+    </RootType>
     <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView">
       <RootProperty Name="Name" />
       <RootProperty Name="OneRowModeEnabled" />
@@ -152,25 +176,8 @@
       <RootProperty Name="VerticalScrollBarVisibility" />
       <RootProperty Name="Content" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
-      <RootProperty Name="Height" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Frame">
       <RootProperty Name="Name" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.CommandBar">
-      <RootProperty Name="IsOpen" />
-      <RootProperty Name="IsSticky" />
-      <RootProperty Name="ClosedDisplayMode" />
-      <RootProperty Name="PrimaryCommands" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
-      <RootProperty Name="Icon" />
-      <RootProperty Name="Label" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.AppBarToggleButton">
-      <RootProperty Name="Icon" />
-      <RootProperty Name="Label" />
     </RootType>
     <RootType FullName="UWPCombatApp.MainPage" />
   </Roots.RootTypes>

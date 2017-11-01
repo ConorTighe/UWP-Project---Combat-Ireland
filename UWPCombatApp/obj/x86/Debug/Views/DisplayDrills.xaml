@@ -8,33 +8,50 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
-        <TextBlock x:ConnectionId='1' Name="loadTxt" Text="Loading drills...." Visibility="Visible" HorizontalAlignment="Center"/>
-        <my:PullToRefreshListView x:ConnectionId='2'
+
+        <StackPanel VerticalAlignment="Top" Margin="0,18,0,0" Grid.Row="0" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+
+            <CommandBar x:ConnectionId='12' x:Name="cmdbar" 
+                IsOpen="{Binding IsChecked, ElementName=isopentoggle, Mode=TwoWay}"
+                IsSticky="{Binding IsChecked, ElementName=isstickytoggle, Mode=TwoWay}"
+                ClosedDisplayMode="{Binding SelectedItem.Content, ElementName=combobox}">
+                <AppBarButton x:ConnectionId='13' Name="AddDrill" Icon="Add" Label="Add"                      />
+                <AppBarToggleButton x:ConnectionId='14' Name="ShareInfo" Icon="Contact" Label="Share"/>
+                <AppBarButton x:ConnectionId='15' Name="BackToMain" Icon="Back" Label="Back To Menu"                          />
+
+            </CommandBar>
+            <Image HorizontalAlignment="Left" Source="Assets/storeLogo-sdk.png" Stretch="None"/>
+        </StackPanel >
+        <StackPanel Margin="0,120,0,0">
+        <TextBlock x:ConnectionId='9' Name="loadTxt" Text="Loading drills...." Visibility="Visible" HorizontalAlignment="Center"/>
+        
+        <my:PullToRefreshListView x:ConnectionId='10'
         x:Name="RefreshListView"
         MinWidth="200"
         Margin="24"
         HorizontalAlignment="Center"
-        VerticalAlignment="Top"
+        VerticalAlignment="Bottom"
         Background="White"
         OverscrollLimit="0.4"
         PullThreshold="100"
         IsPullToRefreshWithMouseEnabled="True">
-            <my:PullToRefreshListView.ItemTemplate>
+            <my:PullToRefreshListView.ItemTemplate >
                 <DataTemplate>
                     <StackPanel>
-                    <TextBlock AutomationProperties.Name="{Binding Name}"
+                           
+                            <TextBlock AutomationProperties.Name="{Binding Name}"
                  Style="{StaticResource CaptionTextBlockStyle}"
-                 Text="8{Binding Name}"
+                 Text="{Binding Name}"
                  TextWrapping="WrapWholeWords"  />
-                    <TextBlock AutomationProperties.Name="{Binding Sets}"
+                        <TextBlock AutomationProperties.Name="{Binding Sets}"
                  Style="{StaticResource CaptionTextBlockStyle}"
                  Text="{Binding Sets}"
                  TextWrapping="WrapWholeWords"  />
-                    <TextBlock AutomationProperties.Name="{Binding SetTime}"
+                        <TextBlock AutomationProperties.Name="{Binding SetTime}"
                  Style="{StaticResource CaptionTextBlockStyle}"
                  Text="{Binding  SetTime}"
                  TextWrapping="WrapWholeWords"  />
+                            <Button x:ConnectionId='11' Tag="{Binding Id}" Content="Delete"                         ></Button>
                     </StackPanel>
                 </DataTemplate>
             </my:PullToRefreshListView.ItemTemplate>
@@ -44,14 +61,8 @@
                Text="Pull down to refresh data" />
             </my:PullToRefreshListView.PullToRefreshContent>
         </my:PullToRefreshListView>
-
-        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom">
-            <Button x:ConnectionId='11' Name="DeleteBtn" Height="30" Width="100" Content="Delete Drill"                      HorizontalContentAlignment="Left" VerticalAlignment="Bottom"/>
-            <Button x:ConnectionId='12' Name="UpdateBtn" Height="30" Width="100" Content="Add Drill"                      HorizontalContentAlignment="Left" VerticalAlignment="Bottom"/>
-            <Button x:ConnectionId='13' Name="AddBtn" Height="30" Width="100" Content="Add Drill"                      HorizontalContentAlignment="Left" VerticalAlignment="Bottom"/>
         </StackPanel>
-        
-        <Popup x:ConnectionId='3' x:Name="ppup" IsOpen="False" IsLightDismissEnabled="True"  
+        <Popup x:ConnectionId='1' x:Name="ppup" IsOpen="False" IsLightDismissEnabled="True"  
      Width="320" HorizontalAlignment="Center">
             <Popup.ChildTransitions>
                 <TransitionCollection>
@@ -61,13 +72,13 @@
             </Popup.ChildTransitions>
             <Grid Width="380" Height="{Binding ElementName=flyoutPane, Path=Height}"  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" >
-                    <TextBlock x:ConnectionId='4' Name="NameText" Text="Enter Name:"/>
-                    <TextBox x:ConnectionId='5'  Name="NameBox" Width="200" Height="50"/>
-                    <TextBlock x:ConnectionId='6' Name="SetsText" Text="Enter Sets:"/>
-                    <TextBox x:ConnectionId='7'  Name="SetsBox" Width="200" Height="50"/>
-                    <TextBlock x:ConnectionId='8' Name="TimeText" Text="Enter Time to complete:"/>
-                    <TextBox x:ConnectionId='9' Name="TimeBox" Width="200" Height="50"/>
-                    <Button x:ConnectionId='10' Name="SubmitBtn" Height="30" Width="100" Content="Submit"                        />
+                    <TextBlock x:ConnectionId='2' Name="NameText" Text="Enter Name:"/>
+                    <TextBox x:ConnectionId='3'  Name="NameBox" Width="200" Height="50"/>
+                    <TextBlock x:ConnectionId='4' Name="SetsText" Text="Enter Sets:"/>
+                    <TextBox x:ConnectionId='5'  Name="SetsBox" Width="200" Height="50"/>
+                    <TextBlock x:ConnectionId='6' Name="TimeText" Text="Enter Time to complete:"/>
+                    <TextBox x:ConnectionId='7' Name="TimeBox" Width="200" Height="50"/>
+                    <Button x:ConnectionId='8' Name="SubmitBtn" Height="30" Width="100" Content="Submit"                        />
                 </StackPanel>
             </Grid>
         </Popup>

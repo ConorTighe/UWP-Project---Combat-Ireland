@@ -17,8 +17,7 @@ using Windows.Devices.Geolocation;
 using Windows.Services.Maps;
 using Windows.UI;
 using Windows.UI.Popups;
-
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+using Windows.Storage.Streams;
 
 namespace UWPCombatApp
 {
@@ -36,14 +35,14 @@ namespace UWPCombatApp
             this.InitializeComponent();
         }
 
-        private void addIconToLocation(Geopoint location, string name)
+        private void addIconToLocation(Geopoint location)
         {
 
             //Create Icon and Add text to map
             MapIcon mapIcon = new MapIcon();
             mapIcon.Location = location;
-            mapIcon.Title = String.Format("{0}\nLatLng:{1}\nLongLng:{2}", name, location.Position.Latitude, location.Position.Longitude);
-
+            mapIcon.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/b1.png"));
+            myMap.MapElements.Add(mapIcon);
         }
 
         private async void ShowRouteOnMap(Geopoint startPoint, Geopoint endPoint)
@@ -77,12 +76,12 @@ namespace UWPCombatApp
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             Geopoint Destination = (Geopoint)e.Parameter;
+            addIconToLocation(Destination);
             Geopoint myPoint = await mapControls.Position();
             myMap.ZoomLevel = 16;
             myMap.Center = myPoint;
             indexPosition++;
             ShowRouteOnMap(myPoint, Destination);
-
             Geopoint position = await mapControls.Position();
             DependencyObject marker = mapControls.Marker();
             myMap.Children.Add(marker);

@@ -17,18 +17,33 @@
     </Page.Resources>
     
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Top"  Margin="0,18,0,0" Grid.Row="0" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+            <CommandBar x:ConnectionId='2' x:Name="cmdbar" 
+                                    IsOpen="{Binding IsChecked, ElementName=isopentoggle, Mode=TwoWay}"
+                                    IsSticky="{Binding IsChecked, ElementName=isstickytoggle, Mode=TwoWay}"
+                                    ClosedDisplayMode="{Binding SelectedItem.Content, ElementName=combobox}">
+                <AppBarButton x:ConnectionId='3' Name="MoreInfo" Icon="Help"  Label="Info"/>
+                <AppBarButton x:ConnectionId='4' Name="MapInfo" Icon="Map"  Label="Map guide"/>
 
-        
-        <Controls:AdaptiveGridView x:ConnectionId='1' Name="AGVC"
+            </CommandBar>
+            <Image HorizontalAlignment="Left" Source="Assets/storeLogo-sdk.png" Stretch="None"/>
+        </StackPanel>
+        <Controls:AdaptiveGridView x:ConnectionId='1' Grid.Row="1" 
+                                   Name="AGVC"
                                    OneRowModeEnabled="False"
                                    ItemHeight="200"
                                    DesiredWidth="200"
                                    SelectionMode="Single"
                                    IsItemClickEnabled="True"
-                                   VerticalAlignment="Top"
+                                   VerticalAlignment="Bottom"
                                                              
                                    ItemTemplate="{StaticResource MenuTemplate}" HorizontalAlignment="Left" />
-            
+        
+
     </Grid>
 </Page>
 

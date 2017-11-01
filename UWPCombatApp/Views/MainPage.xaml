@@ -23,24 +23,7 @@
                 <StackPanel Margin="0,0,0,10"/>
 
                 <Frame Name="myFrame"  />
-                <StackPanel VerticalAlignment="Bottom" Margin="0,24,0,0" Grid.Row="1" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
-
-                    <CommandBar x:Name="cmdbar" 
-                                    IsOpen="{Binding IsChecked, ElementName=isopentoggle, Mode=TwoWay}"
-                                    IsSticky="{Binding IsChecked, ElementName=isstickytoggle, Mode=TwoWay}"
-                                    ClosedDisplayMode="{Binding SelectedItem.Content, ElementName=combobox}">
-                                    <AppBarButton Icon="Add" Label="Back" />
-                                    <AppBarButton Icon="Help"  Label="Stop"/>
-                                    <AppBarButton Icon="Map"  Label="Accept"/>
-                                    <AppBarToggleButton Icon="Contact" Label="Contact"/>
-                        
-                    </CommandBar>
-                    <Image HorizontalAlignment="Left" Source="Assets/storeLogo-sdk.png" Stretch="None"/>
-                </StackPanel>
-
-
-                <!-- Status Block for providing messages to the user.  Use the
-             NotifyUser() method to populate the message -->
+               
 
             </Grid>
         </ScrollViewer>

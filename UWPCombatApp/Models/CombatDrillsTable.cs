@@ -56,12 +56,13 @@ namespace Model
             drills.Add(drillItem);
         }
 
-        public async void GetById(string n)
+        public async void GetById(DrillItem d, string n)
         {
-            IMobileServiceTableQuery<DrillItem> query = drillTable.Where(drillItem => drillItem.Name == n)
+            IMobileServiceTableQuery<DrillItem> query = drillTable.Where(drillItem => drillItem.Id == n)
                 .Select(drillItem => drillItem);
             List<DrillItem> items = await query.ToListAsync();
             Console.WriteLine(items);
+            d = items.First();
         }
 
         public async Task InitLocalStoreAsync()
@@ -100,9 +101,11 @@ namespace Model
 
         }
 
-        public async Task DeleteDrillAsync(DrillItem d)
+        public async Task DeleteDrillAsync(String id)
         {
             MobileServiceInvalidOperationException exception = null;
+            DrillItem d = new DrillItem();
+            GetById(d, id);
             try {
                 await drillTable.DeleteAsync(d);
             }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -43,7 +44,7 @@ namespace UWPCombatApp.Views
             this.InitializeComponent();
             picItems_ = AdaptItem.AdaptList();
             AGVC.ItemsSource = picItems_;
-            
+
         }
 
         public void AGVC_ItemClick(object sender, Windows.UI.Xaml.Controls.ItemClickEventArgs e)
@@ -64,8 +65,15 @@ namespace UWPCombatApp.Views
             }
             if ((e.ClickedItem as AdaptItem).Title == "map")
             {
+            try { 
                 MainPage.MyFrame.Navigate(typeof(MapMenu));
             }
+                catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                Debug.WriteLine(ex.StackTrace);
+            }
+        }
 
         }
 
