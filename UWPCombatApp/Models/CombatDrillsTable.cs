@@ -113,6 +113,7 @@ namespace Model
             {
                 exception = e;
             }
+
             if (exception != null)
             {
                 await new MessageDialog(exception.Message, "Error deleting item").ShowAsync();

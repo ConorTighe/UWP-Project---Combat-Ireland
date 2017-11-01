@@ -51,8 +51,11 @@
                  Style="{StaticResource CaptionTextBlockStyle}"
                  Text="{Binding  SetTime}"
                  TextWrapping="WrapWholeWords"  />
+                            <StackPanel Orientation="Horizontal">
                             <Button Tag="{Binding Id}" Content="Delete" Click="DelButton_Click" ></Button>
-                    </StackPanel>
+                                <Button Tag="{Binding Id}" Content="Update" Click="UpdateBtn_Click" ></Button>
+                            </StackPanel>
+                        </StackPanel>
                 </DataTemplate>
             </my:PullToRefreshListView.ItemTemplate>
             <my:PullToRefreshListView.PullToRefreshContent>
@@ -82,6 +85,27 @@
                 </StackPanel>
             </Grid>
         </Popup>
-        
+
+        <Popup x:Name="updateppup" IsOpen="False" IsLightDismissEnabled="True"  
+     Width="320" HorizontalAlignment="Center">
+            <Popup.ChildTransitions>
+                <TransitionCollection>
+                    <!--<EdgeUIThemeTransition Edge="Left" />-->
+                    <PaneThemeTransition Edge="Left" />
+                </TransitionCollection>
+            </Popup.ChildTransitions>
+            <Grid Width="380" Height="{Binding ElementName=flyoutPane, Path=Height}"  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" >
+                    <TextBlock Name="NewNameText" Text="Enter Name:"/>
+                    <TextBox  Name="NewNameBox" Width="200" Height="50"/>
+                    <TextBlock Name="NewSetsText" Text="Enter Sets:"/>
+                    <TextBox  Name="NewSetsBox" Width="200" Height="50"/>
+                    <TextBlock Name="NewTimeText" Text="Enter Time to complete:"/>
+                    <TextBox Name="NewTimeBox" Width="200" Height="50"/>
+                    <Button Tag="{Binding Id}" Name="NewSubmitBtn" Height="30" Width="100" Content="Submit" Click="NewSubmitBtn_Click"/>
+                </StackPanel>
+            </Grid>
+        </Popup>
+
     </Grid>
 </Page>

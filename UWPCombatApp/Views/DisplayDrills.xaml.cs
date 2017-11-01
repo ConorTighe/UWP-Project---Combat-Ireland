@@ -87,6 +87,13 @@ namespace UWPCombatApp.Views
             ppup.IsOpen = true;
         }
 
+        private void UpdateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // Height is only important if we want the Popup sized to the screen 
+            updateppup.Height = Window.Current.Bounds.Height;
+            updateppup.IsOpen = true;
+        }
+
         public async void SubmitBtn_Click(object sender, RoutedEventArgs e)
         {
             DrillItem drillItem = new DrillItem();
@@ -126,6 +133,32 @@ namespace UWPCombatApp.Views
         {
             String drillId = (String)((Button)sender).Tag;
             await ctv.combatDrillsTable.DeleteDrillAsync(drillId);
+        }
+
+        private async void NewSubmitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            String Name = NewNameBox.Text;
+            String id = (String)((Button)sender).Tag;
+            int Sets;
+            int Time;
+            bool successfullyParsedTime = int.TryParse(NewSetsBox.Text, out Time);
+            bool successfullyParsedSets = int.TryParse(NewTimeBox.Text, out Sets);
+
+            if (successfullyParsedSets)
+            {
+                Sets = Int32.Parse(NewSetsBox.Text);
+
+            }
+            if (successfullyParsedTime)
+            {
+                Time = Int32.Parse(NewTimeBox.Text);
+            }
+
+            await ctv.combatDrillsTable.UpdateDrill(id, Name, Sets, Time, parameters);
+            ppup.IsOpen = false;
+            var addSuccess = new MessageDialog("Drill Updated");
+            await addSuccess.ShowAsync();
+
         }
     }
 }

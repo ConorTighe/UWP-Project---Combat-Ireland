@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-11-01T17:58:40.788</Modified>
+      <Modified>2017-11-01T21:34:10.468</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\UWPCombatApp.exe">
       <PackagePath>entrypoint\UWPCombatApp.exe</PackagePath>
-      <Modified>2017-11-01T17:58:39.417</Modified>
+      <Modified>2017-11-01T21:34:08.977</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\.nuget\packages\microsoft.azure.mobile\0.16.0\lib\uap10.0\Microsoft.Azure.Mobile.dll">
       <PackagePath>Microsoft.Azure.Mobile.dll</PackagePath>
@@ -775,7 +775,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\UWPCombatApp.xr.xml">
       <PackagePath>UWPCombatApp.xr.xml</PackagePath>
-      <Modified>2017-11-01T17:50:49.980</Modified>
+      <Modified>2017-11-01T21:30:32.429</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -904,11 +904,11 @@
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-11-01T17:50:51.392</Modified>
+      <Modified>2017-11-01T21:34:09.503</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\Core\UWPCombatApp.exe">
       <PackagePath>UWPCombatApp.exe</PackagePath>
-      <Modified>2017-11-01T17:58:40.781</Modified>
+      <Modified>2017-11-01T21:34:10.462</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
