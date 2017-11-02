@@ -577,6 +577,12 @@
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Info\Boxing.txt">
+      <PackagePath>Info\Boxing.txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Info\Karate.txt">
+      <PackagePath>Info\Karate.txt</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>

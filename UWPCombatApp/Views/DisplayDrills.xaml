@@ -7,6 +7,19 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <Style TargetType="Button" x:Key="DrillButtons">
+            <Setter Property="Background" Value="#2ecc71"></Setter>
+            <Setter Property="Foreground" Value="#2c3e50"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="Place">
+            <Setter Property="FontSize" Value="36"></Setter>
+            <Setter Property="Foreground" Value="#F8CF8B"></Setter>
+            <Setter Property="FontFamily" Value="Assets/KGLuckoftheIrish.ttf#KG Luck of the Irish"></Setter>
+        </Style>
+    </Page.Resources>
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <StackPanel VerticalAlignment="Top" Margin="0,18,0,0" Grid.Row="0" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
@@ -16,7 +29,7 @@
                 IsSticky="{Binding IsChecked, ElementName=isstickytoggle, Mode=TwoWay}"
                 ClosedDisplayMode="{Binding SelectedItem.Content, ElementName=combobox}">
                 <AppBarButton Name="AddDrill" Icon="Add" Label="Add" Click="AddBtn_Click" />
-                <AppBarToggleButton Name="ShareInfo" Icon="Contact" Label="Share"/>
+                <AppBarToggleButton Name="Info" Icon="help" Label="Origins" Click="Info_Click" />
                 <AppBarButton Name="BackToMain" Icon="Back" Label="Back To Menu" Click="BackToMain_Click" />
 
             </CommandBar>
@@ -36,9 +49,12 @@
         PullThreshold="100"
         IsPullToRefreshWithMouseEnabled="True">
             <my:PullToRefreshListView.ItemTemplate >
-                <DataTemplate>
-                    <StackPanel>
-                           
+                <DataTemplate >
+                    <StackPanel Name="ListPanel">
+                            <TextBlock AutomationProperties.Name="IdTextBlock"
+                 Style="{StaticResource CaptionTextBlockStyle}"
+                 Text="{Binding Id}"
+                 TextWrapping="WrapWholeWords"  />
                             <TextBlock AutomationProperties.Name="{Binding Name}"
                  Style="{StaticResource CaptionTextBlockStyle}"
                  Text="{Binding Name}"
@@ -52,8 +68,8 @@
                  Text="{Binding  SetTime}"
                  TextWrapping="WrapWholeWords"  />
                             <StackPanel Orientation="Horizontal">
-                            <Button Tag="{Binding Id}" Content="Delete" Click="DelButton_Click" ></Button>
-                                <Button Tag="{Binding Id}" Content="Update" Click="UpdateBtn_Click" ></Button>
+                                <Button Tag="{Binding Id}" Content="Delete" Click="DelButton_Click" Style="{StaticResource DrillButtons}" ></Button>
+                                <Button Tag="{Binding Id}" Content="Update" Click="UpdateBtn_Click" Style="{StaticResource DrillButtons}" ></Button>
                             </StackPanel>
                         </StackPanel>
                 </DataTemplate>
@@ -103,6 +119,26 @@
                     <TextBlock Name="NewTimeText" Text="Enter Time to complete:"/>
                     <TextBox Name="NewTimeBox" Width="200" Height="50"/>
                     <Button Tag="{Binding Id}" Name="NewSubmitBtn" Height="30" Width="100" Content="Submit" Click="NewSubmitBtn_Click"/>
+                </StackPanel>
+            </Grid>
+        </Popup>
+
+        <Popup x:Name="infopup" IsOpen="False" IsLightDismissEnabled="True"  
+     Width="320" HorizontalAlignment="Left">
+            <Popup.ChildTransitions>
+                <TransitionCollection>
+                    <!--<EdgeUIThemeTransition Edge="Left" />-->
+                    <PaneThemeTransition Edge="Left" />
+                </TransitionCollection>
+            </Popup.ChildTransitions>
+            <Grid Width="380" Height="{Binding ElementName=flyoutPane, Path=Height}"  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" >
+                    <ScrollViewer
+                Grid.Row="0" 
+                Height="600"
+                VerticalScrollBarVisibility="Auto">
+                        <TextBlock Name="InfoText" TextWrapping="Wrap"></TextBlock>
+                    </ScrollViewer>
                 </StackPanel>
             </Grid>
         </Popup>

@@ -25,7 +25,7 @@ namespace UWPCombatApp.Views
     public sealed partial class DisplayDrills : Page
     {
 
-        String parameters;
+        String catagory;
         CombatTableView ctv = new CombatTableView();
         private ObservableCollection<DrillItem> _items;
         private ObservableCollection<DrillItem> _temp;
@@ -41,7 +41,7 @@ namespace UWPCombatApp.Views
         {
             base.OnNavigatedTo(e);
 
-            parameters = (String)e.Parameter;
+            catagory = (String)e.Parameter;
             
             await ctv.combatDrillsTable.Initialization;
             await ctv.combatDrillsTable.InitLocalStoreAsync();
@@ -51,7 +51,7 @@ namespace UWPCombatApp.Views
 
         private async Task updateDrillsAsync() { 
 
-            await ctv.combatDrillsTable.GetDrillsAsync(parameters);
+            await ctv.combatDrillsTable.GetDrillsAsync(catagory);
         }
 
         private async Task AddItemsAsync()
@@ -113,7 +113,7 @@ namespace UWPCombatApp.Views
                 Time = Int32.Parse(TimeBox.Text);
             }
             
-                await ctv.combatDrillsTable.AddDrill(drillItem, Name, Sets, Time, parameters);
+                await ctv.combatDrillsTable.AddDrill(drillItem, Name, Sets, Time, catagory);
                 ppup.IsOpen = false;
                 var addSuccess = new MessageDialog("Drill added to database");
                 await addSuccess.ShowAsync();
@@ -154,11 +154,35 @@ namespace UWPCombatApp.Views
                 Time = Int32.Parse(NewTimeBox.Text);
             }
 
-            await ctv.combatDrillsTable.UpdateDrill(id, Name, Sets, Time, parameters);
+            await ctv.combatDrillsTable.UpdateDrill(id, Name, Sets, Time, catagory);
             ppup.IsOpen = false;
             var addSuccess = new MessageDialog("Drill Updated");
             await addSuccess.ShowAsync();
 
+        }
+
+        private void Info_Click(object sender, RoutedEventArgs e)
+        {
+            string text;
+            if (catagory == "Karate")
+            {
+                text = System.IO.File.ReadAllText(@"Info/Karate.txt");
+                InfoText.Text = text;
+            }
+            else if (catagory == "Boxing")
+            {
+                text = System.IO.File.ReadAllText(@"Info/Boxing.txt");
+                InfoText.Text = text;
+            }
+            else
+            {
+                InfoText.Text = "Error Loading Text";
+            }
+            
+            
+
+            infopup.Height = Window.Current.Bounds.Height;
+            infopup.IsOpen = true;
         }
     }
 }
