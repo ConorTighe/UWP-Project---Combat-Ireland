@@ -123,6 +123,7 @@ namespace Model
         public async Task UpdateDrill( String Id, String n, int s, int t, string sty)
         {
             DrillItem drillItem = new DrillItem();
+            drillItem.Id = Id;
             drillItem.Name = n;
             drillItem.Sets = s;
             drillItem.SetTime = t;

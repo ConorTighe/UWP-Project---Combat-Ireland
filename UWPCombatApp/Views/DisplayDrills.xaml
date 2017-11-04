@@ -13,10 +13,9 @@
             <Setter Property="Foreground" Value="#2c3e50"></Setter>
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
         </Style>
-        <Style TargetType="TextBlock" x:Key="Place">
-            <Setter Property="FontSize" Value="36"></Setter>
-            <Setter Property="Foreground" Value="#F8CF8B"></Setter>
-            <Setter Property="FontFamily" Value="Assets/KGLuckoftheIrish.ttf#KG Luck of the Irish"></Setter>
+        <Style TargetType="TextBlock" x:Key="DrillText">
+            <Setter Property="FontSize" Value="26"></Setter>
+            <Setter Property="FontFamily" Value="Assets/Draconian.ttf#KG Draconian"></Setter>
         </Style>
     </Page.Resources>
     
@@ -69,7 +68,7 @@
                  TextWrapping="WrapWholeWords"  />
                             <StackPanel Orientation="Horizontal">
                                 <Button Tag="{Binding Id}" Content="Delete" Click="DelButton_Click" Style="{StaticResource DrillButtons}" ></Button>
-                                <Button Tag="{Binding Id}" Content="Update" Click="UpdateBtn_Click" Style="{StaticResource DrillButtons}" ></Button>
+                                <Button Tag="{Binding Id}" Content="Update" Click="UpdateBtn_Click"  Style="{StaticResource DrillButtons}" ></Button>
                             </StackPanel>
                         </StackPanel>
                 </DataTemplate>
@@ -137,8 +136,27 @@
                 Grid.Row="0" 
                 Height="600"
                 VerticalScrollBarVisibility="Auto">
-                        <TextBlock Name="InfoText" TextWrapping="Wrap"></TextBlock>
+                        <TextBlock Name="InfoText" Style="{StaticResource DrillText}" TextWrapping="Wrap"></TextBlock>
                     </ScrollViewer>
+                </StackPanel>
+            </Grid>
+        </Popup>
+
+        <Popup x:Name="delpup" IsOpen="False" IsLightDismissEnabled="True"  
+     Width="320" HorizontalAlignment="Left">
+            <Popup.ChildTransitions>
+                <TransitionCollection>
+                    <!--<EdgeUIThemeTransition Edge="Left" />-->
+                    <PaneThemeTransition Edge="Left" />
+                </TransitionCollection>
+            </Popup.ChildTransitions>
+            <Grid Width="380" Height="{Binding ElementName=flyoutPane, Path=Height}"  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" >
+                    <TextBlock Name="DelText" Text="Are you sure you want to delete this drill?" Style="{StaticResource DrillText}" TextWrapping="Wrap"></TextBlock>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal"> 
+                        <Button Name="YesBtn" Content="Yes" Click="YesBtn_Click" />
+                        <Button Name="NoBtn" Content="No" Click="NoBtn_Click" />
+                    </StackPanel>
                 </StackPanel>
             </Grid>
         </Popup>

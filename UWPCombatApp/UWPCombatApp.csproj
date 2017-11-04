@@ -122,6 +122,7 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <Content Include="Assets\Draconian.ttf" />
     <None Include="UWPCombatApp_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +132,7 @@
     <Content Include="Assets\b4.png" />
     <Content Include="Assets\b5.png" />
     <Content Include="Assets\bing.png" />
+    <Content Include="Assets\IrishCombat.png" />
     <Content Include="Info\Boxing.txt" />
     <Content Include="Info\Karate.txt" />
     <Content Include="Properties\Default.rd.xml" />

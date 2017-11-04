@@ -11,12 +11,12 @@
     <Page.Resources>
         <DataTemplate x:Key="MenuTemplate">
             <Grid Background="White" BorderBrush="Black" BorderThickness="1">
-                <Image Source="{Binding Image}" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Image Source="{Binding Image}" Stretch="UniformToFill" HorizontalAlignment="Center"  />
             </Grid>
         </DataTemplate>
     </Page.Resources>
-    
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="#c0392b">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
@@ -30,8 +30,9 @@
                 <AppBarButton x:ConnectionId='4' Name="MapInfo" Icon="Map"  Label="Map guide"/>
 
             </CommandBar>
-            <Image HorizontalAlignment="Left" Source="Assets/storeLogo-sdk.png" Stretch="None"/>
+            <Image Source="ms-appx:///Assets/IrishCombat.png" Height="400" Width="auto" Stretch="Fill" ></Image>
         </StackPanel>
+        
         <Controls:AdaptiveGridView x:ConnectionId='1' Grid.Row="1" 
                                    Name="AGVC"
                                    OneRowModeEnabled="False"

@@ -13,10 +13,9 @@
             <Setter Property="Foreground" Value="#2c3e50"></Setter>
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
         </Style>
-        <Style TargetType="TextBlock" x:Key="Place">
-            <Setter Property="FontSize" Value="36"></Setter>
-            <Setter Property="Foreground" Value="#F8CF8B"></Setter>
-            <Setter Property="FontFamily" Value="Assets/KGLuckoftheIrish.ttf#KG Luck of the Irish"></Setter>
+        <Style TargetType="TextBlock" x:Key="DrillText">
+            <Setter Property="FontSize" Value="26"></Setter>
+            <Setter Property="FontFamily" Value="Assets/Draconian.ttf#KG Draconian"></Setter>
         </Style>
     </Page.Resources>
     
@@ -24,21 +23,21 @@
 
         <StackPanel VerticalAlignment="Top" Margin="0,18,0,0" Grid.Row="0" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
 
-            <CommandBar x:ConnectionId='23' x:Name="cmdbar" 
+            <CommandBar x:ConnectionId='27' x:Name="cmdbar" 
                 IsOpen="{Binding IsChecked, ElementName=isopentoggle, Mode=TwoWay}"
                 IsSticky="{Binding IsChecked, ElementName=isstickytoggle, Mode=TwoWay}"
                 ClosedDisplayMode="{Binding SelectedItem.Content, ElementName=combobox}">
-                <AppBarButton x:ConnectionId='24' Name="AddDrill" Icon="Add" Label="Add"                      />
-                <AppBarToggleButton x:ConnectionId='25' Name="Info" Icon="help" Label="Origins"                    />
-                <AppBarButton x:ConnectionId='26' Name="BackToMain" Icon="Back" Label="Back To Menu"                          />
+                <AppBarButton x:ConnectionId='28' Name="AddDrill" Icon="Add" Label="Add"                      />
+                <AppBarToggleButton x:ConnectionId='29' Name="Info" Icon="help" Label="Origins"                    />
+                <AppBarButton x:ConnectionId='30' Name="BackToMain" Icon="Back" Label="Back To Menu"                          />
 
             </CommandBar>
             <Image HorizontalAlignment="Left" Source="Assets/storeLogo-sdk.png" Stretch="None"/>
         </StackPanel >
         <StackPanel Margin="0,120,0,0">
-        <TextBlock x:ConnectionId='19' Name="loadTxt" Text="Loading drills...." Visibility="Visible" HorizontalAlignment="Center"/>
+        <TextBlock x:ConnectionId='23' Name="loadTxt" Text="Loading drills...." Visibility="Visible" HorizontalAlignment="Center"/>
         
-        <my:PullToRefreshListView x:ConnectionId='20'
+        <my:PullToRefreshListView x:ConnectionId='24'
         x:Name="RefreshListView"
         MinWidth="200"
         Margin="24"
@@ -68,8 +67,8 @@
                  Text="{Binding  SetTime}"
                  TextWrapping="WrapWholeWords"  />
                             <StackPanel Orientation="Horizontal">
-                                <Button x:ConnectionId='21' Tag="{Binding Id}" Content="Delete"                         Style="{StaticResource DrillButtons}" ></Button>
-                                <Button x:ConnectionId='22' Tag="{Binding Id}" Content="Update"                         Style="{StaticResource DrillButtons}" ></Button>
+                                <Button x:ConnectionId='25' Tag="{Binding Id}" Content="Delete"                         Style="{StaticResource DrillButtons}" ></Button>
+                                <Button x:ConnectionId='26' Tag="{Binding Id}" Content="Update"                          Style="{StaticResource DrillButtons}" ></Button>
                             </StackPanel>
                         </StackPanel>
                 </DataTemplate>
@@ -91,13 +90,13 @@
             </Popup.ChildTransitions>
             <Grid Width="380" Height="{Binding ElementName=flyoutPane, Path=Height}"  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" >
-                    <TextBlock x:ConnectionId='12' Name="NameText" Text="Enter Name:"/>
-                    <TextBox x:ConnectionId='13'  Name="NameBox" Width="200" Height="50"/>
-                    <TextBlock x:ConnectionId='14' Name="SetsText" Text="Enter Sets:"/>
-                    <TextBox x:ConnectionId='15'  Name="SetsBox" Width="200" Height="50"/>
-                    <TextBlock x:ConnectionId='16' Name="TimeText" Text="Enter Time to complete:"/>
-                    <TextBox x:ConnectionId='17' Name="TimeBox" Width="200" Height="50"/>
-                    <Button x:ConnectionId='18' Name="SubmitBtn" Height="30" Width="100" Content="Submit"                        />
+                    <TextBlock x:ConnectionId='16' Name="NameText" Text="Enter Name:"/>
+                    <TextBox x:ConnectionId='17'  Name="NameBox" Width="200" Height="50"/>
+                    <TextBlock x:ConnectionId='18' Name="SetsText" Text="Enter Sets:"/>
+                    <TextBox x:ConnectionId='19'  Name="SetsBox" Width="200" Height="50"/>
+                    <TextBlock x:ConnectionId='20' Name="TimeText" Text="Enter Time to complete:"/>
+                    <TextBox x:ConnectionId='21' Name="TimeBox" Width="200" Height="50"/>
+                    <Button x:ConnectionId='22' Name="SubmitBtn" Height="30" Width="100" Content="Submit"                        />
                 </StackPanel>
             </Grid>
         </Popup>
@@ -112,13 +111,13 @@
             </Popup.ChildTransitions>
             <Grid Width="380" Height="{Binding ElementName=flyoutPane, Path=Height}"  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" >
-                    <TextBlock x:ConnectionId='5' Name="NewNameText" Text="Enter Name:"/>
-                    <TextBox x:ConnectionId='6'  Name="NewNameBox" Width="200" Height="50"/>
-                    <TextBlock x:ConnectionId='7' Name="NewSetsText" Text="Enter Sets:"/>
-                    <TextBox x:ConnectionId='8'  Name="NewSetsBox" Width="200" Height="50"/>
-                    <TextBlock x:ConnectionId='9' Name="NewTimeText" Text="Enter Time to complete:"/>
-                    <TextBox x:ConnectionId='10' Name="NewTimeBox" Width="200" Height="50"/>
-                    <Button x:ConnectionId='11' Tag="{Binding Id}" Name="NewSubmitBtn" Height="30" Width="100" Content="Submit"                           />
+                    <TextBlock x:ConnectionId='9' Name="NewNameText" Text="Enter Name:"/>
+                    <TextBox x:ConnectionId='10'  Name="NewNameBox" Width="200" Height="50"/>
+                    <TextBlock x:ConnectionId='11' Name="NewSetsText" Text="Enter Sets:"/>
+                    <TextBox x:ConnectionId='12'  Name="NewSetsBox" Width="200" Height="50"/>
+                    <TextBlock x:ConnectionId='13' Name="NewTimeText" Text="Enter Time to complete:"/>
+                    <TextBox x:ConnectionId='14' Name="NewTimeBox" Width="200" Height="50"/>
+                    <Button x:ConnectionId='15' Tag="{Binding Id}" Name="NewSubmitBtn" Height="30" Width="100" Content="Submit"                           />
                 </StackPanel>
             </Grid>
         </Popup>
@@ -137,8 +136,27 @@
                 Grid.Row="0" 
                 Height="600"
                 VerticalScrollBarVisibility="Auto">
-                        <TextBlock x:ConnectionId='4' Name="InfoText" TextWrapping="Wrap"></TextBlock>
+                        <TextBlock x:ConnectionId='8' Name="InfoText" Style="{StaticResource DrillText}" TextWrapping="Wrap"></TextBlock>
                     </ScrollViewer>
+                </StackPanel>
+            </Grid>
+        </Popup>
+
+        <Popup x:ConnectionId='4' x:Name="delpup" IsOpen="False" IsLightDismissEnabled="True"  
+     Width="320" HorizontalAlignment="Left">
+            <Popup.ChildTransitions>
+                <TransitionCollection>
+                    <!--<EdgeUIThemeTransition Edge="Left" />-->
+                    <PaneThemeTransition Edge="Left" />
+                </TransitionCollection>
+            </Popup.ChildTransitions>
+            <Grid Width="380" Height="{Binding ElementName=flyoutPane, Path=Height}"  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" >
+                    <TextBlock x:ConnectionId='5' Name="DelText" Text="Are you sure you want to delete this drill?" Style="{StaticResource DrillText}" TextWrapping="Wrap"></TextBlock>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal"> 
+                        <Button x:ConnectionId='6' Name="YesBtn" Content="Yes"                      />
+                        <Button x:ConnectionId='7' Name="NoBtn" Content="No"                     />
+                    </StackPanel>
                 </StackPanel>
             </Grid>
         </Popup>

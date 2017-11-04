@@ -17,8 +17,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace UWPCombatApp.Views
 {
 
@@ -29,6 +27,7 @@ namespace UWPCombatApp.Views
         CombatTableView ctv = new CombatTableView();
         private ObservableCollection<DrillItem> _items;
         private ObservableCollection<DrillItem> _temp;
+        String id;
 
         public DisplayDrills()
         {
@@ -85,14 +84,10 @@ namespace UWPCombatApp.Views
             // Height is only important if we want the Popup sized to the screen 
             ppup.Height = Window.Current.Bounds.Height;
             ppup.IsOpen = true;
+            id = (((Button)sender).Tag).ToString();
         }
 
-        private void UpdateBtn_Click(object sender, RoutedEventArgs e)
-        {
-            // Height is only important if we want the Popup sized to the screen 
-            updateppup.Height = Window.Current.Bounds.Height;
-            updateppup.IsOpen = true;
-        }
+        
 
         public async void SubmitBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -129,16 +124,20 @@ namespace UWPCombatApp.Views
             }
         }
 
-        private async void DelButton_Click(object sender, RoutedEventArgs e)
+        // Delete button
+        private void DelButton_Click(object sender, RoutedEventArgs e)
         {
-            String drillId = (String)((Button)sender).Tag;
-            await ctv.combatDrillsTable.DeleteDrillAsync(drillId);
+            delpup.Height = Window.Current.Bounds.Height;
+            delpup.IsOpen = true;
+            id = (((Button)sender).Tag).ToString();
         }
 
+        //Update button
         private async void NewSubmitBtn_Click(object sender, RoutedEventArgs e)
         {
+            
+            
             String Name = NewNameBox.Text;
-            String id = (String)((Button)sender).Tag;
             int Sets;
             int Time;
             bool successfullyParsedTime = int.TryParse(NewSetsBox.Text, out Time);
@@ -153,8 +152,9 @@ namespace UWPCombatApp.Views
             {
                 Time = Int32.Parse(NewTimeBox.Text);
             }
-
-            await ctv.combatDrillsTable.UpdateDrill(id, Name, Sets, Time, catagory);
+            
+                await ctv.combatDrillsTable.UpdateDrill(id, Name, Sets, Time, catagory);
+            
             ppup.IsOpen = false;
             var addSuccess = new MessageDialog("Drill Updated");
             await addSuccess.ShowAsync();
@@ -183,6 +183,24 @@ namespace UWPCombatApp.Views
 
             infopup.Height = Window.Current.Bounds.Height;
             infopup.IsOpen = true;
+        }
+
+        private async void YesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            await ctv.combatDrillsTable.DeleteDrillAsync(id);
+        }
+
+        private void NoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            delpup.Height = Window.Current.Bounds.Height;
+            delpup.IsOpen = true;
+        }
+
+        private void UpdateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            updateppup.Height = Window.Current.Bounds.Height;
+            updateppup.IsOpen = true;
+            id = (((Button)sender).Tag).ToString();
         }
     }
 }
