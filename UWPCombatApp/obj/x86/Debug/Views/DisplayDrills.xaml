@@ -18,8 +18,8 @@
             <Setter Property="FontFamily" Value="Assets/Draconian.ttf#KG Draconian"></Setter>
         </Style>
     </Page.Resources>
-    
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="#c0392b">
 
         <StackPanel VerticalAlignment="Top" Margin="0,18,0,0" Grid.Row="0" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
 
@@ -30,14 +30,14 @@
                 <AppBarButton x:ConnectionId='28' Name="AddDrill" Icon="Add" Label="Add"                      />
                 <AppBarToggleButton x:ConnectionId='29' Name="Info" Icon="help" Label="Origins"                    />
                 <AppBarButton x:ConnectionId='30' Name="BackToMain" Icon="Back" Label="Back To Menu"                          />
-
+                <AppBarButton x:ConnectionId='31' Name="Minus" Icon="Delete" Label="Delete"                          />
             </CommandBar>
             <Image HorizontalAlignment="Left" Source="Assets/storeLogo-sdk.png" Stretch="None"/>
         </StackPanel >
         <StackPanel Margin="0,120,0,0">
-        <TextBlock x:ConnectionId='23' Name="loadTxt" Text="Loading drills...." Visibility="Visible" HorizontalAlignment="Center"/>
-        
-        <my:PullToRefreshListView x:ConnectionId='24'
+            <TextBlock x:ConnectionId='23' Name="loadTxt" Text="Loading drills...." Visibility="Visible" HorizontalAlignment="Center"/>
+
+            <my:PullToRefreshListView x:ConnectionId='24'
         x:Name="RefreshListView"
         MinWidth="200"
         Margin="24"
@@ -47,9 +47,9 @@
         OverscrollLimit="0.4"
         PullThreshold="100"
         IsPullToRefreshWithMouseEnabled="True">
-            <my:PullToRefreshListView.ItemTemplate >
-                <DataTemplate >
-                    <StackPanel Name="ListPanel">
+                <my:PullToRefreshListView.ItemTemplate >
+                    <DataTemplate >
+                        <StackPanel Name="ListPanel">
                             <TextBlock AutomationProperties.Name="IdTextBlock"
                  Style="{StaticResource CaptionTextBlockStyle}"
                  Text="{Binding Id}"
@@ -58,11 +58,11 @@
                  Style="{StaticResource CaptionTextBlockStyle}"
                  Text="{Binding Name}"
                  TextWrapping="WrapWholeWords"  />
-                        <TextBlock AutomationProperties.Name="{Binding Sets}"
+                            <TextBlock AutomationProperties.Name="{Binding Sets}"
                  Style="{StaticResource CaptionTextBlockStyle}"
                  Text="{Binding Sets}"
                  TextWrapping="WrapWholeWords"  />
-                        <TextBlock AutomationProperties.Name="{Binding SetTime}"
+                            <TextBlock AutomationProperties.Name="{Binding SetTime}"
                  Style="{StaticResource CaptionTextBlockStyle}"
                  Text="{Binding  SetTime}"
                  TextWrapping="WrapWholeWords"  />
@@ -71,14 +71,14 @@
                                 <Button x:ConnectionId='26' Tag="{Binding Id}" Content="Update"                          Style="{StaticResource DrillButtons}" ></Button>
                             </StackPanel>
                         </StackPanel>
-                </DataTemplate>
-            </my:PullToRefreshListView.ItemTemplate>
-            <my:PullToRefreshListView.PullToRefreshContent>
-                <TextBlock FontSize="16"
+                    </DataTemplate>
+                </my:PullToRefreshListView.ItemTemplate>
+                <my:PullToRefreshListView.PullToRefreshContent>
+                    <TextBlock FontSize="16"
                Opacity="0.5"
                Text="Pull down to refresh data" />
-            </my:PullToRefreshListView.PullToRefreshContent>
-        </my:PullToRefreshListView>
+                </my:PullToRefreshListView.PullToRefreshContent>
+            </my:PullToRefreshListView>
         </StackPanel>
         <Popup x:ConnectionId='1' x:Name="ppup" IsOpen="False" IsLightDismissEnabled="True"  
      Width="320" HorizontalAlignment="Center">
@@ -153,14 +153,13 @@
             <Grid Width="380" Height="{Binding ElementName=flyoutPane, Path=Height}"  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" >
                     <TextBlock x:ConnectionId='5' Name="DelText" Text="Are you sure you want to delete this drill?" Style="{StaticResource DrillText}" TextWrapping="Wrap"></TextBlock>
-                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal"> 
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                         <Button x:ConnectionId='6' Name="YesBtn" Content="Yes"                      />
                         <Button x:ConnectionId='7' Name="NoBtn" Content="No"                     />
                     </StackPanel>
                 </StackPanel>
             </Grid>
         </Popup>
-
     </Grid>
 </Page>
 

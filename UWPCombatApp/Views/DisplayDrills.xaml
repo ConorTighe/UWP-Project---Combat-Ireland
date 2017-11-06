@@ -18,8 +18,8 @@
             <Setter Property="FontFamily" Value="Assets/Draconian.ttf#KG Draconian"></Setter>
         </Style>
     </Page.Resources>
-    
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="#c0392b">
 
         <StackPanel VerticalAlignment="Top" Margin="0,18,0,0" Grid.Row="0" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
 
@@ -30,14 +30,14 @@
                 <AppBarButton Name="AddDrill" Icon="Add" Label="Add" Click="AddBtn_Click" />
                 <AppBarToggleButton Name="Info" Icon="help" Label="Origins" Click="Info_Click" />
                 <AppBarButton Name="BackToMain" Icon="Back" Label="Back To Menu" Click="BackToMain_Click" />
-
+                <AppBarButton Name="Minus" Icon="Delete" Label="Delete" Click="BackToMain_Click" />
             </CommandBar>
             <Image HorizontalAlignment="Left" Source="Assets/storeLogo-sdk.png" Stretch="None"/>
         </StackPanel >
         <StackPanel Margin="0,120,0,0">
-        <TextBlock Name="loadTxt" Text="Loading drills...." Visibility="Visible" HorizontalAlignment="Center"/>
-        
-        <my:PullToRefreshListView
+            <TextBlock Name="loadTxt" Text="Loading drills...." Visibility="Visible" HorizontalAlignment="Center"/>
+
+            <my:PullToRefreshListView
         x:Name="RefreshListView"
         MinWidth="200"
         Margin="24"
@@ -47,9 +47,9 @@
         OverscrollLimit="0.4"
         PullThreshold="100"
         IsPullToRefreshWithMouseEnabled="True">
-            <my:PullToRefreshListView.ItemTemplate >
-                <DataTemplate >
-                    <StackPanel Name="ListPanel">
+                <my:PullToRefreshListView.ItemTemplate >
+                    <DataTemplate >
+                        <StackPanel Name="ListPanel">
                             <TextBlock AutomationProperties.Name="IdTextBlock"
                  Style="{StaticResource CaptionTextBlockStyle}"
                  Text="{Binding Id}"
@@ -58,11 +58,11 @@
                  Style="{StaticResource CaptionTextBlockStyle}"
                  Text="{Binding Name}"
                  TextWrapping="WrapWholeWords"  />
-                        <TextBlock AutomationProperties.Name="{Binding Sets}"
+                            <TextBlock AutomationProperties.Name="{Binding Sets}"
                  Style="{StaticResource CaptionTextBlockStyle}"
                  Text="{Binding Sets}"
                  TextWrapping="WrapWholeWords"  />
-                        <TextBlock AutomationProperties.Name="{Binding SetTime}"
+                            <TextBlock AutomationProperties.Name="{Binding SetTime}"
                  Style="{StaticResource CaptionTextBlockStyle}"
                  Text="{Binding  SetTime}"
                  TextWrapping="WrapWholeWords"  />
@@ -71,14 +71,14 @@
                                 <Button Tag="{Binding Id}" Content="Update" Click="UpdateBtn_Click"  Style="{StaticResource DrillButtons}" ></Button>
                             </StackPanel>
                         </StackPanel>
-                </DataTemplate>
-            </my:PullToRefreshListView.ItemTemplate>
-            <my:PullToRefreshListView.PullToRefreshContent>
-                <TextBlock FontSize="16"
+                    </DataTemplate>
+                </my:PullToRefreshListView.ItemTemplate>
+                <my:PullToRefreshListView.PullToRefreshContent>
+                    <TextBlock FontSize="16"
                Opacity="0.5"
                Text="Pull down to refresh data" />
-            </my:PullToRefreshListView.PullToRefreshContent>
-        </my:PullToRefreshListView>
+                </my:PullToRefreshListView.PullToRefreshContent>
+            </my:PullToRefreshListView>
         </StackPanel>
         <Popup x:Name="ppup" IsOpen="False" IsLightDismissEnabled="True"  
      Width="320" HorizontalAlignment="Center">
@@ -153,13 +153,12 @@
             <Grid Width="380" Height="{Binding ElementName=flyoutPane, Path=Height}"  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" >
                     <TextBlock Name="DelText" Text="Are you sure you want to delete this drill?" Style="{StaticResource DrillText}" TextWrapping="Wrap"></TextBlock>
-                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal"> 
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                         <Button Name="YesBtn" Content="Yes" Click="YesBtn_Click" />
                         <Button Name="NoBtn" Content="No" Click="NoBtn_Click" />
                     </StackPanel>
                 </StackPanel>
             </Grid>
         </Popup>
-
     </Grid>
 </Page>

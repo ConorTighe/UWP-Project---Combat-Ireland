@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -66,7 +67,7 @@ namespace UWPCombatApp.Views
             loadTxt.Visibility = Visibility.Collapsed;
         }
 
-        private async Task ListView_RefreshCommand(object sender, EventArgs e)
+        private async void ListView_RefreshCommand(object sender, EventArgs e)
         {
             loadTxt.Visibility = Visibility.Visible;
             _items = ctv.combatDrillsTable.GetDrills();
@@ -187,20 +188,22 @@ namespace UWPCombatApp.Views
 
         private async void YesBtn_Click(object sender, RoutedEventArgs e)
         {
+            Console.WriteLine("id: " + id);
             await ctv.combatDrillsTable.DeleteDrillAsync(id);
+            var addSuccess = new MessageDialog("Drill Deleted");
+            await addSuccess.ShowAsync();
+
         }
 
         private void NoBtn_Click(object sender, RoutedEventArgs e)
         {
-            delpup.Height = Window.Current.Bounds.Height;
-            delpup.IsOpen = true;
+            delpup.IsOpen = false;
         }
 
         private void UpdateBtn_Click(object sender, RoutedEventArgs e)
         {
             updateppup.Height = Window.Current.Bounds.Height;
             updateppup.IsOpen = true;
-            id = (((Button)sender).Tag).ToString();
         }
     }
 }

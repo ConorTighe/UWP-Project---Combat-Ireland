@@ -56,15 +56,6 @@ namespace Model
             drills.Add(drillItem);
         }
 
-        public async void GetById(DrillItem d, string n)
-        {
-            IMobileServiceTableQuery<DrillItem> query = drillTable.Where(drillItem => drillItem.Id == n)
-                .Select(drillItem => drillItem);
-            List<DrillItem> items = await query.ToListAsync();
-            Console.WriteLine(items);
-            d = items.First();
-        }
-
         public async Task InitLocalStoreAsync()
         {
             if (!App.MobileService.SyncContext.IsInitialized)
@@ -94,18 +85,16 @@ namespace Model
             {
                 await new MessageDialog(exception.Message, "Error loading items").ShowAsync();
             }
-            else
-            {
-                // code here
-            }
+            
 
         }
 
-        public async Task DeleteDrillAsync(String id)
+        public async Task DeleteDrillAsync(string id)
         {
+            Console.WriteLine(id);
             MobileServiceInvalidOperationException exception = null;
             DrillItem d = new DrillItem();
-            GetById(d, id);
+            d.Id = id;
             try {
                 await drillTable.DeleteAsync(d);
             }
