@@ -51,8 +51,28 @@ namespace UWPCombatApp
             },
             new AdaptItem
             {
-                Image = "ms-appx:///Assets/bing.png",
+                Image = "ms-appx:///Assets/b6.png",
+                Title = "b6"
+            },
+            new AdaptItem
+            {
+                Image = "ms-appx:///Assets/b7.png",
+                Title = "b7"
+            },
+            new AdaptItem
+            {
+                Image = "ms-appx:///Assets/b8.png",
+                Title = "b8"
+            },
+            new AdaptItem
+            {
+                Image = "ms-appx:///Assets/gyms.png",
                 Title = "map"
+            },
+            new AdaptItem
+            {
+                Image = "ms-appx:///Assets/news.png",
+                Title = "new"
             }
         };
 

@@ -175,6 +175,21 @@ namespace UWPCombatApp.Views
                 text = System.IO.File.ReadAllText(@"Info/Boxing.txt");
                 InfoText.Text = text;
             }
+            else if (catagory == "TKD")
+            {
+                text = System.IO.File.ReadAllText(@"Info/TKD.txt");
+                InfoText.Text = text;
+            }
+            else if (catagory == "Kickboxing")
+            {
+                text = System.IO.File.ReadAllText(@"Info/Kickboxing.txt");
+                InfoText.Text = text;
+            }
+            else if (catagory == "MuayThai")
+            {
+                text = System.IO.File.ReadAllText(@"Info/MuayThai.txt");
+                InfoText.Text = text;
+            }
             else
             {
                 InfoText.Text = "Error Loading Text";

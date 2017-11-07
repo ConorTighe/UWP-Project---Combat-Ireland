@@ -30,14 +30,13 @@
                 <AppBarButton Name="AddDrill" Icon="Add" Label="Add" Click="AddBtn_Click" />
                 <AppBarToggleButton Name="Info" Icon="help" Label="Origins" Click="Info_Click" />
                 <AppBarButton Name="BackToMain" Icon="Back" Label="Back To Menu" Click="BackToMain_Click" />
-                <AppBarButton Name="Minus" Icon="Delete" Label="Delete" Click="BackToMain_Click" />
             </CommandBar>
             <Image HorizontalAlignment="Left" Source="Assets/storeLogo-sdk.png" Stretch="None"/>
         </StackPanel >
         <StackPanel Margin="0,120,0,0">
-            <TextBlock Name="loadTxt" Text="Loading drills...." Visibility="Visible" HorizontalAlignment="Center"/>
-
-            <my:PullToRefreshListView
+        <TextBlock Name="loadTxt" Text="Loading drills...." Visibility="Visible" HorizontalAlignment="Center"/>
+        
+        <my:PullToRefreshListView
         x:Name="RefreshListView"
         MinWidth="200"
         Margin="24"
@@ -47,38 +46,52 @@
         OverscrollLimit="0.4"
         PullThreshold="100"
         IsPullToRefreshWithMouseEnabled="True">
-                <my:PullToRefreshListView.ItemTemplate >
-                    <DataTemplate >
+            <my:PullToRefreshListView.ItemTemplate >
+                <DataTemplate >
                         <StackPanel Name="ListPanel">
-                            <TextBlock AutomationProperties.Name="IdTextBlock"
+                            <StackPanel Orientation="Horizontal">
+                            <TextBlock AutomationProperties.Name="Name"
                  Style="{StaticResource CaptionTextBlockStyle}"
-                 Text="{Binding Id}"
+                 Text="Name: "
                  TextWrapping="WrapWholeWords"  />
-                            <TextBlock AutomationProperties.Name="{Binding Name}"
+                                <TextBlock AutomationProperties.Name="{Binding Name}"
                  Style="{StaticResource CaptionTextBlockStyle}"
                  Text="{Binding Name}"
                  TextWrapping="WrapWholeWords"  />
-                            <TextBlock AutomationProperties.Name="{Binding Sets}"
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock AutomationProperties.Name="Sets"
+                 Style="{StaticResource CaptionTextBlockStyle}"
+                 Text="Sets: "
+                 TextWrapping="WrapWholeWords"  />
+                                <TextBlock AutomationProperties.Name="{Binding Sets}"
                  Style="{StaticResource CaptionTextBlockStyle}"
                  Text="{Binding Sets}"
                  TextWrapping="WrapWholeWords"  />
-                            <TextBlock AutomationProperties.Name="{Binding SetTime}"
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock AutomationProperties.Name="SetsTime"
+                 Style="{StaticResource CaptionTextBlockStyle}"
+                 Text="Set Time: "
+                 TextWrapping="WrapWholeWords"  />
+                                <TextBlock AutomationProperties.Name="{Binding SetTime}"
                  Style="{StaticResource CaptionTextBlockStyle}"
                  Text="{Binding  SetTime}"
                  TextWrapping="WrapWholeWords"  />
+                            </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <Button Tag="{Binding Id}" Content="Delete" Click="DelButton_Click" Style="{StaticResource DrillButtons}" ></Button>
                                 <Button Tag="{Binding Id}" Content="Update" Click="UpdateBtn_Click"  Style="{StaticResource DrillButtons}" ></Button>
                             </StackPanel>
                         </StackPanel>
-                    </DataTemplate>
-                </my:PullToRefreshListView.ItemTemplate>
-                <my:PullToRefreshListView.PullToRefreshContent>
-                    <TextBlock FontSize="16"
+                </DataTemplate>
+            </my:PullToRefreshListView.ItemTemplate>
+            <my:PullToRefreshListView.PullToRefreshContent>
+                <TextBlock FontSize="16"
                Opacity="0.5"
                Text="Pull down to refresh data" />
-                </my:PullToRefreshListView.PullToRefreshContent>
-            </my:PullToRefreshListView>
+            </my:PullToRefreshListView.PullToRefreshContent>
+        </my:PullToRefreshListView>
         </StackPanel>
         <Popup x:Name="ppup" IsOpen="False" IsLightDismissEnabled="True"  
      Width="320" HorizontalAlignment="Center">

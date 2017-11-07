@@ -38,6 +38,7 @@
                                    OneRowModeEnabled="False"
                                    ItemHeight="200"
                                    DesiredWidth="200"
+                                   Margin="35,0,0,0"
                                    SelectionMode="Single"
                                    IsItemClickEnabled="True"
                                    VerticalAlignment="Bottom"

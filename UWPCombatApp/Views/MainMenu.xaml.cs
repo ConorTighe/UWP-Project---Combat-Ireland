@@ -56,11 +56,53 @@ namespace UWPCombatApp.Views
                
                 MainPage.MyFrame.Navigate(typeof(DisplayDrills), catagory);
             }
-            if ((e.ClickedItem as AdaptItem).Title == "b2")
+            else if ((e.ClickedItem as AdaptItem).Title == "b2")
             {
 
                 catagory = "Karate";
                
+                MainPage.MyFrame.Navigate(typeof(DisplayDrills), catagory);
+            }
+            else if ((e.ClickedItem as AdaptItem).Title == "b3")
+            {
+
+                catagory = "TKD";
+
+                MainPage.MyFrame.Navigate(typeof(DisplayDrills), catagory);
+            }
+            else if ((e.ClickedItem as AdaptItem).Title == "b4")
+            {
+
+                catagory = "Kickboxing";
+
+                MainPage.MyFrame.Navigate(typeof(DisplayDrills), catagory);
+            }
+            else if ((e.ClickedItem as AdaptItem).Title == "b5")
+            {
+
+                catagory = "MuayThai";
+
+                MainPage.MyFrame.Navigate(typeof(DisplayDrills), catagory);
+            }
+            else if ((e.ClickedItem as AdaptItem).Title == "b6")
+            {
+
+                catagory = "BJJ";
+
+                MainPage.MyFrame.Navigate(typeof(DisplayDrills), catagory);
+            }
+            else if ((e.ClickedItem as AdaptItem).Title == "b7")
+            {
+
+                catagory = "Judo";
+
+                MainPage.MyFrame.Navigate(typeof(DisplayDrills), catagory);
+            }
+            else if ((e.ClickedItem as AdaptItem).Title == "b8")
+            {
+
+                catagory = "MMA";
+
                 MainPage.MyFrame.Navigate(typeof(DisplayDrills), catagory);
             }
             if ((e.ClickedItem as AdaptItem).Title == "map")

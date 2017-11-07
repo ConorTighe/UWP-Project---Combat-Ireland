@@ -185,6 +185,7 @@
       <RootProperty Name="OneRowModeEnabled" />
       <RootProperty Name="ItemHeight" />
       <RootProperty Name="DesiredWidth" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="SelectionMode" />
       <RootProperty Name="IsItemClickEnabled" />
       <RootProperty Name="VerticalAlignment" />
