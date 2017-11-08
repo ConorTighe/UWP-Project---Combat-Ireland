@@ -156,7 +156,7 @@ namespace UWPCombatApp.UWPCombatApp_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[22];
+            _typeNameTable = new string[23];
             _typeNameTable[0] = "UWPCombatApp.GymLocator";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
@@ -179,8 +179,9 @@ namespace UWPCombatApp.UWPCombatApp_XamlTypeInfo
             _typeNameTable[19] = "Windows.UI.Xaml.Controls.ItemsPanelTemplate";
             _typeNameTable[20] = "UWPCombatApp.Views.MainMenu";
             _typeNameTable[21] = "UWPCombatApp.MainPage";
+            _typeNameTable[22] = "UWPCombatApp.Views.NewsMenu";
 
-            _typeTable = new global::System.Type[22];
+            _typeTable = new global::System.Type[23];
             _typeTable[0] = typeof(global::UWPCombatApp.GymLocator);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
@@ -203,6 +204,7 @@ namespace UWPCombatApp.UWPCombatApp_XamlTypeInfo
             _typeTable[19] = typeof(global::Windows.UI.Xaml.Controls.ItemsPanelTemplate);
             _typeTable[20] = typeof(global::UWPCombatApp.Views.MainMenu);
             _typeTable[21] = typeof(global::UWPCombatApp.MainPage);
+            _typeTable[22] = typeof(global::UWPCombatApp.Views.NewsMenu);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -245,6 +247,7 @@ namespace UWPCombatApp.UWPCombatApp_XamlTypeInfo
         private object Activate_17_AdaptiveGridView() { return new global::Microsoft.Toolkit.Uwp.UI.Controls.AdaptiveGridView(); }
         private object Activate_20_MainMenu() { return new global::UWPCombatApp.Views.MainMenu(); }
         private object Activate_21_MainPage() { return new global::UWPCombatApp.MainPage(); }
+        private object Activate_22_NewsMenu() { return new global::UWPCombatApp.Views.NewsMenu(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -390,6 +393,13 @@ namespace UWPCombatApp.UWPCombatApp_XamlTypeInfo
             case 21:   //  UWPCombatApp.MainPage
                 userType = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_21_MainPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 22:   //  UWPCombatApp.Views.NewsMenu
+                userType = new global::UWPCombatApp.UWPCombatApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_22_NewsMenu;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

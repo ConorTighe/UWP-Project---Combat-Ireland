@@ -73,6 +73,6 @@ namespace UWPCombatApp
             Debug.WriteLine(ex.Message);
             Debug.WriteLine(ex.StackTrace);
         }
-    }
+       }
     }
 }

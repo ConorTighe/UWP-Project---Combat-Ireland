@@ -53,14 +53,14 @@ namespace UWPCombatApp.Views
             if ((e.ClickedItem as AdaptItem).Title == "b1")
             {
                 catagory = "Boxing";
-               
+
                 MainPage.MyFrame.Navigate(typeof(DisplayDrills), catagory);
             }
             else if ((e.ClickedItem as AdaptItem).Title == "b2")
             {
 
                 catagory = "Karate";
-               
+
                 MainPage.MyFrame.Navigate(typeof(DisplayDrills), catagory);
             }
             else if ((e.ClickedItem as AdaptItem).Title == "b3")
@@ -105,17 +105,30 @@ namespace UWPCombatApp.Views
 
                 MainPage.MyFrame.Navigate(typeof(DisplayDrills), catagory);
             }
-            if ((e.ClickedItem as AdaptItem).Title == "map")
+            else if ((e.ClickedItem as AdaptItem).Title == "map")
             {
-            try { 
-                MainPage.MyFrame.Navigate(typeof(MapMenu));
-            }
+                try
+                {
+                    MainPage.MyFrame.Navigate(typeof(MapMenu));
+                }
                 catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-                Debug.WriteLine(ex.StackTrace);
+                {
+                    Debug.WriteLine(ex.Message);
+                    Debug.WriteLine(ex.StackTrace);
+                }
             }
-        }
+            else if ((e.ClickedItem as AdaptItem).Title == "news")
+            {
+                try
+                {
+                    MainPage.MyFrame.Navigate(typeof(NewsMenu));
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                    Debug.WriteLine(ex.StackTrace);
+                }
+            }
 
         }
 
