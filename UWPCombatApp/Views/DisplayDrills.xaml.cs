@@ -85,7 +85,6 @@ namespace UWPCombatApp.Views
             // Height is only important if we want the Popup sized to the screen 
             ppup.Height = Window.Current.Bounds.Height;
             ppup.IsOpen = true;
-            id = (((Button)sender).Tag).ToString();
         }
 
         
@@ -188,6 +187,21 @@ namespace UWPCombatApp.Views
             else if (catagory == "MuayThai")
             {
                 text = System.IO.File.ReadAllText(@"Info/MuayThai.txt");
+                InfoText.Text = text;
+            }
+            else if (catagory == "BJJ")
+            {
+                text = System.IO.File.ReadAllText(@"Info/BJJ.txt");
+                InfoText.Text = text;
+            }
+            else if (catagory == "Judo")
+            {
+                text = System.IO.File.ReadAllText(@"Info/Judo.txt");
+                InfoText.Text = text;
+            }
+            else if (catagory == "MMA")
+            {
+                text = System.IO.File.ReadAllText(@"Info/MMA.txt");
                 InfoText.Text = text;
             }
             else

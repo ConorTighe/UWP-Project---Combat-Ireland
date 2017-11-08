@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-11-08T12:10:27.040</Modified>
+      <Modified>2017-11-08T23:41:09.685</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\UWPCombatApp.exe">
       <PackagePath>entrypoint\UWPCombatApp.exe</PackagePath>
-      <Modified>2017-11-08T12:10:25.421</Modified>
+      <Modified>2017-11-08T23:41:07.448</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\.nuget\packages\microsoft.azure.mobile\0.16.0\lib\uap10.0\Microsoft.Azure.Mobile.dll">
       <PackagePath>Microsoft.Azure.Mobile.dll</PackagePath>
@@ -797,9 +797,17 @@
       <PackagePath>Assets\Draconian.ttf</PackagePath>
       <Modified>2017-11-03T18:17:29.065</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Info\BJJ.txt">
+      <PackagePath>Info\BJJ.txt</PackagePath>
+      <Modified>2017-11-08T23:20:40.287</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Info\Boxing.txt">
       <PackagePath>Info\Boxing.txt</PackagePath>
       <Modified>2017-11-02T21:35:05.978</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Info\Judo.txt">
+      <PackagePath>Info\Judo.txt</PackagePath>
+      <Modified>2017-11-08T23:24:04.041</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Info\Karate.txt">
       <PackagePath>Info\Karate.txt</PackagePath>
@@ -808,6 +816,10 @@
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Info\Kickboxing.txt">
       <PackagePath>Info\Kickboxing.txt</PackagePath>
       <Modified>2017-11-06T14:12:13.676</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Info\MMA.txt">
+      <PackagePath>Info\MMA.txt</PackagePath>
+      <Modified>2017-11-08T23:26:20.913</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Info\MuayThai.txt">
       <PackagePath>Info\MuayThai.txt</PackagePath>
@@ -952,11 +964,11 @@
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-11-08T12:06:40.926</Modified>
+      <Modified>2017-11-08T23:27:42.698</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\Core\UWPCombatApp.exe">
       <PackagePath>UWPCombatApp.exe</PackagePath>
-      <Modified>2017-11-08T12:10:27.023</Modified>
+      <Modified>2017-11-08T23:41:09.681</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

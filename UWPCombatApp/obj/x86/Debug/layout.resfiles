@@ -21,9 +21,12 @@ Assets\Square44x44Logo.targetsize-24_altform-unplated.png
 Assets\StoreLogo.png
 Assets\Wide310x150Logo.scale-200.png
 UWPCombatApp.xr.xml
+Info\BJJ.txt
 Info\Boxing.txt
+Info\Judo.txt
 Info\Karate.txt
 Info\Kickboxing.txt
+Info\MMA.txt
 Info\MuayThai.txt
 Info\TKD.txt
 Properties\Default.rd.xml

@@ -142,9 +142,12 @@
     <Content Include="Assets\gyms.png" />
     <Content Include="Assets\IrishCombat.png" />
     <Content Include="Assets\news.png" />
+    <Content Include="Info\BJJ.txt" />
     <Content Include="Info\Boxing.txt" />
+    <Content Include="Info\Judo.txt" />
     <Content Include="Info\Karate.txt" />
     <Content Include="Info\Kickboxing.txt" />
+    <Content Include="Info\MMA.txt" />
     <Content Include="Info\MuayThai.txt" />
     <Content Include="Info\TKD.txt" />
     <Content Include="Properties\Default.rd.xml" />

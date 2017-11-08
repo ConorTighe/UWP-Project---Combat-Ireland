@@ -598,14 +598,23 @@
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Assets\Draconian.ttf">
       <PackagePath>Assets\Draconian.ttf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Info\BJJ.txt">
+      <PackagePath>Info\BJJ.txt</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Info\Boxing.txt">
       <PackagePath>Info\Boxing.txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Info\Judo.txt">
+      <PackagePath>Info\Judo.txt</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Info\Karate.txt">
       <PackagePath>Info\Karate.txt</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Info\Kickboxing.txt">
       <PackagePath>Info\Kickboxing.txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Info\MMA.txt">
+      <PackagePath>Info\MMA.txt</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Info\MuayThai.txt">
       <PackagePath>Info\MuayThai.txt</PackagePath>
