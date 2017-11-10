@@ -16,6 +16,13 @@
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Stretch"
                          ></Maps:MapControl>
+        <CommandBar x:ConnectionId='2' x:Name="cmdbar" 
+                                    IsOpen="{Binding IsChecked, ElementName=isopentoggle, Mode=TwoWay}"
+                                    IsSticky="{Binding IsChecked, ElementName=isstickytoggle, Mode=TwoWay}"
+                                    ClosedDisplayMode="{Binding SelectedItem.Content, ElementName=combobox}">
+            <AppBarButton x:ConnectionId='3' Name="back" Icon="Back"  Label="Back to menu"                   />
+
+        </CommandBar>
     </Grid>
 </Page>
 

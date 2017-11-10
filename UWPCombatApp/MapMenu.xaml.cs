@@ -61,18 +61,75 @@ namespace UWPCombatApp
         try { 
             double lat;
             double lng;
-            if (String.ReferenceEquals(((Button)sender).Tag, "b1"))
+            if (String.ReferenceEquals(((Button)sender).Tag, "PointBlank"))
             {
-                lat = 53.2931;
-                lng = -9.0133;
+                    lat = 53.2931;
+                    lng = -9.0133;
                 GymLocate(lat, lng);
             }
-        }
+            else if(String.ReferenceEquals(((Button)sender).Tag, "ShaolinMMA"))
+            {
+                    lat = 53.2864;
+                    lng = -9.0384;
+                    GymLocate(lat, lng);
+            }
+            else if (String.ReferenceEquals(((Button)sender).Tag, "KarateGalway"))
+            {
+                    lat = 53.2759;
+                    lng = -9.0711;
+                    GymLocate(lat, lng);
+            }
+            else if (String.ReferenceEquals(((Button)sender).Tag, "GalwayBoxingGym"))
+            {
+                    lat = 53.2779;
+                    lng = -9.0774;
+                    GymLocate(lat, lng);
+            }
+            else if (String.ReferenceEquals(((Button)sender).Tag, "Takwondo"))
+            {
+                    lat = 53.2758;
+                    lng = -9.0163;
+                    GymLocate(lat, lng);
+            }
+            else if (String.ReferenceEquals(((Button)sender).Tag, "galwayjudo"))
+            {
+                    lat = 53.2691;
+                    lng = -9.0561;
+                    GymLocate(lat, lng);
+            }
+            else if (String.ReferenceEquals(((Button)sender).Tag, "blackdragon"))
+            {
+                    lat = 53.2825;
+                    lng = -9.0431;
+                    GymLocate(lat, lng);
+            }
+            else if (String.ReferenceEquals(((Button)sender).Tag, "BJJLK"))
+            {
+                    lat = 54.9425;
+                    lng = -7.7400;
+                    GymLocate(lat, lng);
+            }
+            else if (String.ReferenceEquals(((Button)sender).Tag, "SGB"))
+            {
+                    lat = 53.3274;
+                    lng = -6.3381;
+                    GymLocate(lat, lng);
+            }
+            }
         catch(Exception ex)
         {
             Debug.WriteLine(ex.Message);
             Debug.WriteLine(ex.StackTrace);
         }
        }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigate back
+            if (MainPage.MyFrame.CanGoBack)
+            {
+                MainPage.MyFrame.GoBack();
+            }
+        }
     }
 }

@@ -26,48 +26,33 @@ namespace UWPCombatApp
         {
             new NewsItem
             {
-                Image = "ms-appx:///Assets/b1.png",
-                Link = "Reddit"
+                Image = "ms-appx:///Assets/n1.png",
+                Link = "https://www.fighter.ie/categories"
             },
             new NewsItem
             {
-                Image = "ms-appx:///Assets/b2.png",
-                Link = "MMAfighting"
+                Image = "ms-appx:///Assets/n2.png",
+                Link = "https://www.mmafighting.com/"
             },
             new NewsItem
             {
-                Image = "ms-appx:///Assets/b3.png",
-                Link = "MMAjunkie"
+                Image = "ms-appx:///Assets/n3.png",
+                Link = "http://mmajunkie.com/"
             },
             new NewsItem
             {
-                Image = "ms-appx:///Assets/b4.png",
-                Link = "b4"
+                Image = "ms-appx:///Assets/n4.png",
+                Link = "https://www.mmamania.com/latest-news"
             },
             new NewsItem
             {
-                Image = "ms-appx:///Assets/b5.png",
-                Link = "b5"
+                Image = "ms-appx:///Assets/n5.png",
+                Link = "http://www.the42.ie/combat-sports/news/"
             },
             new NewsItem
             {
-                Image = "ms-appx:///Assets/b6.png",
-                Link = "b6"
-            },
-            new NewsItem
-            {
-                Image = "ms-appx:///Assets/b7.png",
-                Link = "b7"
-            },
-            new NewsItem
-            {
-                Image = "ms-appx:///Assets/b8.png",
-                Link = "b8"
-            },
-            new NewsItem
-            {
-                Image = "ms-appx:///Assets/gyms.png",
-                Link = "map"
+                Image = "ms-appx:///Assets/n6.png",
+                Link = "https://www.reddit.com/r/MMA/"
             }
         };
 

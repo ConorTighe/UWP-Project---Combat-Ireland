@@ -8,7 +8,17 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="#c0392b">
+        <StackPanel VerticalAlignment="Top"  Margin="0,18,0,0" Grid.Row="0" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
+            <CommandBar x:Name="cmdbar" 
+                                    IsOpen="{Binding IsChecked, ElementName=isopentoggle, Mode=TwoWay}"
+                                    IsSticky="{Binding IsChecked, ElementName=isstickytoggle, Mode=TwoWay}"
+                                    ClosedDisplayMode="{Binding SelectedItem.Content, ElementName=combobox}">
+                <AppBarButton Name="Back" Icon="Back"  Label="back" Click="Back_Click"/>
+
+            </CommandBar>
+            <Image Source="ms-appx:///Assets/newslogo.png" Height="400" Width="auto" Stretch="Fill" ></Image>
+        </StackPanel>
         <Border Margin="0">
             <controls:Carousel x:Name="NewsCarouselControl"
                   InvertPositive="True"
@@ -17,6 +27,7 @@
                   ItemRotationX="0"
                   ItemRotationY="45"
                   ItemRotationZ ="0"
+                  Margin="0,470,0,0"
                   Orientation="Horizontal"
                   SelectedIndex="4">
                 <controls:Carousel.EasingFunction>

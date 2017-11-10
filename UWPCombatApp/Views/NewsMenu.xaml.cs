@@ -51,8 +51,8 @@ namespace UWPCombatApp.Views
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            String link;
-            if (String.ReferenceEquals(((Button)sender).Tag, "Reddit"))
+            String link = (String)((Button)sender).Tag;
+            if (String.ReferenceEquals(link, null))
             {
                 link = "https://www.reddit.com/r/MMA/";
                 var uri = new Uri(link);
@@ -69,6 +69,32 @@ namespace UWPCombatApp.Views
                     var linkFail = new MessageDialog("Couldnt open link");
                     await linkFail.ShowAsync();
                 }
+            }
+            else
+            {
+                var uri = new Uri(link);
+
+                var success = await Windows.System.Launcher.LaunchUriAsync(uri);
+
+                if (success)
+                {
+                    var linkSuccess = new MessageDialog("News source opened in new browser window");
+                    await linkSuccess.ShowAsync();
+                }
+                else
+                {
+                    var linkFail = new MessageDialog("Couldnt open link");
+                    await linkFail.ShowAsync();
+                }
+            }
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigate back
+            if (MainPage.MyFrame.CanGoBack)
+            {
+                MainPage.MyFrame.GoBack();
             }
         }
     }

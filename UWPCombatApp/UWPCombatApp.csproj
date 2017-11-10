@@ -129,6 +129,7 @@
     <Content Include="Assets\b6.png" />
     <Content Include="Assets\b7.png" />
     <Content Include="Assets\b8.png" />
+    <Content Include="Assets\bdk.jpg" />
     <Content Include="Assets\Draconian.ttf" />
     <None Include="UWPCombatApp_TemporaryKey.pfx" />
   </ItemGroup>
@@ -139,9 +140,26 @@
     <Content Include="Assets\b4.png" />
     <Content Include="Assets\b5.png" />
     <Content Include="Assets\bing.png" />
+    <Content Include="Assets\galwayjudo.png" />
+    <Content Include="Assets\gboxing.jpg" />
+    <Content Include="Assets\gymicon.png" />
     <Content Include="Assets\gyms.png" />
+    <Content Include="Assets\gymslogo.png" />
     <Content Include="Assets\IrishCombat.png" />
+    <Content Include="Assets\karate.jpg" />
+    <Content Include="Assets\n1.png" />
+    <Content Include="Assets\n2.png" />
+    <Content Include="Assets\n3.png" />
+    <Content Include="Assets\n4.png" />
+    <Content Include="Assets\n5.png" />
+    <Content Include="Assets\n6.png" />
     <Content Include="Assets\news.png" />
+    <Content Include="Assets\newslogo.png" />
+    <Content Include="Assets\pointblack.jpg" />
+    <Content Include="Assets\rgj.jpg" />
+    <Content Include="Assets\sgb.png" />
+    <Content Include="Assets\shamma.jpg" />
+    <Content Include="Assets\tkdg.jpg" />
     <Content Include="Info\BJJ.txt" />
     <Content Include="Info\Boxing.txt" />
     <Content Include="Info\Judo.txt" />

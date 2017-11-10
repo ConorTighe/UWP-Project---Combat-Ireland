@@ -41,7 +41,7 @@ namespace UWPCombatApp
             //Create Icon and Add text to map
             MapIcon mapIcon = new MapIcon();
             mapIcon.Location = location;
-            mapIcon.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/b1.png"));
+            mapIcon.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/gymicon.png"));
             myMap.MapElements.Add(mapIcon);
         }
 
@@ -90,6 +90,15 @@ namespace UWPCombatApp
             myMap.ZoomLevel = 12;
             myMap.Center = position;
 
+        }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            // Navigate back
+            if (MainPage.MyFrame.CanGoBack)
+            {
+                MainPage.MyFrame.GoBack();
+            }
         }
     }
 }
