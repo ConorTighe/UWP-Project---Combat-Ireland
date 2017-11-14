@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace UWPCombatApp
 {
+    // News item for filling the news menu
     class NewsItem
     {
         public String Image

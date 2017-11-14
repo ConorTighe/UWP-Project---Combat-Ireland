@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace UWPCombatApp
 {
+    // This item fills the gym menu
     class GymsItem
     {
         public String Image

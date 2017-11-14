@@ -26,12 +26,10 @@ namespace UWPCombatApp
 {
     public sealed partial class MainPage : Page
     {
-       
-        
-        CombatDrillsTable drillTableCntr = new CombatDrillsTable();
+        // Frame used for navigating the app and its pages
         public static Frame MyFrame;
 
-
+        // Contruct first page and load up the frames
         public MainPage()
         {
             this.InitializeComponent();
@@ -39,6 +37,7 @@ namespace UWPCombatApp
             MyFrame = myFrame;
         }
 
+        // For navigating when loaded
         private void MainMenu_Loaded(object sender, RoutedEventArgs e)
         {
             this.myFrame.Navigate(typeof(MainMenu));

@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>3C1914492BB8E80B30B61A14DF62DB6142F3CC758E7600A0B62578AF044E91D0</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>E29E2276426C91ECF1972283274B03A652F54BA0CC98E0056E3D74B129826923</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>8514042c-4f47-460a-a719-32923143e3ba_1.0.0.0_x86__3qmeb09ys68p0</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>8514042c-4f47-460a-a719-32923143e3ba_3qmeb09ys68p0!App</RegisteredUserModeAppID>
     <RegisteredPackageID>8514042c-4f47-460a-a719-32923143e3ba</RegisteredPackageID>
@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-11-10T20:16:54.908</Modified>
+      <Modified>2017-11-14T23:10:06.673</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\UWPCombatApp.exe">
       <PackagePath>entrypoint\UWPCombatApp.exe</PackagePath>
-      <Modified>2017-11-10T20:16:53.390</Modified>
+      <Modified>2017-11-14T23:10:05.205</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\.nuget\packages\microsoft.azure.mobile\0.16.0\lib\uap10.0\Microsoft.Azure.Mobile.dll">
       <PackagePath>Microsoft.Azure.Mobile.dll</PackagePath>
@@ -743,10 +743,6 @@
       <PackagePath>Assets\b5.png</PackagePath>
       <Modified>2017-11-07T01:31:46.882</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Assets\bing.png">
-      <PackagePath>Assets\bing.png</PackagePath>
-      <Modified>2017-10-25T11:23:25.834</Modified>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Assets\galwayjudo.png">
       <PackagePath>Assets\galwayjudo.png</PackagePath>
       <Modified>2017-11-10T10:44:55.541</Modified>
@@ -765,7 +761,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Assets\IrishCombat.png">
       <PackagePath>Assets\IrishCombat.png</PackagePath>
-      <Modified>2017-11-03T20:15:45.771</Modified>
+      <Modified>2017-11-14T19:55:58.198</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Assets\n1.png">
       <PackagePath>Assets\n1.png</PackagePath>
@@ -865,6 +861,10 @@
       <PackagePath>Assets\tkdg.jpg</PackagePath>
       <Modified>2017-11-10T10:41:53.680</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Assets\uwpbg.jpg">
+      <PackagePath>Assets\uwpbg.jpg</PackagePath>
+      <Modified>2017-11-14T19:42:45.099</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\Assets\Draconian.ttf">
       <PackagePath>Assets\Draconian.ttf</PackagePath>
       <Modified>2017-11-03T18:17:29.065</Modified>
@@ -907,7 +907,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\UWPCombatApp.xr.xml">
       <PackagePath>UWPCombatApp.xr.xml</PackagePath>
-      <Modified>2017-11-10T20:16:53.170</Modified>
+      <Modified>2017-11-14T22:45:54.272</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.15063.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -1036,11 +1036,11 @@
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-11-10T20:16:53.932</Modified>
+      <Modified>2017-11-14T22:45:54.979</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\bin\x86\Debug\Core\UWPCombatApp.exe">
       <PackagePath>UWPCombatApp.exe</PackagePath>
-      <Modified>2017-11-10T20:16:54.905</Modified>
+      <Modified>2017-11-14T23:10:06.667</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

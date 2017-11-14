@@ -15,47 +15,54 @@ using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 
 namespace Model
 {
+    /* This class is where all the interaction with the azure easy table takes place */
     class CombatDrillsTable
     {
-        private MobileServiceCollection<DrillItem, DrillItem> drills;
-        private IMobileServiceSyncTable<DrillItem> drillTable = App.MobileService.GetSyncTable<DrillItem>();
+       // Create a local mobile collection for storing results and a SyncSericeTable object for inetacting with Azure
+       private MobileServiceCollection<DrillItem, DrillItem> drills;
+       private IMobileServiceSyncTable<DrillItem> drillTable = App.MobileService.GetSyncTable<DrillItem>();
 
-        public CombatDrillsTable()
-        {
+        //Construct page
+       public CombatDrillsTable()
+       {
             Initialization = InitializeAsync();
-        }
+       }
 
-        public Task Initialization { get; private set; }
+       // Get initilized task
+       public Task Initialization { get; private set; }
 
        private async Task InitializeAsync()
         {
             // Asynchronously initialize this instance.
             await InitLocalStoreAsync();
-            
         }
 
+        // Sync up service
         private async Task SyncAsync()
         {
             await App.MobileService.SyncContext.PushAsync();
             await drillTable.PullAsync("drillItem", drillTable.CreateQuery());
         }
 
+        // Get drills
         public MobileServiceCollection<DrillItem, DrillItem> GetDrills()
         {
             return this.drills;
         }
 
-        public async Task AddDrill(DrillItem drillItem, String n, int s, int t, string sty)
+        // Add drill to database
+        public async Task AddDrill(DrillItem drillItem, String n, int s, int t, string sty, string use)
         {
             drillItem.Name = n;
             drillItem.Sets = s;
             drillItem.SetTime = t;
             drillItem.Style = sty;
-
+            drillItem.Use = use;
             await App.MobileService.GetTable<DrillItem>().InsertAsync(drillItem);
             drills.Add(drillItem);
         }
 
+        // Initilize local storage
         public async Task InitLocalStoreAsync()
         {
             if (!App.MobileService.SyncContext.IsInitialized)
@@ -68,6 +75,7 @@ namespace Model
             await SyncAsync();
         }
 
+        // Get drills by style
         public async Task GetDrillsAsync(String cat)
         {
             await InitLocalStoreAsync();
@@ -89,6 +97,7 @@ namespace Model
 
         }
 
+        // Delete drill from database
         public async Task DeleteDrillAsync(string id)
         {
             Console.WriteLine(id);
@@ -109,7 +118,8 @@ namespace Model
             }
         }
 
-        public async Task UpdateDrill( String Id, String n, int s, int t, string sty)
+        // Update drill in database
+        public async Task UpdateDrill( String Id, String n, int s, int t, string sty, string use)
         {
             DrillItem drillItem = new DrillItem();
             drillItem.Id = Id;
@@ -117,6 +127,7 @@ namespace Model
             drillItem.Sets = s;
             drillItem.SetTime = t;
             drillItem.Style = sty;
+            drillItem.Use = use;
             await App.MobileService.GetTable<DrillItem>().UpdateAsync(drillItem);
         }
 

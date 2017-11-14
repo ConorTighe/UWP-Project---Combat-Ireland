@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace UWPCombatApp
 {
+    // Drill item for interacting with the database
     class DrillItem
     {
         public string Id { get; set; }
@@ -22,6 +23,9 @@ namespace UWPCombatApp
 
         [JsonProperty(PropertyName = "style")]
         public string Style { get; set; }
+
+        [JsonProperty(PropertyName = "use")]
+        public string Use { get; set; }
 
     }
 }

@@ -80,6 +80,16 @@
                  TextWrapping="WrapWholeWords"  />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
+                                <TextBlock AutomationProperties.Name="Uses"
+                 Style="{StaticResource CaptionTextBlockStyle}"
+                 Text="Uses: "
+                 TextWrapping="WrapWholeWords"  />
+                                <TextBlock AutomationProperties.Name="{Binding Use}"
+                 Style="{StaticResource CaptionTextBlockStyle}"
+                 Text="{Binding  Use}"
+                 TextWrapping="WrapWholeWords"  />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
                                 <Button Tag="{Binding Id}" Content="Delete" Click="DelButton_Click" Style="{StaticResource DrillButtons}" ></Button>
                                 <Button Tag="{Binding Id}" Content="Update" Click="UpdateBtn_Click"  Style="{StaticResource DrillButtons}" ></Button>
                             </StackPanel>
@@ -109,6 +119,12 @@
                     <TextBox  Name="SetsBox" Width="200" Height="50"/>
                     <TextBlock Name="TimeText" Text="Enter Time to complete:"/>
                     <TextBox Name="TimeBox" Width="200" Height="50"/>
+                    <ComboBox x:Name="UseCombo" Header="Uses:" Height="75" Width="200" 
+                    DisplayMemberPath="Source" PlaceholderText="Uses..">
+                        <ComboBoxItem Content="Heavy Bag"/>
+                        <ComboBoxItem Content="Speed Bag"/>
+                        <ComboBoxItem Content="Sparing Partner"/>
+                    </ComboBox>
                     <Button Name="SubmitBtn" Height="30" Width="100" Content="Submit" Click="SubmitBtn_Click"/>
                 </StackPanel>
             </Grid>
@@ -130,6 +146,12 @@
                     <TextBox  Name="NewSetsBox" Width="200" Height="50"/>
                     <TextBlock Name="NewTimeText" Text="Enter Time to complete:"/>
                     <TextBox Name="NewTimeBox" Width="200" Height="50"/>
+                    <ComboBox x:Name="NewUseCombo" Header="Uses:" Height="75" Width="200" 
+           DisplayMemberPath="Source" PlaceholderText="Uses...">
+                        <ComboBoxItem Content="Heavy Bag"/>
+                        <ComboBoxItem Content="Speed Bag"/>
+                        <ComboBoxItem Content="Sparing Partner"/>
+                    </ComboBox>
                     <Button Tag="{Binding Id}" Name="NewSubmitBtn" Height="30" Width="100" Content="Submit" Click="NewSubmitBtn_Click"/>
                 </StackPanel>
             </Grid>

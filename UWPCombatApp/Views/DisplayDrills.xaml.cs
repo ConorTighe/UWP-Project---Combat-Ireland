@@ -23,37 +23,54 @@ namespace UWPCombatApp.Views
 
     public sealed partial class DisplayDrills : Page
     {
-
+        // Variables 
         String catagory;
         CombatTableView ctv = new CombatTableView();
         private ObservableCollection<DrillItem> _items;
         private ObservableCollection<DrillItem> _temp;
         String id;
 
+        // Construct class, Init component and populate the list
         public DisplayDrills()
         {
             this.InitializeComponent();
             _items = new ObservableCollection<DrillItem>();
-            
         }
 
+        /* When the page is navigated to collect value sent in parameters(this is the fighting style)
+         * Then initilize the table for the drills, create local storage and sync up the drills
+           Then add the items to the refresh list source, Error handling in catch too */
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
             catagory = (String)e.Parameter;
-            
-            await ctv.combatDrillsTable.Initialization;
-            await ctv.combatDrillsTable.InitLocalStoreAsync();
-            await AddItemsAsync();
+            try
+            {
+                await ctv.combatDrillsTable.Initialization;
+                await ctv.combatDrillsTable.InitLocalStoreAsync();
+                await AddItemsAsync();
+            }
+            catch
+            {
+                var addError = new MessageDialog("Connection to your drills could not be established at this time, returning to" +
+                    "main menu");
+                await addError.ShowAsync();
+                if (MainPage.MyFrame.CanGoBack)
+                {
+                    MainPage.MyFrame.GoBack();
+                }
+            }
             RefreshListView.ItemsSource = _items;
         }
 
+        // Get most updated drills
         private async Task updateDrillsAsync() { 
 
             await ctv.combatDrillsTable.GetDrillsAsync(catagory);
         }
 
+        // Get drills to database and insert them in list
         private async Task AddItemsAsync()
         {
             await updateDrillsAsync();
@@ -67,6 +84,7 @@ namespace UWPCombatApp.Views
             loadTxt.Visibility = Visibility.Collapsed;
         }
 
+        // Get drills and update list when user pulls list down
         private async void ListView_RefreshCommand(object sender, EventArgs e)
         {
             loadTxt.Visibility = Visibility.Visible;
@@ -79,20 +97,19 @@ namespace UWPCombatApp.Views
         {
         }
 
-
+        // Popup window for adding new drills
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            // Height is only important if we want the Popup sized to the screen 
             ppup.Height = Window.Current.Bounds.Height;
             ppup.IsOpen = true;
         }
 
-        
-
+        // Add a new drill to database
         public async void SubmitBtn_Click(object sender, RoutedEventArgs e)
         {
             DrillItem drillItem = new DrillItem();
             String Name = NameBox.Text;
+            String Use = (String)UseCombo.SelectionBoxItem;
             int Sets;
             int Time;
             bool successfullyParsedTime = int.TryParse(SetsBox.Text, out Time);
@@ -108,23 +125,23 @@ namespace UWPCombatApp.Views
                 Time = Int32.Parse(TimeBox.Text);
             }
             
-                await ctv.combatDrillsTable.AddDrill(drillItem, Name, Sets, Time, catagory);
+                await ctv.combatDrillsTable.AddDrill(drillItem, Name, Sets, Time, catagory, Use);
                 ppup.IsOpen = false;
                 var addSuccess = new MessageDialog("Drill added to database");
                 await addSuccess.ShowAsync();
            
         }
 
+        // Go back to main menu
         private void BackToMain_Click(object sender, RoutedEventArgs e)
         {
-            // Navigate back
             if (MainPage.MyFrame.CanGoBack)
             {
                 MainPage.MyFrame.GoBack();
             }
         }
 
-        // Delete button
+        // Open delete popup and retrieve id of item to be deleted
         private void DelButton_Click(object sender, RoutedEventArgs e)
         {
             delpup.Height = Window.Current.Bounds.Height;
@@ -132,12 +149,11 @@ namespace UWPCombatApp.Views
             id = (((Button)sender).Tag).ToString();
         }
 
-        //Update button
+        // Update item with values entered
         private async void NewSubmitBtn_Click(object sender, RoutedEventArgs e)
         {
-            
-            
             String Name = NewNameBox.Text;
+            String Use = NewUseCombo.SelectionBoxItem.ToString();
             int Sets;
             int Time;
             bool successfullyParsedTime = int.TryParse(NewSetsBox.Text, out Time);
@@ -153,7 +169,7 @@ namespace UWPCombatApp.Views
                 Time = Int32.Parse(NewTimeBox.Text);
             }
             
-                await ctv.combatDrillsTable.UpdateDrill(id, Name, Sets, Time, catagory);
+                await ctv.combatDrillsTable.UpdateDrill(id, Name, Sets, Time, catagory, Use);
             
             ppup.IsOpen = false;
             var addSuccess = new MessageDialog("Drill Updated");
@@ -161,6 +177,7 @@ namespace UWPCombatApp.Views
 
         }
 
+        // Display info in provided text files
         private void Info_Click(object sender, RoutedEventArgs e)
         {
             string text;
@@ -215,6 +232,7 @@ namespace UWPCombatApp.Views
             infopup.IsOpen = true;
         }
 
+        // Delete this item
         private async void YesBtn_Click(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("id: " + id);
@@ -224,15 +242,18 @@ namespace UWPCombatApp.Views
 
         }
 
+        // Cancel delete
         private void NoBtn_Click(object sender, RoutedEventArgs e)
         {
             delpup.IsOpen = false;
         }
 
+        // Update item popup
         private void UpdateBtn_Click(object sender, RoutedEventArgs e)
         {
             updateppup.Height = Window.Current.Bounds.Height;
             updateppup.IsOpen = true;
+            id = (((Button)sender).Tag).ToString();
         }
     }
 }

@@ -15,7 +15,6 @@
             </Grid>
         </DataTemplate>
     </Page.Resources>
-
     <Grid Background="#c0392b">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

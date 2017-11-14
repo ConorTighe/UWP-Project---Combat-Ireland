@@ -21,20 +21,20 @@ using Windows.Storage.Streams;
 
 namespace UWPCombatApp
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+
     public sealed partial class GymLocator : Page
     {
         //Used to interact with the applications map
         public MapController mapControls = new MapController();
         public int indexPosition = 1;
 
+        // Construct and init this page
         public GymLocator()
         {
             this.InitializeComponent();
         }
 
+        // Add a icon tot he map to show the user where the gym is
         private void addIconToLocation(Geopoint location)
         {
 
@@ -45,6 +45,8 @@ namespace UWPCombatApp
             myMap.MapElements.Add(mapIcon);
         }
 
+        /* Create a yellow line along the roads on bing maps to guide the user to there
+         * selected location, handle any error if route cant be found on map */
         private async void ShowRouteOnMap(Geopoint startPoint, Geopoint endPoint)
         {
             //Creates the coloured trail to guide the user using there GPS
@@ -73,6 +75,9 @@ namespace UWPCombatApp
             }
         }
 
+        /* On navigation create a new geopoint object with the values passed from the previous page. Add this new geopoint to the map
+         * and get the location of the userss device. zoom in to there location ans then create the route, ajust screen so the map 
+         * displays the user, the route and the gym */
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             Geopoint Destination = (Geopoint)e.Parameter;
@@ -92,6 +97,7 @@ namespace UWPCombatApp
 
         }
 
+        // Go back a page
         private void back_Click(object sender, RoutedEventArgs e)
         {
             // Navigate back

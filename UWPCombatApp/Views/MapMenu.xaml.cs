@@ -16,17 +16,16 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace UWPCombatApp
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+
     public sealed partial class MapMenu : Page
     {
+        // List to store the gym items in
         private ObservableCollection<GymsItem> gymItems_;
 
+        // gym items Get and Set
         private ObservableCollection<GymsItem> gymItems
         {
             get
@@ -40,8 +39,10 @@ namespace UWPCombatApp
 
         }
 
+        // internal Get and Set
         internal ObservableCollection<GymsItem> GymItems_ { get => gymItems_; set => gymItems_ = value; }
 
+        // Construct the page and add the gym items to the casourol menu
         public MapMenu()
         {
             this.InitializeComponent();
@@ -49,6 +50,8 @@ namespace UWPCombatApp
             CarouselControl.ItemsSource = GymItems_;
         }
 
+        /* Locate the gym by passing the geopoint class the lat and long and then create a geopoint that we will use
+         * when we navigate to the map */
         private void GymLocate(double Lat, double Long)
         {
             BasicGeoposition GymPos = new BasicGeoposition() { Latitude = Lat, Longitude = Long };
@@ -56,6 +59,7 @@ namespace UWPCombatApp
             MainPage.MyFrame.Navigate(typeof(GymLocator), GymPosition);
         }
 
+        // When the user selects a gym we will assign the lat and long of that gym and pass it to out map GymLocate method
         private void Button_Click(object sender, RoutedEventArgs e)
         {
         try { 
@@ -116,13 +120,14 @@ namespace UWPCombatApp
                     GymLocate(lat, lng);
             }
             }
-        catch(Exception ex)
-        {
+            catch(Exception ex)
+            {
             Debug.WriteLine(ex.Message);
             Debug.WriteLine(ex.StackTrace);
+            }
         }
-       }
 
+        // Go back to main
         private void back_Click(object sender, RoutedEventArgs e)
         {
             // Navigate back

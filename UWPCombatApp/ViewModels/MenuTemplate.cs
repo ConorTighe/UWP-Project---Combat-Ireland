@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace UWPCombatApp
 {
+    // This is the item that fills the main menu
     public class AdaptItem
     {
         public String Image

@@ -25,8 +25,10 @@ namespace UWPCombatApp.Views
     /// </summary>
     public sealed partial class NewsMenu : Page
     {
+        // List for news items
         private ObservableCollection<NewsItem> newsItems_;
 
+        // News Get and Set
         private ObservableCollection<NewsItem> newsItems
         {
             get
@@ -40,8 +42,10 @@ namespace UWPCombatApp.Views
 
         }
 
+        // Internal Get and Set
         internal ObservableCollection<NewsItem> NewsItems_ { get => newsItems_; set => newsItems_ = value; }
 
+        //Contruct page and add news items to menu
         public NewsMenu()
         {
             this.InitializeComponent();
@@ -49,6 +53,7 @@ namespace UWPCombatApp.Views
             NewsCarouselControl.ItemsSource = NewsItems_;
         }
 
+        // When the user clicks on an option this opens there choice in there default browser
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             String link = (String)((Button)sender).Tag;

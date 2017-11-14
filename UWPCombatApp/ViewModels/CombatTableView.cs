@@ -9,6 +9,7 @@ namespace UWPCombatApp.ViewModels
 {
     class CombatTableView
     {
+        // This is the getter and setter of the model
         public CombatDrillsTable combatDrillsTable { get; set; }
 
         public CombatTableView()

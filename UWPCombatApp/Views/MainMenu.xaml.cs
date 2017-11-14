@@ -15,17 +15,15 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace UWPCombatApp.Views
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+    
     public sealed partial class MainMenu : Page
     {
+        // list for storing the items
         public ObservableCollection<AdaptItem> picItems_;
 
+        // Get and Set list
         private ObservableCollection<AdaptItem> PicItems
         {
             get
@@ -39,6 +37,7 @@ namespace UWPCombatApp.Views
 
         }
 
+        // Main Menu Contructor where I bind the data items to the adaptive list
         public MainMenu()
         {
             this.InitializeComponent();
@@ -47,6 +46,7 @@ namespace UWPCombatApp.Views
 
         }
 
+        // Handles when a user clicks on a item in the adaptive list to bring them to there chosen page
         public void AGVC_ItemClick(object sender, Windows.UI.Xaml.Controls.ItemClickEventArgs e)
         {
             String catagory;

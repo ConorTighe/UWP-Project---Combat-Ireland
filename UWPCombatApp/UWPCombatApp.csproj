@@ -95,15 +95,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GymLocator.xaml.cs">
+    <Compile Include="Views\GymLocator.xaml.cs">
       <DependentUpon>GymLocator.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GymsMenuTemplate.cs" />
-    <Compile Include="MapController.cs" />
-    <Compile Include="MapMenu.xaml.cs">
+    <Compile Include="ViewModels\GymsMenuTemplate.cs" />
+    <Compile Include="ViewModels\MapController.cs" />
+    <Compile Include="Views\MapMenu.xaml.cs">
       <DependentUpon>MapMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NewsTemplate.cs" />
+    <Compile Include="ViewModels\NewsTemplate.cs" />
     <Compile Include="ViewModels\DrillItem.cs" />
     <Compile Include="ViewModels\CombatTableView.cs" />
     <Compile Include="Views\DisplayDrills.xaml.cs">
@@ -115,7 +115,7 @@
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MenuTemplate.cs" />
+    <Compile Include="ViewModels\MenuTemplate.cs" />
     <Compile Include="Models\CombatDrillsTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\NewsMenu.xaml.cs">
@@ -139,7 +139,6 @@
     <Content Include="Assets\b3.png" />
     <Content Include="Assets\b4.png" />
     <Content Include="Assets\b5.png" />
-    <Content Include="Assets\bing.png" />
     <Content Include="Assets\galwayjudo.png" />
     <Content Include="Assets\gboxing.jpg" />
     <Content Include="Assets\gymicon.png" />
@@ -160,6 +159,7 @@
     <Content Include="Assets\sgb.png" />
     <Content Include="Assets\shamma.jpg" />
     <Content Include="Assets\tkdg.jpg" />
+    <Content Include="Assets\uwpbg.jpg" />
     <Content Include="Info\BJJ.txt" />
     <Content Include="Info\Boxing.txt" />
     <Content Include="Info\Judo.txt" />
@@ -182,11 +182,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="GymLocator.xaml">
+    <Page Include="Views\GymLocator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MapMenu.xaml">
+    <Page Include="Views\MapMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

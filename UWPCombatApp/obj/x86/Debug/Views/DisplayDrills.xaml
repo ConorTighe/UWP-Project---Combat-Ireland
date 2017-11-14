@@ -23,20 +23,20 @@
 
         <StackPanel VerticalAlignment="Top" Margin="0,18,0,0" Grid.Row="0" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
 
-            <CommandBar x:ConnectionId='27' x:Name="cmdbar" 
+            <CommandBar x:ConnectionId='29' x:Name="cmdbar" 
                 IsOpen="{Binding IsChecked, ElementName=isopentoggle, Mode=TwoWay}"
                 IsSticky="{Binding IsChecked, ElementName=isstickytoggle, Mode=TwoWay}"
                 ClosedDisplayMode="{Binding SelectedItem.Content, ElementName=combobox}">
-                <AppBarButton x:ConnectionId='28' Name="AddDrill" Icon="Add" Label="Add"                      />
-                <AppBarToggleButton x:ConnectionId='29' Name="Info" Icon="help" Label="Origins"                    />
-                <AppBarButton x:ConnectionId='30' Name="BackToMain" Icon="Back" Label="Back To Menu"                          />
+                <AppBarButton x:ConnectionId='30' Name="AddDrill" Icon="Add" Label="Add"                      />
+                <AppBarToggleButton x:ConnectionId='31' Name="Info" Icon="help" Label="Origins"                    />
+                <AppBarButton x:ConnectionId='32' Name="BackToMain" Icon="Back" Label="Back To Menu"                          />
             </CommandBar>
             <Image HorizontalAlignment="Left" Source="Assets/storeLogo-sdk.png" Stretch="None"/>
         </StackPanel >
         <StackPanel Margin="0,120,0,0">
-        <TextBlock x:ConnectionId='23' Name="loadTxt" Text="Loading drills...." Visibility="Visible" HorizontalAlignment="Center"/>
+        <TextBlock x:ConnectionId='25' Name="loadTxt" Text="Loading drills...." Visibility="Visible" HorizontalAlignment="Center"/>
         
-        <my:PullToRefreshListView x:ConnectionId='24'
+        <my:PullToRefreshListView x:ConnectionId='26'
         x:Name="RefreshListView"
         MinWidth="200"
         Margin="24"
@@ -80,8 +80,18 @@
                  TextWrapping="WrapWholeWords"  />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <Button x:ConnectionId='25' Tag="{Binding Id}" Content="Delete"                         Style="{StaticResource DrillButtons}" ></Button>
-                                <Button x:ConnectionId='26' Tag="{Binding Id}" Content="Update"                          Style="{StaticResource DrillButtons}" ></Button>
+                                <TextBlock AutomationProperties.Name="Uses"
+                 Style="{StaticResource CaptionTextBlockStyle}"
+                 Text="Uses: "
+                 TextWrapping="WrapWholeWords"  />
+                                <TextBlock AutomationProperties.Name="{Binding Use}"
+                 Style="{StaticResource CaptionTextBlockStyle}"
+                 Text="{Binding  Use}"
+                 TextWrapping="WrapWholeWords"  />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:ConnectionId='27' Tag="{Binding Id}" Content="Delete"                         Style="{StaticResource DrillButtons}" ></Button>
+                                <Button x:ConnectionId='28' Tag="{Binding Id}" Content="Update"                          Style="{StaticResource DrillButtons}" ></Button>
                             </StackPanel>
                         </StackPanel>
                 </DataTemplate>
@@ -103,13 +113,19 @@
             </Popup.ChildTransitions>
             <Grid Width="380" Height="{Binding ElementName=flyoutPane, Path=Height}"  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" >
-                    <TextBlock x:ConnectionId='16' Name="NameText" Text="Enter Name:"/>
-                    <TextBox x:ConnectionId='17'  Name="NameBox" Width="200" Height="50"/>
-                    <TextBlock x:ConnectionId='18' Name="SetsText" Text="Enter Sets:"/>
-                    <TextBox x:ConnectionId='19'  Name="SetsBox" Width="200" Height="50"/>
-                    <TextBlock x:ConnectionId='20' Name="TimeText" Text="Enter Time to complete:"/>
-                    <TextBox x:ConnectionId='21' Name="TimeBox" Width="200" Height="50"/>
-                    <Button x:ConnectionId='22' Name="SubmitBtn" Height="30" Width="100" Content="Submit"                        />
+                    <TextBlock x:ConnectionId='17' Name="NameText" Text="Enter Name:"/>
+                    <TextBox x:ConnectionId='18'  Name="NameBox" Width="200" Height="50"/>
+                    <TextBlock x:ConnectionId='19' Name="SetsText" Text="Enter Sets:"/>
+                    <TextBox x:ConnectionId='20'  Name="SetsBox" Width="200" Height="50"/>
+                    <TextBlock x:ConnectionId='21' Name="TimeText" Text="Enter Time to complete:"/>
+                    <TextBox x:ConnectionId='22' Name="TimeBox" Width="200" Height="50"/>
+                    <ComboBox x:ConnectionId='23' x:Name="UseCombo" Header="Uses:" Height="75" Width="200" 
+                    DisplayMemberPath="Source" PlaceholderText="Uses..">
+                        <ComboBoxItem Content="Heavy Bag"/>
+                        <ComboBoxItem Content="Speed Bag"/>
+                        <ComboBoxItem Content="Sparing Partner"/>
+                    </ComboBox>
+                    <Button x:ConnectionId='24' Name="SubmitBtn" Height="30" Width="100" Content="Submit"                        />
                 </StackPanel>
             </Grid>
         </Popup>
@@ -130,7 +146,13 @@
                     <TextBox x:ConnectionId='12'  Name="NewSetsBox" Width="200" Height="50"/>
                     <TextBlock x:ConnectionId='13' Name="NewTimeText" Text="Enter Time to complete:"/>
                     <TextBox x:ConnectionId='14' Name="NewTimeBox" Width="200" Height="50"/>
-                    <Button x:ConnectionId='15' Tag="{Binding Id}" Name="NewSubmitBtn" Height="30" Width="100" Content="Submit"                           />
+                    <ComboBox x:ConnectionId='15' x:Name="NewUseCombo" Header="Uses:" Height="75" Width="200" 
+           DisplayMemberPath="Source" PlaceholderText="Uses...">
+                        <ComboBoxItem Content="Heavy Bag"/>
+                        <ComboBoxItem Content="Speed Bag"/>
+                        <ComboBoxItem Content="Sparing Partner"/>
+                    </ComboBox>
+                    <Button x:ConnectionId='16' Tag="{Binding Id}" Name="NewSubmitBtn" Height="30" Width="100" Content="Submit"                           />
                 </StackPanel>
             </Grid>
         </Popup>

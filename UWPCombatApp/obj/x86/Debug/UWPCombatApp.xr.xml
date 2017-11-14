@@ -7,7 +7,9 @@
     <RootPropertyPathName Name="Title" />
     <RootPropertyPathName Name="Image" />
     <RootPropertyPathName Name="Height" />
+    <RootPropertyPathName Name="Source" />
     <RootPropertyPathName Name="Id" />
+    <RootPropertyPathName Name="Use" />
     <RootPropertyPathName Name="SetTime" />
     <RootPropertyPathName Name="Sets" />
     <RootPropertyPathName Name="Name" />
@@ -155,6 +157,17 @@
       <RootProperty Name="Name" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
+      <RootProperty Name="Header" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="DisplayMemberPath" />
+      <RootProperty Name="PlaceholderText" />
+      <RootProperty Name="Items" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBoxItem">
+      <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="Microsoft.Toolkit.Uwp.UI.Controls.PullToRefreshListView">
       <RootProperty Name="MinWidth" />
