@@ -1,1 +1,0 @@
-C:\Users\Conor\source\repos\UWPCombatApp\UWPCombatApp\UWPCombatApp.csproj;x86

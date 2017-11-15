@@ -12,6 +12,7 @@ namespace UWPCombatApp.ViewModels
         // This is the getter and setter of the model
         public CombatDrillsTable combatDrillsTable { get; set; }
 
+        // This will act as our ViewModel controller for the Model
         public CombatTableView()
         {
             this.combatDrillsTable = new CombatDrillsTable();

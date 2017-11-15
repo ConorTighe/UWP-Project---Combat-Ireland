@@ -85,16 +85,17 @@ namespace UWPCombatApp.Views
         }
 
         // Get drills and update list when user pulls list down
-        private async void ListView_RefreshCommand(object sender, EventArgs e)
+        private async Task ListView_RefreshCommand(object sender, EventArgs e)
         {
-            loadTxt.Visibility = Visibility.Visible;
+            // Get newest drills
             _items = ctv.combatDrillsTable.GetDrills();
-           await AddItemsAsync();
-            loadTxt.Visibility = Visibility.Collapsed;
-        }
+             await AddItemsAsync();
 
-        private void ListView_RefreshIntentCanceled(object sender, EventArgs e)
-        {
+            //Update list
+            foreach (DrillItem i in _items)
+            {
+                _items.Insert(0, i);
+            }
         }
 
         // Popup window for adding new drills
@@ -107,6 +108,7 @@ namespace UWPCombatApp.Views
         // Add a new drill to database
         public async void SubmitBtn_Click(object sender, RoutedEventArgs e)
         {
+            // Drill variables
             DrillItem drillItem = new DrillItem();
             String Name = NameBox.Text;
             String Use = (String)UseCombo.SelectionBoxItem;
@@ -115,6 +117,7 @@ namespace UWPCombatApp.Views
             bool successfullyParsedTime = int.TryParse(SetsBox.Text, out Time);
             bool successfullyParsedSets = int.TryParse(TimeBox.Text, out Sets);
 
+            // Check ints
             if (successfullyParsedSets)
             {
                 Sets = Int32.Parse(SetsBox.Text);
@@ -125,10 +128,13 @@ namespace UWPCombatApp.Views
                 Time = Int32.Parse(TimeBox.Text);
             }
             
-                await ctv.combatDrillsTable.AddDrill(drillItem, Name, Sets, Time, catagory, Use);
-                ppup.IsOpen = false;
-                var addSuccess = new MessageDialog("Drill added to database");
-                await addSuccess.ShowAsync();
+            // Call ViewModel controller to update Model
+            await ctv.combatDrillsTable.AddDrill(drillItem, Name, Sets, Time, catagory, Use);
+
+            // Clean up and notify user
+            ppup.IsOpen = false;
+            var addSuccess = new MessageDialog("Drill added to database");
+            await addSuccess.ShowAsync();
            
         }
 
@@ -152,6 +158,7 @@ namespace UWPCombatApp.Views
         // Update item with values entered
         private async void NewSubmitBtn_Click(object sender, RoutedEventArgs e)
         {
+            // Variables for update
             String Name = NewNameBox.Text;
             String Use = NewUseCombo.SelectionBoxItem.ToString();
             int Sets;
@@ -159,6 +166,7 @@ namespace UWPCombatApp.Views
             bool successfullyParsedTime = int.TryParse(NewSetsBox.Text, out Time);
             bool successfullyParsedSets = int.TryParse(NewTimeBox.Text, out Sets);
 
+            // Check ints
             if (successfullyParsedSets)
             {
                 Sets = Int32.Parse(NewSetsBox.Text);
@@ -168,9 +176,11 @@ namespace UWPCombatApp.Views
             {
                 Time = Int32.Parse(NewTimeBox.Text);
             }
-            
-                await ctv.combatDrillsTable.UpdateDrill(id, Name, Sets, Time, catagory, Use);
-            
+
+            // Call the db ViewModel controller to update the Model
+            await ctv.combatDrillsTable.UpdateDrill(id, Name, Sets, Time, catagory, Use);
+
+            // Clean up and notify user
             ppup.IsOpen = false;
             var addSuccess = new MessageDialog("Drill Updated");
             await addSuccess.ShowAsync();
@@ -180,6 +190,7 @@ namespace UWPCombatApp.Views
         // Display info in provided text files
         private void Info_Click(object sender, RoutedEventArgs e)
         {
+            // Set style for DisplayDrill Class
             string text;
             if (catagory == "Karate")
             {
@@ -226,8 +237,7 @@ namespace UWPCombatApp.Views
                 InfoText.Text = "Error Loading Text";
             }
             
-            
-
+            // Open popup
             infopup.Height = Window.Current.Bounds.Height;
             infopup.IsOpen = true;
         }
@@ -235,7 +245,7 @@ namespace UWPCombatApp.Views
         // Delete this item
         private async void YesBtn_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("id: " + id);
+            // Use ViewModel controler to remove id from Model
             await ctv.combatDrillsTable.DeleteDrillAsync(id);
             var addSuccess = new MessageDialog("Drill Deleted");
             await addSuccess.ShowAsync();

@@ -5,8 +5,10 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -132,5 +134,18 @@ namespace UWPCombatApp.Views
 
         }
 
+        private async void MoreInfo_Click(object sender, RoutedEventArgs e)
+        {
+            string link = "https://github.com/ConorTighe1995/UWP-Project---Combat-Ireland";
+            var uri = new Uri(link);
+
+            var success = await Windows.System.Launcher.LaunchUriAsync(uri);
+
+            if (success)
+            {
+                var linkSuccess = new MessageDialog("About page opened in new browser window");
+                await linkSuccess.ShowAsync();
+            }
+        }
     }
 }

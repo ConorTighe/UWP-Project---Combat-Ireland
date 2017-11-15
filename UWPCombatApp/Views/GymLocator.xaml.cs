@@ -80,6 +80,7 @@ namespace UWPCombatApp
          * displays the user, the route and the gym */
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
+            try { 
             Geopoint Destination = (Geopoint)e.Parameter;
             addIconToLocation(Destination);
             Geopoint myPoint = await mapControls.Position();
@@ -94,6 +95,18 @@ namespace UWPCombatApp
             MapControl.SetNormalizedAnchorPoint(marker, new Point(0.5, 0.5));
             myMap.ZoomLevel = 12;
             myMap.Center = position;
+            }
+            catch
+            {
+                // Handle the error of no map route
+                var message = new MessageDialog("Can't access your postition, try checking your settings and restarting the app");
+                await message.ShowAsync();
+                // Navigate back
+                if (MainPage.MyFrame.CanGoBack)
+                {
+                    MainPage.MyFrame.GoBack();
+                }
+            }
 
         }
 
@@ -106,5 +119,6 @@ namespace UWPCombatApp
                 MainPage.MyFrame.GoBack();
             }
         }
+
     }
 }

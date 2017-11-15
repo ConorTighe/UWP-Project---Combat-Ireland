@@ -25,8 +25,7 @@
                                     IsOpen="{Binding IsChecked, ElementName=isopentoggle, Mode=TwoWay}"
                                     IsSticky="{Binding IsChecked, ElementName=isstickytoggle, Mode=TwoWay}"
                                     ClosedDisplayMode="{Binding SelectedItem.Content, ElementName=combobox}">
-                <AppBarButton Name="MoreInfo" Icon="Help"  Label="Info"/>
-                <AppBarButton Name="MapInfo" Icon="Map"  Label="Map guide"/>
+                <AppBarButton Name="MoreInfo" Icon="ContactInfo"  Label="User Guide + Source Code" Click="MoreInfo_Click"/>
 
             </CommandBar>
             <Image Source="ms-appx:///Assets/IrishCombat.png" Height="400" Width="auto" Stretch="Fill" ></Image>

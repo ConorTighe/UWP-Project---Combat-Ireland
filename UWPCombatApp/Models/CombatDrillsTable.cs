@@ -22,7 +22,7 @@ namespace Model
        private MobileServiceCollection<DrillItem, DrillItem> drills;
        private IMobileServiceSyncTable<DrillItem> drillTable = App.MobileService.GetSyncTable<DrillItem>();
 
-        //Construct page
+       //Construct page
        public CombatDrillsTable()
        {
             Initialization = InitializeAsync();
@@ -93,8 +93,6 @@ namespace Model
             {
                 await new MessageDialog(exception.Message, "Error loading items").ShowAsync();
             }
-            
-
         }
 
         // Delete drill from database

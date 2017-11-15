@@ -102,6 +102,7 @@
                Text="Pull down to refresh data" />
             </my:PullToRefreshListView.PullToRefreshContent>
         </my:PullToRefreshListView>
+            
         </StackPanel>
         <Popup x:Name="ppup" IsOpen="False" IsLightDismissEnabled="True"  
      Width="320" HorizontalAlignment="Center">

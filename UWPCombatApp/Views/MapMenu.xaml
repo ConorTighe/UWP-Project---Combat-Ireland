@@ -14,8 +14,8 @@
                                     IsOpen="{Binding IsChecked, ElementName=isopentoggle, Mode=TwoWay}"
                                     IsSticky="{Binding IsChecked, ElementName=isstickytoggle, Mode=TwoWay}"
                                     ClosedDisplayMode="{Binding SelectedItem.Content, ElementName=combobox}">
+                <AppBarButton Name="MapInfo" Icon="Map"  Label="Map guide" Click="MapInfo_Click"/>
                 <AppBarButton Name="back" Icon="Back"  Label="Back to menu" Click="back_Click"/>
-
             </CommandBar>
             <Image Source="ms-appx:///Assets/gymslogo.png" Height="400" Width="auto" Stretch="Fill" ></Image>
         </StackPanel>
