@@ -30,7 +30,7 @@
             </CommandBar>
             <Image Source="ms-appx:///Assets/IrishCombat.png" Height="400" Width="auto" Stretch="Fill" ></Image>
         </StackPanel>
-        
+
         <Controls:AdaptiveGridView Grid.Row="1" 
                                    Name="AGVC"
                                    OneRowModeEnabled="False"
@@ -42,7 +42,7 @@
                                    VerticalAlignment="Bottom"
                                    ItemClick="AGVC_ItemClick"
                                    ItemTemplate="{StaticResource MenuTemplate}" HorizontalAlignment="Left" />
-        
+
 
     </Grid>
 </Page>

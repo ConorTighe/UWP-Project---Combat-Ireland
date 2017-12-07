@@ -8,7 +8,7 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
-    <Grid Background="#c0392b">
+    <Grid Background="#f05046">
         <StackPanel VerticalAlignment="Top"  Margin="0,18,0,0" Grid.Row="0" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
             <CommandBar x:Name="cmdbar" 
                                     IsOpen="{Binding IsChecked, ElementName=isopentoggle, Mode=TwoWay}"

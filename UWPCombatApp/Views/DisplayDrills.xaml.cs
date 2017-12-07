@@ -17,6 +17,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Notifications;
+using Microsoft.Toolkit.Uwp.Notifications;
 
 namespace UWPCombatApp.Views
 {
@@ -53,7 +55,7 @@ namespace UWPCombatApp.Views
             }
             catch
             {
-                var addError = new MessageDialog("Connection to your drills could not be established at this time, returning to" +
+                var addError = new MessageDialog("Connection to your drills could not be established at this time, returning to " +
                     "main menu");
                 await addError.ShowAsync();
                 if (MainPage.MyFrame.CanGoBack)
@@ -85,17 +87,9 @@ namespace UWPCombatApp.Views
         }
 
         // Get drills and update list when user pulls list down
-        private async Task ListView_RefreshCommand(object sender, EventArgs e)
+        private void ListView_RefreshCommand(object sender, EventArgs e)
         {
-            // Get newest drills
-            _items = ctv.combatDrillsTable.GetDrills();
-             await AddItemsAsync();
-
-            //Update list
-            foreach (DrillItem i in _items)
-            {
-                _items.Insert(0, i);
-            }
+            MainPage.MyFrame.Navigate(typeof(DisplayDrills), catagory);
         }
 
         // Popup window for adding new drills
@@ -113,28 +107,90 @@ namespace UWPCombatApp.Views
             String Name = NameBox.Text;
             String Use = (String)UseCombo.SelectionBoxItem;
             int Sets;
-            int Time;
-            bool successfullyParsedTime = int.TryParse(SetsBox.Text, out Time);
-            bool successfullyParsedSets = int.TryParse(TimeBox.Text, out Sets);
+            int Time = TimeBox.Time.Minutes;
+            int hours = TimeBox.Time.Hours;
+            int i = 0;
+
+            while(i <= hours)
+            {
+                Time = Time + 60;
+                i += 1;
+            }
+            bool successfullyParsedSets = int.TryParse(SetsBox.Text, out Sets);
 
             // Check ints
             if (successfullyParsedSets)
             {
                 Sets = Int32.Parse(SetsBox.Text);
-                
             }
-            if (successfullyParsedTime)
-            {
-                Time = Int32.Parse(TimeBox.Text);
-            }
-            
-            // Call ViewModel controller to update Model
-            await ctv.combatDrillsTable.AddDrill(drillItem, Name, Sets, Time, catagory, Use);
 
+            try
+            {
+                // Call ViewModel controller to add to the Model
+                await ctv.combatDrillsTable.AddDrill(drillItem, Name, Sets, Time, catagory, Use);
+                ToastContent content = new ToastContent()
+                {
+                    Visual = new ToastVisual()
+                    {
+                    BindingGeneric = new ToastBindingGeneric()
+                    {
+                        Children =
+                    {
+                    new AdaptiveText()
+                    {
+                        Text = Name + " added to " + catagory,
+                        HintStyle = AdaptiveTextStyle.Body
+                    },
+
+                    new AdaptiveText()
+                    {
+                        Text = "Refresh the page to see updates!",
+                        HintWrap = true,
+                        HintStyle = AdaptiveTextStyle.CaptionSubtle
+                    }
+                    }
+                    }
+                }
+                };
+
+                // Show custom Toast
+                var notifier = ToastNotificationManager.CreateToastNotifier();
+                notifier.Show(new ToastNotification(content.GetXml()));
+            }
+            catch
+            {
+                ToastContent content = new ToastContent()
+                {
+                    Visual = new ToastVisual()
+                    {
+                        BindingGeneric = new ToastBindingGeneric()
+                        {
+                            Children =
+                    {
+                    new AdaptiveText()
+                    {
+                        Text = Name + " Failed to be added into " + catagory,
+                        HintStyle = AdaptiveTextStyle.Body
+                    },
+
+                    new AdaptiveText()
+                    {
+                        Text = "Try checking your connection or trying later!",
+                        HintWrap = true,
+                        HintStyle = AdaptiveTextStyle.CaptionSubtle
+                    }
+                    }
+                        }
+                    }
+                };
+
+                // Show custom Toast
+                var notifier = ToastNotificationManager.CreateToastNotifier();
+                notifier.Show(new ToastNotification(content.GetXml()));
+
+            }
             // Clean up and notify user
             ppup.IsOpen = false;
-            var addSuccess = new MessageDialog("Drill added to database");
-            await addSuccess.ShowAsync();
            
         }
 
@@ -163,27 +219,137 @@ namespace UWPCombatApp.Views
             String Use = NewUseCombo.SelectionBoxItem.ToString();
             int Sets;
             int Time;
-            bool successfullyParsedTime = int.TryParse(NewSetsBox.Text, out Time);
-            bool successfullyParsedSets = int.TryParse(NewTimeBox.Text, out Sets);
-
+            bool successfullyParsedTime = int.TryParse(NewTimeBox.Time.ToString(), out Time);
+            bool successfullyParsedSets = int.TryParse(NewSetsBox.Text, out Sets);
+            bool cancle = false;
             // Check ints
             if (successfullyParsedSets)
             {
                 Sets = Int32.Parse(NewSetsBox.Text);
 
             }
+            else
+            {
+                cancle = true;
+            }
             if (successfullyParsedTime)
             {
-                Time = Int32.Parse(NewTimeBox.Text);
+                Time = Int32.Parse(NewTimeBox.Time.ToString());
+            }
+            else
+            {
+                cancle = true;
+            }
+
+            if (Name == null || Use == null)
+            {
+                cancle = true;
+
             }
 
             // Call the db ViewModel controller to update the Model
-            await ctv.combatDrillsTable.UpdateDrill(id, Name, Sets, Time, catagory, Use);
+            if (cancle != true)
+            {
+                try
+                {
+                    await ctv.combatDrillsTable.UpdateDrill(id, Name, Sets, Time, catagory, Use);
 
-            // Clean up and notify user
-            ppup.IsOpen = false;
-            var addSuccess = new MessageDialog("Drill Updated");
-            await addSuccess.ShowAsync();
+                    ToastContent content = new ToastContent()
+                    {
+                        Visual = new ToastVisual()
+                        {
+                            BindingGeneric = new ToastBindingGeneric()
+                            {
+                                Children =
+                    {
+                    new AdaptiveText()
+                    {
+                        Text = Name + " updated in " + catagory,
+                        HintStyle = AdaptiveTextStyle.Body
+                    },
+
+                    new AdaptiveText()
+                    {
+                        Text = "Refresh the page to see updates!",
+                        HintWrap = true,
+                        HintStyle = AdaptiveTextStyle.CaptionSubtle
+                    }
+                    }
+                            }
+                        }
+                    };
+
+                    // Show custom Toast
+                    var notifier = ToastNotificationManager.CreateToastNotifier();
+                    notifier.Show(new ToastNotification(content.GetXml()));
+
+                    // Clean up and notify user
+                    ppup.IsOpen = false;
+                }
+                catch
+                {
+                    ToastContent content = new ToastContent()
+                    {
+                        Visual = new ToastVisual()
+                        {
+                            BindingGeneric = new ToastBindingGeneric()
+                            {
+                                Children =
+                    {
+                    new AdaptiveText()
+                    {
+                        Text = Name + " Failed to be updated in " + catagory,
+                        HintStyle = AdaptiveTextStyle.Body
+                    },
+
+                    new AdaptiveText()
+                    {
+                        Text = "Try checking your connection or trying later!",
+                        HintWrap = true,
+                        HintStyle = AdaptiveTextStyle.CaptionSubtle
+                    }
+                    }
+                            }
+                        }
+                    };
+
+                    // Show custom Toast
+                    var notifier = ToastNotificationManager.CreateToastNotifier();
+                    notifier.Show(new ToastNotification(content.GetXml()));
+                }
+            }
+            else
+            {
+                ToastContent content = new ToastContent()
+                {
+                    Visual = new ToastVisual()
+                    {
+                        BindingGeneric = new ToastBindingGeneric()
+                        {
+                            Children =
+                    {
+                    new AdaptiveText()
+                    {
+                        Text = Name + " Failed to be updated in " + catagory,
+                        HintStyle = AdaptiveTextStyle.Body
+                    },
+
+                    new AdaptiveText()
+                    {
+                        Text = "Try checking your connection or trying later!",
+                        HintWrap = true,
+                        HintStyle = AdaptiveTextStyle.CaptionSubtle
+                    }
+                    }
+                        }
+                    }
+                };
+
+                // Show custom Toast
+                var notifier = ToastNotificationManager.CreateToastNotifier();
+                notifier.Show(new ToastNotification(content.GetXml()));
+            }
+            }
 
         }
 
@@ -246,9 +412,70 @@ namespace UWPCombatApp.Views
         private async void YesBtn_Click(object sender, RoutedEventArgs e)
         {
             // Use ViewModel controler to remove id from Model
-            await ctv.combatDrillsTable.DeleteDrillAsync(id);
-            var addSuccess = new MessageDialog("Drill Deleted");
-            await addSuccess.ShowAsync();
+            try
+            {
+                await ctv.combatDrillsTable.DeleteDrillAsync(id);
+                ToastContent content = new ToastContent()
+                {
+                    Visual = new ToastVisual()
+                    {
+                        BindingGeneric = new ToastBindingGeneric()
+                        {
+                            Children =
+                    {
+                    new AdaptiveText()
+                    {
+                        Text = "Item Deleted from " + catagory,
+                        HintStyle = AdaptiveTextStyle.Body
+                    },
+
+                    new AdaptiveText()
+                    {
+                        Text = "Refresh the list to see changes!",
+                        HintWrap = true,
+                        HintStyle = AdaptiveTextStyle.CaptionSubtle
+                    }
+                    }
+                        }
+                    }
+                };
+
+                // Show custom Toast
+                var notifier = ToastNotificationManager.CreateToastNotifier();
+                notifier.Show(new ToastNotification(content.GetXml()));
+
+            }
+            catch
+            {
+                ToastContent content = new ToastContent()
+                {
+                    Visual = new ToastVisual()
+                    {
+                        BindingGeneric = new ToastBindingGeneric()
+                        {
+                            Children =
+                    {
+                    new AdaptiveText()
+                    {
+                        Text = "Could not delete item",
+                        HintStyle = AdaptiveTextStyle.Body
+                    },
+
+                    new AdaptiveText()
+                    {
+                        Text = "Try checking your connection or trying later!",
+                        HintWrap = true,
+                        HintStyle = AdaptiveTextStyle.CaptionSubtle
+                    }
+                    }
+                        }
+                    }
+                };
+
+                // Show custom Toast
+                var notifier = ToastNotificationManager.CreateToastNotifier();
+                notifier.Show(new ToastNotification(content.GetXml()));
+            }
 
         }
 

@@ -5,6 +5,13 @@ VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UWPCombatApp", "UWPCombatApp\UWPCombatApp.csproj", "{DD423895-DA6E-4C25-8ACD-701DF5844E8E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Strings", "Strings", "{43F58120-15F4-4CFC-92DB-23F415A58D07}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "en-US", "en-US", "{374A3492-02DD-4F78-9750-096CF6DEE007}"
+	ProjectSection(SolutionItems) = preProject
+		Resources.resw = Resources.resw
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -36,6 +43,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{374A3492-02DD-4F78-9750-096CF6DEE007} = {43F58120-15F4-4CFC-92DB-23F415A58D07}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4E6920EB-1F78-43A7-A9C0-4ECA34C1D53A}

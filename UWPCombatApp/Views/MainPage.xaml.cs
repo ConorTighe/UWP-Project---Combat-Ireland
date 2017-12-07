@@ -29,6 +29,9 @@ namespace UWPCombatApp
         // Frame used for navigating the app and its pages
         public static Frame MyFrame;
 
+        // For making the app avalible in other languages
+        IReadOnlyList<string> userLanguages = Windows.System.UserProfile.GlobalizationPreferences.Languages;
+
         // Contruct first page and load up the frames
         public MainPage()
         {

@@ -19,7 +19,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace UWPCombatApp.Views
 {
-    
+
     public sealed partial class MainMenu : Page
     {
         // list for storing the items

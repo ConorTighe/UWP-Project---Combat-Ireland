@@ -9,8 +9,8 @@
 
     <Page.Resources>
         <Style TargetType="Button" x:Key="DrillButtons">
-            <Setter Property="Background" Value="#2ecc71"></Setter>
-            <Setter Property="Foreground" Value="#2c3e50"></Setter>
+            <Setter Property="Background" Value="#003171"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
         </Style>
         <Style TargetType="TextBlock" x:Key="DrillText">
@@ -19,8 +19,112 @@
         </Style>
     </Page.Resources>
 
-    <Grid Background="#c0392b">
+    <Grid Background="#f05046">
+        <Popup x:Name="ppup" IsOpen="False" IsLightDismissEnabled="True"  
+     Width="320" HorizontalAlignment="Left">
+            <Popup.ChildTransitions>
+                <TransitionCollection>
+                    <!--<EdgeUIThemeTransition Edge="Left" />-->
+                    <PaneThemeTransition Edge="Left" />
+                </TransitionCollection>
+            </Popup.ChildTransitions>
+            <Grid Width="380" Height="{Binding ElementName=flyoutPane, Path=Height}"  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" >
+                    <TextBlock Name="NameText" Text="Enter Name:"/>
+                    <TextBox  Name="NameBox" Width="200" Height="50"/>
+                    <TextBlock Name="SetsText" Text="Enter Sets:"/>
+                    <TextBox  Name="SetsBox" Width="200" Height="50"/>
+                    <TextBlock Name="TimeText" Text="Enter Time to complete:"/>
+                    <TimePicker Name="TimeBox" ClockIdentifier="24HourClock" Header="Hrs:Mins" Time="{Binding  SetTime, Mode=TwoWay}" />
+                    <ComboBox x:Name="UseCombo" Header="Uses:" Height="75" Width="200" 
+                    DisplayMemberPath="Source" PlaceholderText="Uses..">
+                        <ComboBoxItem Content="Heavy Bag"/>
+                        <ComboBoxItem Content="Speed Bag"/>
+                        <ComboBoxItem Content="Boxing Pads"/>
+                        <ComboBoxItem Content="Muay Thai Pads"/>
+                        <ComboBoxItem Content="Grappling Gi"/>
+                        <ComboBoxItem Content="Karate Mitts"/>
+                        <ComboBoxItem Content="MMA Gloves"/>
+                        <ComboBoxItem Content="Shin Gaurds"/>
+                        <ComboBoxItem Content="Impact Body Protector"/>
+                    </ComboBox>
+                    <Button Name="SubmitBtn" Height="30" Width="100" Content="Submit" Click="SubmitBtn_Click"/>
+                </StackPanel>
+            </Grid>
+        </Popup>
 
+        <Popup x:Name="updateppup" IsOpen="False" IsLightDismissEnabled="True"  
+     Width="320" HorizontalAlignment="Left">
+            <Popup.ChildTransitions>
+                <TransitionCollection>
+                    <!--<EdgeUIThemeTransition Edge="Left" />-->
+                    <PaneThemeTransition Edge="Left" />
+                </TransitionCollection>
+            </Popup.ChildTransitions>
+            <Grid Width="380" Height="{Binding ElementName=flyoutPane, Path=Height}"  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" >
+                    <TextBlock Name="NewNameText" Text="Enter Name:"/>
+                    <TextBox  Name="NewNameBox" Width="200" Height="50"/>
+                    <TextBlock Name="NewSetsText" Text="Enter Sets:"/>
+                    <TextBox  Name="NewSetsBox" Width="200" Height="50"/>
+                    <TextBlock Name="NewTimeText" Text="Enter Time to complete:"/>
+                    <TimePicker Name="NewTimeBox" ClockIdentifier="24HourClock" Header="Hrs:Mins" Time="{Binding  SetTime, Mode=TwoWay}" />
+                    <ComboBox x:Name="NewUseCombo" Header="Uses:" Height="75" Width="200" 
+           DisplayMemberPath="Source" PlaceholderText="Uses...">
+                        <ComboBoxItem Content="Heavy Bag"/>
+                        <ComboBoxItem Content="Speed Bag"/>
+                        <ComboBoxItem Content="Boxing Pads"/>
+                        <ComboBoxItem Content="Muay Thai Pads"/>
+                        <ComboBoxItem Content="Grappling Gi"/>
+                        <ComboBoxItem Content="Karate Mitts"/>
+                        <ComboBoxItem Content="MMA Gloves"/>
+                        <ComboBoxItem Content="Shin Gaurds"/>
+                        <ComboBoxItem Content="Impact Body Protector"/>
+                    </ComboBox>
+                    <Button Tag="{Binding Id}" Name="NewSubmitBtn" Height="30" Width="100" Content="Submit" Click="NewSubmitBtn_Click"/>
+                </StackPanel>
+            </Grid>
+        </Popup>
+
+        <Popup x:Name="infopup" IsOpen="False" IsLightDismissEnabled="True"  
+     Width="320" HorizontalAlignment="Left">
+            <Popup.ChildTransitions>
+                <TransitionCollection>
+                    <!--<EdgeUIThemeTransition Edge="Left" />-->
+                    <PaneThemeTransition Edge="Left" />
+                </TransitionCollection>
+            </Popup.ChildTransitions>
+            <Grid Width="380" Height="{Binding ElementName=flyoutPane, Path=Height}"  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" >
+                    <ScrollViewer
+                Grid.Row="0" 
+                Height="600"
+                VerticalScrollBarVisibility="Auto">
+                        <TextBlock Name="InfoText" Style="{StaticResource DrillText}" TextWrapping="Wrap"></TextBlock>
+                    </ScrollViewer>
+                </StackPanel>
+            </Grid>
+        </Popup>
+
+        <Popup x:Name="delpup" IsOpen="False" IsLightDismissEnabled="True"  
+     Width="320" HorizontalAlignment="Left" >
+            <Popup.ChildTransitions>
+                <TransitionCollection>
+                    <!--<EdgeUIThemeTransition Edge="Left" />-->
+                    <PaneThemeTransition Edge="Left" />
+                </TransitionCollection>
+            </Popup.ChildTransitions>
+            <Grid Width="380" Height="{Binding ElementName=flyoutPane, Path=Height}"  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" >
+                    <TextBlock Name="DelText" Text="Are you sure you want to delete this drill?" Style="{StaticResource DrillText}" TextWrapping="Wrap"></TextBlock>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <Button Name="YesBtn" Content="Yes" Click="YesBtn_Click" />
+                        <Button Name="NoBtn" Content="No" Click="NoBtn_Click" />
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Popup>
+        
         <StackPanel VerticalAlignment="Top" Margin="0,18,0,0" Grid.Row="0" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
 
             <CommandBar x:Name="cmdbar" 
@@ -31,26 +135,25 @@
                 <AppBarToggleButton Name="Info" Icon="help" Label="Origins" Click="Info_Click" />
                 <AppBarButton Name="BackToMain" Icon="Back" Label="Back To Menu" Click="BackToMain_Click" />
             </CommandBar>
-            <Image HorizontalAlignment="Left" Source="Assets/storeLogo-sdk.png" Stretch="None"/>
         </StackPanel >
         <StackPanel Margin="0,120,0,0">
-        <TextBlock Name="loadTxt" Text="Loading drills...." Visibility="Visible" HorizontalAlignment="Center"/>
-        
-        <my:PullToRefreshListView
+            <TextBlock Name="loadTxt" Text="Loading drills...." Visibility="Visible" HorizontalAlignment="Center"/>
+
+            <my:PullToRefreshListView
         x:Name="RefreshListView"
         MinWidth="200"
         Margin="24"
+        Background="Black"
         HorizontalAlignment="Center"
         VerticalAlignment="Bottom"
-        Background="White"
         OverscrollLimit="0.4"
         PullThreshold="100"
         IsPullToRefreshWithMouseEnabled="True">
-            <my:PullToRefreshListView.ItemTemplate >
-                <DataTemplate >
+                <my:PullToRefreshListView.ItemTemplate >
+                    <DataTemplate >
                         <StackPanel Name="ListPanel">
                             <StackPanel Orientation="Horizontal">
-                            <TextBlock AutomationProperties.Name="Name"
+                                <TextBlock AutomationProperties.Name="Name"
                  Style="{StaticResource CaptionTextBlockStyle}"
                  Text="Name: "
                  TextWrapping="WrapWholeWords"  />
@@ -94,107 +197,12 @@
                                 <Button Tag="{Binding Id}" Content="Update" Click="UpdateBtn_Click"  Style="{StaticResource DrillButtons}" ></Button>
                             </StackPanel>
                         </StackPanel>
-                </DataTemplate>
-            </my:PullToRefreshListView.ItemTemplate>
-            <my:PullToRefreshListView.PullToRefreshContent>
-                <TextBlock FontSize="16"
-               Opacity="0.5"
-               Text="Pull down to refresh data" />
-            </my:PullToRefreshListView.PullToRefreshContent>
-        </my:PullToRefreshListView>
-            
+                    </DataTemplate>
+                </my:PullToRefreshListView.ItemTemplate>
+                <my:PullToRefreshListView.PullToRefreshContent>
+                    <Border HorizontalAlignment="Center" x:Name="refreshindicator" CornerRadius="30" Height="20" Width="20" ></Border>
+                </my:PullToRefreshListView.PullToRefreshContent>
+            </my:PullToRefreshListView>
         </StackPanel>
-        <Popup x:Name="ppup" IsOpen="False" IsLightDismissEnabled="True"  
-     Width="320" HorizontalAlignment="Center">
-            <Popup.ChildTransitions>
-                <TransitionCollection>
-                    <!--<EdgeUIThemeTransition Edge="Left" />-->
-                    <PaneThemeTransition Edge="Left" />
-                </TransitionCollection>
-            </Popup.ChildTransitions>
-            <Grid Width="380" Height="{Binding ElementName=flyoutPane, Path=Height}"  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" >
-                    <TextBlock Name="NameText" Text="Enter Name:"/>
-                    <TextBox  Name="NameBox" Width="200" Height="50"/>
-                    <TextBlock Name="SetsText" Text="Enter Sets:"/>
-                    <TextBox  Name="SetsBox" Width="200" Height="50"/>
-                    <TextBlock Name="TimeText" Text="Enter Time to complete:"/>
-                    <TextBox Name="TimeBox" Width="200" Height="50"/>
-                    <ComboBox x:Name="UseCombo" Header="Uses:" Height="75" Width="200" 
-                    DisplayMemberPath="Source" PlaceholderText="Uses..">
-                        <ComboBoxItem Content="Heavy Bag"/>
-                        <ComboBoxItem Content="Speed Bag"/>
-                        <ComboBoxItem Content="Sparing Partner"/>
-                    </ComboBox>
-                    <Button Name="SubmitBtn" Height="30" Width="100" Content="Submit" Click="SubmitBtn_Click"/>
-                </StackPanel>
-            </Grid>
-        </Popup>
-
-        <Popup x:Name="updateppup" IsOpen="False" IsLightDismissEnabled="True"  
-     Width="320" HorizontalAlignment="Center">
-            <Popup.ChildTransitions>
-                <TransitionCollection>
-                    <!--<EdgeUIThemeTransition Edge="Left" />-->
-                    <PaneThemeTransition Edge="Left" />
-                </TransitionCollection>
-            </Popup.ChildTransitions>
-            <Grid Width="380" Height="{Binding ElementName=flyoutPane, Path=Height}"  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" >
-                    <TextBlock Name="NewNameText" Text="Enter Name:"/>
-                    <TextBox  Name="NewNameBox" Width="200" Height="50"/>
-                    <TextBlock Name="NewSetsText" Text="Enter Sets:"/>
-                    <TextBox  Name="NewSetsBox" Width="200" Height="50"/>
-                    <TextBlock Name="NewTimeText" Text="Enter Time to complete:"/>
-                    <TextBox Name="NewTimeBox" Width="200" Height="50"/>
-                    <ComboBox x:Name="NewUseCombo" Header="Uses:" Height="75" Width="200" 
-           DisplayMemberPath="Source" PlaceholderText="Uses...">
-                        <ComboBoxItem Content="Heavy Bag"/>
-                        <ComboBoxItem Content="Speed Bag"/>
-                        <ComboBoxItem Content="Sparing Partner"/>
-                    </ComboBox>
-                    <Button Tag="{Binding Id}" Name="NewSubmitBtn" Height="30" Width="100" Content="Submit" Click="NewSubmitBtn_Click"/>
-                </StackPanel>
-            </Grid>
-        </Popup>
-
-        <Popup x:Name="infopup" IsOpen="False" IsLightDismissEnabled="True"  
-     Width="320" HorizontalAlignment="Left">
-            <Popup.ChildTransitions>
-                <TransitionCollection>
-                    <!--<EdgeUIThemeTransition Edge="Left" />-->
-                    <PaneThemeTransition Edge="Left" />
-                </TransitionCollection>
-            </Popup.ChildTransitions>
-            <Grid Width="380" Height="{Binding ElementName=flyoutPane, Path=Height}"  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" >
-                    <ScrollViewer
-                Grid.Row="0" 
-                Height="600"
-                VerticalScrollBarVisibility="Auto">
-                        <TextBlock Name="InfoText" Style="{StaticResource DrillText}" TextWrapping="Wrap"></TextBlock>
-                    </ScrollViewer>
-                </StackPanel>
-            </Grid>
-        </Popup>
-
-        <Popup x:Name="delpup" IsOpen="False" IsLightDismissEnabled="True"  
-     Width="320" HorizontalAlignment="Left">
-            <Popup.ChildTransitions>
-                <TransitionCollection>
-                    <!--<EdgeUIThemeTransition Edge="Left" />-->
-                    <PaneThemeTransition Edge="Left" />
-                </TransitionCollection>
-            </Popup.ChildTransitions>
-            <Grid Width="380" Height="{Binding ElementName=flyoutPane, Path=Height}"  Background="{ThemeResource FlyoutBackgroundThemeBrush}" >
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" >
-                    <TextBlock Name="DelText" Text="Are you sure you want to delete this drill?" Style="{StaticResource DrillText}" TextWrapping="Wrap"></TextBlock>
-                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                        <Button Name="YesBtn" Content="Yes" Click="YesBtn_Click" />
-                        <Button Name="NoBtn" Content="No" Click="NoBtn_Click" />
-                    </StackPanel>
-                </StackPanel>
-            </Grid>
-        </Popup>
     </Grid>
 </Page>

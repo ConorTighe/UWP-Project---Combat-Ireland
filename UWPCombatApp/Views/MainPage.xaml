@@ -11,7 +11,7 @@
 
 
 
-    <Grid Background="#c0392b">
+    <Grid Background="#f05046">
         <ScrollViewer VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto">
             <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="12,10,12,12">
                 <Grid.RowDefinitions>

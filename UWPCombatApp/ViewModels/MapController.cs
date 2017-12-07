@@ -14,7 +14,7 @@ namespace UWPCombatApp
 {
     public class MapController
     {
-        // This thread gets out users location
+        // This thread gets our users location
         public async Task<Geopoint> Position()
         {
             return (await new Geolocator().GetGeopositionAsync()).Coordinate.Point;
