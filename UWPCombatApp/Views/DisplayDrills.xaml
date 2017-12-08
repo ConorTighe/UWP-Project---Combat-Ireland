@@ -124,7 +124,7 @@
                 </StackPanel>
             </Grid>
         </Popup>
-        
+
         <StackPanel VerticalAlignment="Top" Margin="0,18,0,0" Grid.Row="0" Background="{ThemeResource SystemControlBackgroundAccentBrush}">
 
             <CommandBar x:Name="cmdbar" 

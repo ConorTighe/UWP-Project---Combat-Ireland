@@ -67,7 +67,8 @@ namespace UWPCombatApp.Views
         }
 
         // Get most updated drills
-        private async Task updateDrillsAsync() { 
+        private async Task updateDrillsAsync()
+        {
 
             await ctv.combatDrillsTable.GetDrillsAsync(catagory);
         }
@@ -105,7 +106,7 @@ namespace UWPCombatApp.Views
             int hours = TimeBox.Time.Hours;
             int i = 0;
 
-            while(i <= hours)
+            while (i <= hours)
             {
                 Time = Time + 60;
                 i += 1;
@@ -136,9 +137,9 @@ namespace UWPCombatApp.Views
                 {
                     Visual = new ToastVisual()
                     {
-                    BindingGeneric = new ToastBindingGeneric()
-                    {
-                        Children =
+                        BindingGeneric = new ToastBindingGeneric()
+                        {
+                            Children =
                     {
                     new AdaptiveText()
                     {
@@ -153,8 +154,8 @@ namespace UWPCombatApp.Views
                         HintStyle = AdaptiveTextStyle.CaptionSubtle
                     }
                     }
+                        }
                     }
-                }
                 };
 
                 // Show custom Toast
@@ -195,7 +196,7 @@ namespace UWPCombatApp.Views
             }
             // Clean up and notify user
             ppup.IsOpen = false;
-           
+
         }
 
         // Go back to main menu
@@ -233,19 +234,19 @@ namespace UWPCombatApp.Views
             int Time;
             bool successfullyParsedTime = int.TryParse(NewTimeBox.Time.ToString(), out Time);
             bool successfullyParsedSets = int.TryParse(NewSetsBox.Text, out Sets);
-            
+
             // Check ints
             if (successfullyParsedSets)
             {
                 Sets = Int32.Parse(NewSetsBox.Text);
 
             }
-            
+
             if (successfullyParsedTime)
             {
                 Time = Int32.Parse(NewTimeBox.Time.ToString());
             }
-          
+
             if (Name == null)
             {
                 Name = "Empty drill";
@@ -374,7 +375,7 @@ namespace UWPCombatApp.Views
             {
                 InfoText.Text = "Error Loading Text";
             }
-            
+
             // Open popup
             infopup.Height = Window.Current.Bounds.Height;
             infopup.IsOpen = true;
