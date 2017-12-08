@@ -133,6 +133,7 @@
                 ClosedDisplayMode="{Binding SelectedItem.Content, ElementName=combobox}">
                 <AppBarButton Name="AddDrill" Icon="Add" Label="Add" Click="AddBtn_Click" />
                 <AppBarToggleButton Name="Info" Icon="help" Label="Origins" Click="Info_Click" />
+                <AppBarButton Name="Ref" Icon="Refresh" Label="Refresh" Click="Ref_Click" />
                 <AppBarButton Name="BackToMain" Icon="Back" Label="Back To Menu" Click="BackToMain_Click" />
             </CommandBar>
         </StackPanel >

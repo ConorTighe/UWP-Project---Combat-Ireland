@@ -86,12 +86,6 @@ namespace UWPCombatApp.Views
             loadTxt.Visibility = Visibility.Collapsed;
         }
 
-        // Get drills and update list when user pulls list down
-        private void ListView_RefreshCommand(object sender, EventArgs e)
-        {
-            MainPage.MyFrame.Navigate(typeof(DisplayDrills), catagory);
-        }
-
         // Popup window for adding new drills
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -104,7 +98,7 @@ namespace UWPCombatApp.Views
         {
             // Drill variables
             DrillItem drillItem = new DrillItem();
-            String Name = NameBox.Text;
+            String Name = (String)NameBox.Text;
             String Use = (String)UseCombo.SelectionBoxItem;
             int Sets;
             int Time = TimeBox.Time.Minutes;
@@ -122,6 +116,16 @@ namespace UWPCombatApp.Views
             if (successfullyParsedSets)
             {
                 Sets = Int32.Parse(SetsBox.Text);
+            }
+
+            if (Name == null)
+            {
+                Name = "Empty drill";
+
+            }
+            else if (Use == null)
+            {
+                Use = "Empty equipment";
             }
 
             try
@@ -211,56 +215,58 @@ namespace UWPCombatApp.Views
             id = (((Button)sender).Tag).ToString();
         }
 
+        private void ListView_RefreshCommand(object sender, EventArgs e)
+        {
+            foreach (var t in _items)
+            {
+                _items.Insert(0, t);
+            }
+        }
+
         // Update item with values entered
         private async void NewSubmitBtn_Click(object sender, RoutedEventArgs e)
         {
             // Variables for update
-            String Name = NewNameBox.Text;
-            String Use = NewUseCombo.SelectionBoxItem.ToString();
+            String Name = (String)NewNameBox.Text;
+            String Use = (String)UseCombo.SelectionBoxItem;
             int Sets;
             int Time;
             bool successfullyParsedTime = int.TryParse(NewTimeBox.Time.ToString(), out Time);
             bool successfullyParsedSets = int.TryParse(NewSetsBox.Text, out Sets);
-            bool cancle = false;
+            
             // Check ints
             if (successfullyParsedSets)
             {
                 Sets = Int32.Parse(NewSetsBox.Text);
 
             }
-            else
-            {
-                cancle = true;
-            }
+            
             if (successfullyParsedTime)
             {
                 Time = Int32.Parse(NewTimeBox.Time.ToString());
             }
-            else
+          
+            if (Name == null)
             {
-                cancle = true;
+                Name = "Empty drill";
             }
-
-            if (Name == null || Use == null)
+            else if (Use == null)
             {
-                cancle = true;
-
+                Use = "Empty equipment";
             }
 
             // Call the db ViewModel controller to update the Model
-            if (cancle != true)
+            try
             {
-                try
-                {
-                    await ctv.combatDrillsTable.UpdateDrill(id, Name, Sets, Time, catagory, Use);
+                await ctv.combatDrillsTable.UpdateDrill(id, Name, Sets, Time, catagory, Use);
 
-                    ToastContent content = new ToastContent()
+                ToastContent content = new ToastContent()
+                {
+                    Visual = new ToastVisual()
                     {
-                        Visual = new ToastVisual()
+                        BindingGeneric = new ToastBindingGeneric()
                         {
-                            BindingGeneric = new ToastBindingGeneric()
-                            {
-                                Children =
+                            Children =
                     {
                     new AdaptiveText()
                     {
@@ -275,50 +281,18 @@ namespace UWPCombatApp.Views
                         HintStyle = AdaptiveTextStyle.CaptionSubtle
                     }
                     }
-                            }
                         }
-                    };
-
-                    // Show custom Toast
-                    var notifier = ToastNotificationManager.CreateToastNotifier();
-                    notifier.Show(new ToastNotification(content.GetXml()));
-
-                    // Clean up and notify user
-                    ppup.IsOpen = false;
-                }
-                catch
-                {
-                    ToastContent content = new ToastContent()
-                    {
-                        Visual = new ToastVisual()
-                        {
-                            BindingGeneric = new ToastBindingGeneric()
-                            {
-                                Children =
-                    {
-                    new AdaptiveText()
-                    {
-                        Text = Name + " Failed to be updated in " + catagory,
-                        HintStyle = AdaptiveTextStyle.Body
-                    },
-
-                    new AdaptiveText()
-                    {
-                        Text = "Try checking your connection or trying later!",
-                        HintWrap = true,
-                        HintStyle = AdaptiveTextStyle.CaptionSubtle
                     }
-                    }
-                            }
-                        }
-                    };
+                };
 
-                    // Show custom Toast
-                    var notifier = ToastNotificationManager.CreateToastNotifier();
-                    notifier.Show(new ToastNotification(content.GetXml()));
-                }
+                // Show custom Toast
+                var notifier = ToastNotificationManager.CreateToastNotifier();
+                notifier.Show(new ToastNotification(content.GetXml()));
+
+                // Clean up and notify user
+                ppup.IsOpen = false;
             }
-            else
+            catch
             {
                 ToastContent content = new ToastContent()
                 {
@@ -349,8 +323,6 @@ namespace UWPCombatApp.Views
                 var notifier = ToastNotificationManager.CreateToastNotifier();
                 notifier.Show(new ToastNotification(content.GetXml()));
             }
-            }
-
         }
 
         // Display info in provided text files
@@ -491,6 +463,11 @@ namespace UWPCombatApp.Views
             updateppup.Height = Window.Current.Bounds.Height;
             updateppup.IsOpen = true;
             id = (((Button)sender).Tag).ToString();
+        }
+
+        private void Ref_Click(object sender, RoutedEventArgs e)
+        {
+            MainPage.MyFrame.Navigate(typeof(DisplayDrills), catagory);
         }
     }
 }
