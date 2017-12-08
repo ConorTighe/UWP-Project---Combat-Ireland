@@ -49,12 +49,14 @@ namespace UWPCombatApp.Views
             catagory = (String)e.Parameter;
             try
             {
+                // connect to database
                 await ctv.combatDrillsTable.Initialization;
                 await ctv.combatDrillsTable.InitLocalStoreAsync();
                 await AddItemsAsync();
             }
             catch
             {
+                // handle database connection error
                 var addError = new MessageDialog("Connection to your drills could not be established at this time, returning to " +
                     "main menu");
                 await addError.ShowAsync();
@@ -106,11 +108,14 @@ namespace UWPCombatApp.Views
             int hours = TimeBox.Time.Hours;
             int i = 0;
 
+            // convert time for user to mins
             while (i <= hours)
             {
                 Time = Time + 60;
                 i += 1;
             }
+
+            // check sets
             bool successfullyParsedSets = int.TryParse(SetsBox.Text, out Sets);
 
             // Check ints
@@ -119,6 +124,7 @@ namespace UWPCombatApp.Views
                 Sets = Int32.Parse(SetsBox.Text);
             }
 
+            // error checks
             if (Name == null)
             {
                 Name = "Empty drill";
@@ -131,7 +137,7 @@ namespace UWPCombatApp.Views
 
             try
             {
-                // Call ViewModel controller to add to the Model
+                // Call ViewModel controller to add to the Model then create the toast to inform user of add
                 await ctv.combatDrillsTable.AddDrill(drillItem, Name, Sets, Time, catagory, Use);
                 ToastContent content = new ToastContent()
                 {
@@ -158,7 +164,7 @@ namespace UWPCombatApp.Views
                     }
                 };
 
-                // Show custom Toast
+                // Show custom Toast for success
                 var notifier = ToastNotificationManager.CreateToastNotifier();
                 notifier.Show(new ToastNotification(content.GetXml()));
             }
@@ -189,7 +195,7 @@ namespace UWPCombatApp.Views
                     }
                 };
 
-                // Show custom Toast
+                // Show custom Toast for failed
                 var notifier = ToastNotificationManager.CreateToastNotifier();
                 notifier.Show(new ToastNotification(content.GetXml()));
 
@@ -216,6 +222,7 @@ namespace UWPCombatApp.Views
             id = (((Button)sender).Tag).ToString();
         }
 
+        // Add more items when list pulled down
         private void ListView_RefreshCommand(object sender, EventArgs e)
         {
             foreach (var t in _items)
@@ -259,6 +266,7 @@ namespace UWPCombatApp.Views
             // Call the db ViewModel controller to update the Model
             try
             {
+                // Call UPDATE from database and create toast after
                 await ctv.combatDrillsTable.UpdateDrill(id, Name, Sets, Time, catagory, Use);
 
                 ToastContent content = new ToastContent()
@@ -387,6 +395,7 @@ namespace UWPCombatApp.Views
             // Use ViewModel controler to remove id from Model
             try
             {
+                // DELETE from database and create toast after
                 await ctv.combatDrillsTable.DeleteDrillAsync(id);
                 ToastContent content = new ToastContent()
                 {
@@ -413,7 +422,7 @@ namespace UWPCombatApp.Views
                     }
                 };
 
-                // Show custom Toast
+                // Show custom Toast for update success
                 var notifier = ToastNotificationManager.CreateToastNotifier();
                 notifier.Show(new ToastNotification(content.GetXml()));
 
@@ -445,7 +454,7 @@ namespace UWPCombatApp.Views
                     }
                 };
 
-                // Show custom Toast
+                // Show custom Toast for update fail
                 var notifier = ToastNotificationManager.CreateToastNotifier();
                 notifier.Show(new ToastNotification(content.GetXml()));
             }
@@ -466,9 +475,15 @@ namespace UWPCombatApp.Views
             id = (((Button)sender).Tag).ToString();
         }
 
+        // Refresh page button action
         private void Ref_Click(object sender, RoutedEventArgs e)
         {
             MainPage.MyFrame.Navigate(typeof(DisplayDrills), catagory);
+        }
+
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+            MainPage.MyFrame.Navigate(typeof(MainMenu), catagory);
         }
     }
 }

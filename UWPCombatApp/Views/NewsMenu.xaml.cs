@@ -102,5 +102,11 @@ namespace UWPCombatApp.Views
                 MainPage.MyFrame.GoBack();
             }
         }
+
+        //Home button
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+            MainPage.MyFrame.Navigate(typeof(MainMenu));
+        }
     }
 }
