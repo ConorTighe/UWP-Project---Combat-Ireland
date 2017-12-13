@@ -20,3 +20,6 @@ Find gyms in your area by using the bing maps integration allowing you to easily
 - Touch pad:
 - Pinch in: zoom in
 - Pinch out: zoom out
+
+### Privacy Policy:
+Privacy Policy URL: http://myapppolicy.com/app/combathub
